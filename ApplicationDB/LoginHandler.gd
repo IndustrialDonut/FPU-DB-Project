@@ -43,7 +43,6 @@ func _on_ButtonLogin_pressed() -> void:
 		$OutputConsole.text="No Username Matching"
 		
 	db.close_db()
-	
 
 
 func _on_HoursWorked_pressed() -> void:
@@ -57,3 +56,22 @@ func _on_HoursWorked_pressed() -> void:
 	$OutputConsole.text += str(hours) + " hours."
 	
 	db.close_db()
+
+
+func _ready() -> void:
+	createEvent()
+
+var x = 5
+func createEvent() -> void:
+	db.open_db()
+	print(db.query("CREATE TABLE 'Event" + str(x) + "' (" + 
+	'"Username" TEXT, "Gross" INTEGER, "Fee" INTEGER, "Payout" INTEGER, PRIMARY KEY("Username"));'
+	))
+	
+	
+	
+	db.close_db()
+
+
+func pay() -> void:
+	pass
