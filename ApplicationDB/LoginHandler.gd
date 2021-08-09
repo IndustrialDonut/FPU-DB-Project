@@ -22,18 +22,16 @@ func _on_ButtonLogin_pressed() -> void:
 	if db.query_result.size() == 1:
 		if _pass_string == db.query_result[0]["Password"]:
 			print("Login successful as " + _user_string)	
-			print("Password Incorrect")
 			$OutputConsole.show()
-			$OutputConsole.text="Password Correct"
+			$OutputConsole.text="Login success."
 		else:
 			print("Password Incorrect")
 			$OutputConsole.show()
 			$OutputConsole.text="Password Incorrect"
 	elif db.query_result.size() == 0:
 		print("No username matching")
-		print("Password Incorrect")
 		$OutputConsole.show()
 		$OutputConsole.text="No Username Matching"
 		
-	
+	db.close_db()
 	
