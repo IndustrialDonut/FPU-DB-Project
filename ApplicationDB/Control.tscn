@@ -1,15 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://FreePeoplesUnion Logo.png" type="Texture" id=1]
+[ext_resource path="res://LoginHandler.gd" type="Script" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Logo" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -24,7 +26,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="TextUsername" type="LineEdit" parent="."]
 margin_left = 64.0
 margin_top = 400.0
 margin_right = 207.0
@@ -34,7 +36,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit2" type="LineEdit" parent="."]
+[node name="TextPassword" type="LineEdit" parent="."]
 margin_left = 65.003
 margin_top = 444.251
 margin_right = 208.003
@@ -45,9 +47,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="ButtonLogin" type="Button" parent="."]
 margin_left = 63.0
 margin_top = 495.0
 margin_right = 220.0
 margin_bottom = 526.0
 text = "Login"
+
+[connection signal="pressed" from="ButtonLogin" to="." method="_on_ButtonLogin_pressed"]
