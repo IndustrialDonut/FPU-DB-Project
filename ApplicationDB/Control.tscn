@@ -67,4 +67,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HoursWorked" type="Button" parent="."]
+visible = false
+margin_left = 417.192
+margin_top = 546.503
+margin_right = 560.192
+margin_bottom = 586.503
+text = "Get Hours Worked"
+
 [connection signal="pressed" from="ButtonLogin" to="." method="_on_ButtonLogin_pressed"]
+[connection signal="pressed" from="HoursWorked" to="." method="_on_HoursWorked_pressed"]

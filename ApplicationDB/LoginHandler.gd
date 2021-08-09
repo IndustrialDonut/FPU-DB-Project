@@ -8,6 +8,8 @@ const db_path = "res://db_files/db_main"
 var db : sqlite = sqlite.new()
 
 
+var logged_in_as = null
+
 
 func _on_ButtonLogin_pressed() -> void:
 	
@@ -24,6 +26,13 @@ func _on_ButtonLogin_pressed() -> void:
 			print("Login successful as " + _user_string)	
 			$OutputConsole.show()
 			$OutputConsole.text="Login success."
+			logged_in_as = _user_string
+			
+			$TextPassword.hide()
+			$TextUsername.hide()
+			$ButtonLogin.hide()
+			$HoursWorked.show()
+			
 		else:
 			print("Password Incorrect")
 			$OutputConsole.show()
@@ -35,3 +44,16 @@ func _on_ButtonLogin_pressed() -> void:
 		
 	db.close_db()
 	
+
+
+func _on_HoursWorked_pressed() -> void:
+	$OutputConsole.text = "You've worked "
+	
+	db.open_db()
+	db.query("SELECT Hours FROM MemberData WHERE Username = '" + logged_in_as + "';")
+	
+	var hours = db.query_result[0]["Hours"]
+	
+	$OutputConsole.text += str(hours) + " hours."
+	
+	db.close_db()
