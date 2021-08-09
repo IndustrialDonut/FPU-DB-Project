@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 127.0
+margin_top = 180.0
+margin_right = 270.0
+margin_bottom = 204.0
+text = "username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+margin_left = 126.003
+margin_top = 209.251
+margin_right = 269.003
+margin_bottom = 233.251
+text = "username"
+secret = true
