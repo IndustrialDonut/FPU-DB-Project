@@ -1,23 +1,53 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://FreePeoplesUnion Logo.png" type="Texture" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -242.0
+margin_top = -216.0
+margin_right = 518.0
+margin_bottom = 260.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 127.0
-margin_top = 180.0
-margin_right = 270.0
-margin_bottom = 204.0
-text = "username"
+margin_left = 64.0
+margin_top = 400.0
+margin_right = 207.0
+margin_bottom = 424.0
+placeholder_text = "username"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LineEdit2" type="LineEdit" parent="."]
-margin_left = 126.003
-margin_top = 209.251
-margin_right = 269.003
-margin_bottom = 233.251
-text = "username"
+margin_left = 65.003
+margin_top = 444.251
+margin_right = 208.003
+margin_bottom = 468.251
 secret = true
+placeholder_text = "password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 63.0
+margin_top = 495.0
+margin_right = 220.0
+margin_bottom = 526.0
+text = "Login"
