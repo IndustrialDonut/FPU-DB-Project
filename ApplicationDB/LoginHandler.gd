@@ -10,6 +10,21 @@ var db : sqlite = sqlite.new()
 
 var logged_in_as = null
 
+func _ready() -> void:
+	db.path = db_path
+	createEvents()
+
+func createEvents() -> void:
+	db.open_db()
+	
+	#db.query("DROP TABLE Events2;")
+	
+	print(db.query("CREATE TABLE IF NOT EXISTS Events (Username TEXT, Gross INTEGER, Fee INTEGER, Payout INTEGER, PRIMARY KEY(Username));"))
+	
+	#print(db.query("SELECT name FROM sqlite_master where type='table';"))
+	#print(db.query_result)
+	
+	db.close_db()
 
 func _on_ButtonLogin_pressed() -> void:
 	
@@ -54,21 +69,6 @@ func _on_HoursWorked_pressed() -> void:
 	var hours = db.query_result[0]["Hours"]
 	
 	$OutputConsole.text += str(hours) + " hours."
-	
-	db.close_db()
-
-
-func _ready() -> void:
-	createEvent()
-
-var x = 5
-func createEvent() -> void:
-	db.open_db()
-	print(db.query("CREATE TABLE 'Event" + str(x) + "' (" + 
-	'"Username" TEXT, "Gross" INTEGER, "Fee" INTEGER, "Payout" INTEGER, PRIMARY KEY("Username"));'
-	))
-	
-	
 	
 	db.close_db()
 

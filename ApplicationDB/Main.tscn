@@ -41,27 +41,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextUsername" type="LineEdit" parent="Entry"]
-margin_left = 62.5017
-margin_top = 374.034
-margin_right = 205.502
-margin_bottom = 398.034
-placeholder_text = "username"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextPassword" type="LineEdit" parent="Entry"]
-margin_left = 236.809
-margin_top = 375.016
-margin_right = 387.809
-margin_bottom = 399.016
-secret = true
-placeholder_text = "password"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ButtonLogin" type="Button" parent="Entry"]
 margin_left = 56.0
 margin_top = 419.0
@@ -113,7 +92,37 @@ margin_right = 388.551
 margin_bottom = 452.206
 text = "Password Hint"
 
-[node name="Control" parent="." instance=ExtResource( 3 )]
+[node name="HBoxContainer" type="HBoxContainer" parent="Entry"]
+margin_left = 222.427
+margin_top = 353.495
+margin_right = 522.427
+margin_bottom = 377.495
+custom_constants/separation = 33
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextUsername" type="LineEdit" parent="Entry/HBoxContainer"]
+margin_left = 75.0
+margin_right = 133.0
+margin_bottom = 24.0
+placeholder_text = "username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextPassword" type="LineEdit" parent="Entry/HBoxContainer"]
+margin_left = 166.0
+margin_right = 224.0
+margin_bottom = 24.0
+secret = true
+placeholder_text = "password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Register" parent="." instance=ExtResource( 3 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -124,7 +133,7 @@ margin_top = -300.0
 margin_right = 300.0
 margin_bottom = 300.0
 
-[node name="Control2" parent="." instance=ExtResource( 4 )]
+[node name="Help" parent="." instance=ExtResource( 4 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
