@@ -1,0 +1,85 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -224.671
+margin_top = 20.9763
+margin_right = 85.3287
+margin_bottom = 61.9763
+text = "Type your Guilded Username Here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PasswordText" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -223.155
+margin_top = 126.062
+margin_right = 246.845
+margin_bottom = 167.062
+text = "Create a Unique Password Here! - Must contain a Capital and a Symbol"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DropDownText" type="LineEdit" parent="."]
+margin_left = 76.6959
+margin_top = 233.565
+margin_right = 512.696
+margin_bottom = 274.565
+text = "Use a Password Hint from the Drop Down and make a Answer!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 76.2306
+margin_top = 283.247
+margin_right = 518.231
+margin_bottom = 330.247
+text = "Name of a Pet?"
+items = [ "Name of a Pet?", null, false, 0, null, "Name of a Loved One?", null, false, 1, null, "What Was Your First Car?", null, false, 2, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompleteRegistration" type="Button" parent="."]
+margin_left = 74.6039
+margin_top = 405.432
+margin_right = 334.604
+margin_bottom = 450.432
+text = "Complete Registration"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 76.739
+margin_top = 70.7147
+margin_right = 208.739
+margin_bottom = 113.715
+text = "Username"
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+margin_left = 78.3834
+margin_top = 173.034
+margin_right = 259.383
+margin_bottom = 221.034
+text = "Password"
+
+[node name="LineEdit3" type="LineEdit" parent="."]
+margin_left = 73.8101
+margin_top = 341.505
+margin_right = 465.81
+margin_bottom = 389.505

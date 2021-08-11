@@ -1,0 +1,128 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 39.0
+margin_top = 80.0
+margin_right = 449.0
+margin_bottom = 114.0
+text = "Pay Day Receipt"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 36.0
+margin_top = 390.0
+margin_right = 464.0
+margin_bottom = 424.0
+text = "Total Hours Spent In Organization"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 38.1498
+margin_top = 485.93
+margin_right = 466.15
+margin_bottom = 519.93
+text = "View Disciplinary Records"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button9" type="Button" parent="."]
+margin_left = 37.0397
+margin_top = 529.78
+margin_right = 473.04
+margin_bottom = 563.78
+text = "Time Left "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="."]
+margin_left = 45.0
+margin_top = 123.0
+margin_right = 446.0
+margin_bottom = 157.0
+text = "Enter Event Profits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button6" type="Button" parent="."]
+margin_left = 41.0
+margin_top = 167.0
+margin_right = 451.0
+margin_bottom = 201.0
+text = "Total Amount Made For Organization"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button7" type="Button" parent="."]
+margin_left = 42.0
+margin_top = 210.0
+margin_right = 452.0
+margin_bottom = 244.0
+text = "Gross Income From All Events Attended"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="."]
+margin_left = 38.0
+margin_top = 344.0
+margin_right = 462.0
+margin_bottom = 378.0
+text = "Time Until Next Rank"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button8" type="Button" parent="."]
+margin_left = 41.0
+margin_top = 301.0
+margin_right = 463.0
+margin_bottom = 335.0
+text = "Enter New Event Hours"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 37.0
+margin_top = 258.0
+margin_right = 465.0
+margin_bottom = 295.0
+text = "Hour Management"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit3" type="LineEdit" parent="."]
+margin_left = 38.0
+margin_top = 438.0
+margin_right = 466.0
+margin_bottom = 475.0
+text = "Disciplinary"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+margin_left = 43.0
+margin_top = 40.0
+margin_right = 448.0
+margin_bottom = 71.0
+text = "Member Financials"
+__meta__ = {
+"_edit_use_anchors_": false
+}

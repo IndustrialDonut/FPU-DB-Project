@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://FreePeoplesUnion Logo.png" type="Texture" id=1]
+[ext_resource path="res://LoginHandler.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_left = 0.03
+anchor_right = 0.479
+anchor_bottom = 1.046
+margin_left = -25.7155
+margin_top = -0.683167
+margin_right = 0.508484
+margin_bottom = -0.283142
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -218.275
+margin_top = -221.673
+margin_right = 171.725
+margin_bottom = 56.3273
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextUsername" type="LineEdit" parent="."]
+margin_left = 62.5017
+margin_top = 374.034
+margin_right = 205.502
+margin_bottom = 398.034
+placeholder_text = "username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextPassword" type="LineEdit" parent="."]
+margin_left = 236.809
+margin_top = 375.016
+margin_right = 387.809
+margin_bottom = 399.016
+secret = true
+placeholder_text = "password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonLogin" type="Button" parent="."]
+margin_left = 56.0
+margin_top = 419.0
+margin_right = 202.0
+margin_bottom = 450.0
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OutputConsole" type="TextEdit" parent="."]
+visible = false
+margin_left = 51.0
+margin_top = 526.0
+margin_right = 399.0
+margin_bottom = 566.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HoursWorked" type="Button" parent="."]
+visible = false
+margin_left = 591.862
+margin_top = 7.78575
+margin_right = 1005.86
+margin_bottom = 47.7858
+text = "Get Hours Worked"
+
+[node name="Welcome" type="TextEdit" parent="."]
+margin_left = 39.0
+margin_top = 9.0
+margin_right = 396.0
+margin_bottom = 73.0
+text = "Welcome to the Free Peoples Union Member Portal!
+
+Do not share your password even with Directors!"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 55.0
+margin_top = 466.0
+margin_right = 393.0
+margin_bottom = 507.0
+text = "New? Register Here!"
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 237.551
+margin_top = 418.206
+margin_right = 388.551
+margin_bottom = 452.206
+text = "Password Hint"
+
+[connection signal="pressed" from="ButtonLogin" to="." method="_on_ButtonLogin_pressed"]
+[connection signal="pressed" from="HoursWorked" to="." method="_on_HoursWorked_pressed"]
