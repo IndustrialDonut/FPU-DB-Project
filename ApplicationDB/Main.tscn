@@ -18,10 +18,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -300.0
-margin_right = 300.0
-margin_bottom = 300.0
+margin_left = -299.405
+margin_top = -299.405
+margin_right = 300.595
+margin_bottom = 300.595
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,32 +41,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextUsername" type="LineEdit" parent="Entry"]
-margin_left = 62.5017
-margin_top = 374.034
-margin_right = 205.502
-margin_bottom = 398.034
-placeholder_text = "username"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextPassword" type="LineEdit" parent="Entry"]
-margin_left = 236.809
-margin_top = 375.016
-margin_right = 387.809
-margin_bottom = 399.016
-secret = true
-placeholder_text = "password"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="ButtonLogin" type="Button" parent="Entry"]
-margin_left = 56.0
-margin_top = 419.0
-margin_right = 202.0
-margin_bottom = 450.0
+margin_left = 149.0
+margin_top = 436.0
+margin_right = 295.0
+margin_bottom = 476.0
 text = "Login"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -91,27 +70,61 @@ margin_bottom = 47.7858
 text = "Get Hours Worked"
 
 [node name="Welcome" type="TextEdit" parent="Entry"]
-margin_left = 39.0
-margin_top = 9.0
-margin_right = 396.0
-margin_bottom = 73.0
+margin_left = 111.037
+margin_top = 18.4545
+margin_right = 468.037
+margin_bottom = 82.4545
 text = "Welcome to the Free Peoples Union Member Portal!
 
 Do not share your password even with Directors!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="Entry"]
-margin_left = 55.0
-margin_top = 466.0
-margin_right = 393.0
-margin_bottom = 507.0
+margin_left = 132.0
+margin_top = 482.0
+margin_right = 470.0
+margin_bottom = 523.0
 text = "New? Register Here!"
 
 [node name="Button2" type="Button" parent="Entry"]
-margin_left = 237.551
-margin_top = 418.206
-margin_right = 388.551
-margin_bottom = 452.206
+margin_left = 310.0
+margin_top = 436.0
+margin_right = 455.0
+margin_bottom = 475.0
 text = "Password Hint"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Entry"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -221.716
+margin_top = 61.3378
+margin_right = 223.284
+margin_bottom = 120.338
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextUsername" type="LineEdit" parent="Entry/HBoxContainer"]
+margin_right = 58.0
+margin_bottom = 59.0
+placeholder_text = "username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextPassword" type="LineEdit" parent="Entry/HBoxContainer"]
+margin_left = 62.0
+margin_right = 120.0
+margin_bottom = 59.0
+secret = true
+placeholder_text = "password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Control" parent="." instance=ExtResource( 3 )]
 visible = false
