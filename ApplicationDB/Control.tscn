@@ -5,12 +5,12 @@
 
 [node name="Control" type="Control"]
 anchor_left = 0.03
-anchor_right = 1.002
-anchor_bottom = 1.144
-margin_left = -29.7201
-margin_top = 13.7975
-margin_right = -0.0480957
-margin_bottom = -44.6025
+anchor_right = 0.479
+anchor_bottom = 1.046
+margin_left = -25.7155
+margin_top = -0.683167
+margin_right = 0.508484
+margin_bottom = -0.283142
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -21,10 +21,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -490.0
-margin_top = -219.0
-margin_right = -100.0
-margin_bottom = 59.0
+margin_left = -218.275
+margin_top = -221.673
+margin_right = 171.725
+margin_bottom = 56.3273
 texture = ExtResource( 1 )
 expand = true
 __meta__ = {
