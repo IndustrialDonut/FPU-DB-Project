@@ -1,0 +1,20 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_right = 43.0
+margin_bottom = 35.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 30.7013
+margin_top = 10.0113
+margin_right = 70.7013
+margin_bottom = 24.0113
+text = "SCENE 2 BUTTON LABEL
+"
