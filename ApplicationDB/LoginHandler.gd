@@ -20,7 +20,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if get_focus_owner() == _pass or get_focus_owner() == _user:
 		if Input.is_action_just_pressed("ui_accept"):
-			_on_ButtonLogin_pressed()
+			_login_pressed()
 
 
 func createEvents() -> void:
@@ -35,7 +35,25 @@ func createEvents() -> void:
 	
 	db.close_db()
 
-func _on_ButtonLogin_pressed() -> void:
+
+func _login_pressed() -> void:
+	$Entry/ButtonHint.hide()
+	$Entry/ButtonNew.hide()
+	$Entry/ButtonLogin.hide()
+	
+	# This timer is just to make it feel like it actually is connecting
+	# for the user to feel more secure, lol.
+	$UserDelay.connect("timeout", self, "_try_login")
+	$UserDelay.start()
+
+
+func _login_fail() -> void:
+	$Entry/ButtonHint.show()
+	$Entry/ButtonNew.show()
+	$Entry/ButtonLogin.show()
+
+
+func _try_login() -> void:
 	db.open_db()
 	
 	var _user_string = _user.text
@@ -53,10 +71,12 @@ func _on_ButtonLogin_pressed() -> void:
 			
 		else:
 			print("Password Incorrect")
+			_login_fail()
 			#$OutputConsole.show()
 			#$OutputConsole.text="Password Incorrect"
 	elif db.query_result.size() == 0:
 		print("No username matching")
+		_login_fail()
 		#$OutputConsole.show()
 		#$OutputConsole.text="No Username Matching"
 		
