@@ -32,6 +32,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PasswordText2" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -226.155
+margin_top = 405.062
+margin_right = 243.845
+margin_bottom = 446.062
+text = "Enter You're Email Here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DropDownText" type="LineEdit" parent="."]
 margin_left = 76.6959
 margin_top = 233.565
@@ -55,10 +67,10 @@ __meta__ = {
 }
 
 [node name="CompleteRegistration" type="Button" parent="."]
-margin_left = 74.6039
-margin_top = 405.432
-margin_right = 334.604
-margin_bottom = 450.432
+margin_left = 76.6039
+margin_top = 534.432
+margin_right = 336.604
+margin_bottom = 579.432
 text = "Complete Registration"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -83,3 +95,9 @@ margin_left = 73.8101
 margin_top = 341.505
 margin_right = 465.81
 margin_bottom = 389.505
+
+[node name="LineEdit4" type="LineEdit" parent="."]
+margin_left = 72.8101
+margin_top = 461.505
+margin_right = 464.81
+margin_bottom = 509.505
