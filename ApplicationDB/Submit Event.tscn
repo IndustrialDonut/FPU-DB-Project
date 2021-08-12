@@ -1,0 +1,132 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 12.0
+margin_top = 28.0
+margin_right = 594.0
+margin_bottom = 52.0
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+margin_left = 10.0
+margin_top = 86.0
+margin_right = 595.0
+margin_bottom = 110.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit5" type="LineEdit" parent="."]
+margin_left = 5.0
+margin_top = 143.0
+margin_right = 590.0
+margin_bottom = 251.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit3" type="LineEdit" parent="."]
+margin_left = 0.877533
+margin_top = 282.695
+margin_right = 592.878
+margin_bottom = 306.695
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit4" type="LineEdit" parent="."]
+margin_left = -1.68369
+margin_top = 344.747
+margin_right = 595.316
+margin_bottom = 368.747
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 12.4867
+margin_top = 6.54063
+margin_right = 197.487
+margin_bottom = 20.5406
+text = "Name of the Event Attended!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 10.1083
+margin_top = 61.8388
+margin_right = 195.108
+margin_bottom = 75.8388
+text = "Name of Event Leader!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 121.0
+margin_right = 590.0
+margin_bottom = 135.0
+text = "Rate How The Leader Did on a Scale of 1-10! Give Feedback On What Can Be Improved!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 5.65179
+margin_top = 259.362
+margin_right = 190.652
+margin_bottom = 273.362
+text = "Enter Total Funds Grossed From Event! - Excluding Sending Fee"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 6.11292
+margin_top = 317.8
+margin_right = 191.113
+margin_bottom = 331.8
+text = "Enter Total Hours Attended  Here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 11.0876
+margin_top = 385.165
+margin_right = 588.088
+margin_bottom = 399.165
+text = "List Which Department The Hours Were For!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 2.26236
+margin_top = 410.176
+margin_right = 599.262
+margin_bottom = 444.176
+text = "Finance"
+items = [ "Finance", null, false, 0, null, "Logistics", null, false, 1, null, "Defense", null, false, 2, null, "Industry", null, false, 3, null, "Intelligence", null, false, 4, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 2.24493
+margin_top = 456.042
+margin_right = 598.245
+margin_bottom = 498.042
+text = "Submit Event Receipt"
+__meta__ = {
+"_edit_use_anchors_": false
+}
