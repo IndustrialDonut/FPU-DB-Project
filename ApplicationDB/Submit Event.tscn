@@ -59,6 +59,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label7" type="Label" parent="."]
+margin_left = 12.4867
+margin_top = 6.54063
+margin_right = 197.487
+margin_bottom = 20.5406
+text = "Name of the Event Attended!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label2" type="Label" parent="."]
 margin_left = 10.1083
 margin_top = 61.8388
