@@ -10,7 +10,7 @@ func _ready() -> void:
 	print("what?")
 	
 	var net = NetworkedMultiplayerENet.new()
-	var _error = net.create_client("10.0.0.8", 6969)
+	var _error = net.create_client("24.6.196.226", 8766)
 	
 	get_tree().set_network_peer(net)
 
@@ -88,8 +88,8 @@ remote func _registration_result(message) -> void:
 func _on_Members_event_form_submit(event, leader, review, gross, hours, dept) -> void:
 	rpc_id(1, "_try_submit_event", logged_in_token, event, leader, review, gross, hours, dept)
 
-remote func _event_result(message) -> void:
+
+remote func _event_report_result(message) -> void:
 	print(message)
 	if message:
-		# hide the stuff you need to and whatever
 		pass

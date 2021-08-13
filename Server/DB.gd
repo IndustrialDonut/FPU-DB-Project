@@ -61,16 +61,19 @@ func admin_check(user) -> int:
 		return Enums.Verify.VERIFIED
 
 
-func submit_event_report(user, event_name, event_leader, review, gross_funds, hours, dept):
+func submit_event_report(user, event_name, event_leader, review, gross_funds, hours, dept) -> bool:
 	db.open_db()
 	
-	db.query(
-		"INSERT INTO EventReports (EventName, EventLeader, Username, Gross, "
-		+ "Hours, Review, Department, Payout) VALUES ('"
-		 + event_name + "','" + event_leader + "','" + user + "','" + gross_funds
-		+ "','" + hours + "','" + review + "','" + dept + "';")
+	var bInserted = db.query(
+		"INSERT INTO EventReports (EventIdentifier, EventLeader, Username, Gross, "
+		+ "Hours, Review, Department, OwedToPlayer, Approved) VALUES ('"
+		 + event_name + "','" + event_leader + "','" + user + "'," + str(gross_funds)
+		+ "," + str(hours) + ",'" + review + "','" + dept + "', 0," + "0" + ");"
+		)
 		
 	db.close_db()
+	
+	return bInserted
 
 #db.query("SELECT Hours FROM MemberData WHERE Username = '" + logged_in_as + "';")
 
