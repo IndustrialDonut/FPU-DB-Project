@@ -67,21 +67,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="Username" type="LineEdit" parent="."]
 margin_left = 14.0
 margin_top = 70.0
 margin_right = 184.0
 margin_bottom = 94.0
 editable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="LineEdit2" type="LineEdit" parent="."]
+[node name="EventName" type="LineEdit" parent="."]
 margin_left = 188.0
 margin_top = 69.0
 margin_right = 589.0
 margin_bottom = 93.0
 editable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="LineEdit3" type="LineEdit" parent="."]
+[node name="Review" type="LineEdit" parent="."]
 margin_left = 5.0
 margin_top = 117.0
 margin_right = 598.0
@@ -91,7 +97,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit4" type="LineEdit" parent="."]
+[node name="Hours" type="LineEdit" parent="."]
 margin_left = 3.0
 margin_top = 238.0
 margin_right = 183.0
@@ -101,14 +107,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionButton" type="OptionButton" parent="."]
+[node name="Dept" type="LineEdit" parent="."]
 margin_left = 194.0
 margin_top = 241.0
 margin_right = 575.0
 margin_bottom = 264.0
-text = "Logistics"
-items = [ "Logistics", null, false, 0, null, "Finance", null, false, 1, null, "Intelligence", null, false, 2, null, "Defense", null, false, 3, null, "Industry", null, false, 4, null ]
-selected = 0
+editable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="."]
 margin_left = 292.0
@@ -141,21 +148,41 @@ __meta__ = {
 }
 
 [node name="Button4" type="Button" parent="."]
-margin_left = 8.0
-margin_top = 435.0
-margin_right = 593.0
-margin_bottom = 477.0
-text = "Aprove Report"
+margin_left = 20.8547
+margin_top = 436.637
+margin_right = 573.855
+margin_bottom = 478.637
+text = "Approve to Batch"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="."]
+margin_left = 18.7357
+margin_top = 541.523
+margin_right = 571.736
+margin_bottom = 583.523
+text = "Run Batch Calculation"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label7" type="Label" parent="."]
-margin_left = 192.335
-margin_top = 348.016
-margin_right = 375.335
-margin_bottom = 362.016
-text = "X Report out of X Remaining"
+margin_left = 244.0
+margin_top = 352.0
+margin_right = 337.0
+margin_bottom = 366.0
+text = "X Remaining"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="."]
+margin_left = 248.0
+margin_top = 506.0
+margin_right = 341.0
+margin_bottom = 520.0
+text = "X in Batch"
 __meta__ = {
 "_edit_use_anchors_": false
 }

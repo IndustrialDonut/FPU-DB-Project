@@ -18,10 +18,6 @@ config/icon="res://icon.png"
 
 window/size/width=600
 
-[editor_plugins]
-
-enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )
-
 [input]
 
 ui_accept={

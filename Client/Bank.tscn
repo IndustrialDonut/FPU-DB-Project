@@ -9,9 +9,9 @@ __meta__ = {
 
 [node name="LineEdit" type="LineEdit" parent="."]
 margin_left = 26.0583
-margin_top = 190.542
+margin_top = 189.542
 margin_right = 202.058
-margin_bottom = 214.542
+margin_bottom = 213.542
 text = "Money Sent To Users"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -92,3 +92,6 @@ margin_top = 541.349
 margin_right = 160.653
 margin_bottom = 590.349
 text = "Custom Transaction"
+__meta__ = {
+"_edit_use_anchors_": false
+}

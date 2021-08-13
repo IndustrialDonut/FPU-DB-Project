@@ -1,8 +1,12 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Members.gd" type="Script" id=1]
+[ext_resource path="res://Submit Event.tscn" type="PackedScene" id=2]
 
 [node name="Control" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,7 +37,7 @@ margin_left = 1.0
 margin_top = 42.0
 margin_right = 591.0
 margin_bottom = 76.0
-text = "Submit Event Report"
+text = "Submit an Event Report"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,3 +73,9 @@ editable = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="EventForm" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[connection signal="pressed" from="Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]
+[connection signal="event_submitted" from="EventForm" to="." method="_on_EventForm_event_submitted"]

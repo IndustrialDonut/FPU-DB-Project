@@ -1,46 +1,19 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://RegisterNewUser.gd" type="Script" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -1.68179
 margin_bottom = -89.6818
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Username" type="LineEdit" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -214.183
-margin_top = 27.7187
-margin_right = 95.8168
-margin_bottom = 68.7187
-text = "Type your Guilded Username Here!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LineEdit" type="LineEdit" parent="Username"]
-margin_left = 2.63641
-margin_top = 202.477
-margin_right = 435.636
-margin_bottom = 256.477
-text = "Enter Password Hint  Answer Here!"
-
-[node name="PasswordText" type="LineEdit" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -212.667
-margin_top = 80.3636
-margin_right = 257.333
-margin_bottom = 121.364
-text = "Create a Unique Password Here! - Must contain a Capital and a Symbol"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PasswordText2" type="LineEdit" parent="."]
+[node name="email" type="LineEdit" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -211.371
@@ -53,6 +26,7 @@ __meta__ = {
 }
 
 [node name="DropDownText" type="LineEdit" parent="."]
+visible = false
 margin_left = 87.184
 margin_top = 130.182
 margin_right = 523.184
@@ -63,6 +37,7 @@ __meta__ = {
 }
 
 [node name="OptionButton" type="OptionButton" parent="."]
+visible = false
 margin_left = 85.9696
 margin_top = 179.864
 margin_right = 527.97
@@ -75,11 +50,62 @@ __meta__ = {
 }
 
 [node name="CompleteRegistration" type="Button" parent="."]
-margin_left = 82.7958
-margin_top = 353.107
-margin_right = 342.796
-margin_bottom = 398.107
+margin_left = 62.9744
+margin_top = 194.536
+margin_right = 322.975
+margin_bottom = 239.536
 text = "Complete Registration"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LineEdit" type="LineEdit" parent="."]
+visible = false
+margin_left = 88.4534
+margin_top = 230.196
+margin_right = 521.453
+margin_bottom = 284.196
+text = "Enter Password Hint  Answer Here!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 33.6738
+margin_top = 66.2253
+margin_right = 443.674
+margin_bottom = 165.225
+rect_min_size = Vector2( 0, 100 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UsernameText" type="LineEdit" parent="VBoxContainer"]
+margin_right = 410.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+placeholder_text = "Type your Guilded Username Here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PasswordText" type="LineEdit" parent="VBoxContainer"]
+margin_top = 34.0
+margin_right = 410.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 30 )
+secret = true
+placeholder_text = "Create a Unique Password Here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PasswordText2" type="LineEdit" parent="VBoxContainer"]
+margin_top = 68.0
+margin_right = 410.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 0, 30 )
+secret = true
+placeholder_text = "Confirm your password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CompleteRegistration" to="." method="_on_CompleteRegistration_pressed"]

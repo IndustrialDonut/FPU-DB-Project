@@ -1,19 +1,22 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://SubmitEvent.gd" type="Script" id=1]
+
+[node name="EventForm" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="eventname" type="LineEdit" parent="."]
 margin_left = 12.0
 margin_top = 28.0
 margin_right = 594.0
 margin_bottom = 52.0
 
-[node name="LineEdit2" type="LineEdit" parent="."]
+[node name="leadername" type="LineEdit" parent="."]
 margin_left = 10.0
 margin_top = 86.0
 margin_right = 595.0
@@ -22,7 +25,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit5" type="LineEdit" parent="."]
+[node name="review" type="LineEdit" parent="."]
 margin_left = 5.0
 margin_top = 143.0
 margin_right = 590.0
@@ -31,7 +34,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit3" type="LineEdit" parent="."]
+[node name="gross" type="LineEdit" parent="."]
 margin_left = 0.877533
 margin_top = 282.695
 margin_right = 592.878
@@ -40,7 +43,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit4" type="LineEdit" parent="."]
+[node name="hours" type="LineEdit" parent="."]
 margin_left = -1.68369
 margin_top = 344.747
 margin_right = 595.316
@@ -119,7 +122,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionButton" type="OptionButton" parent="."]
+[node name="dept" type="OptionButton" parent="."]
 margin_left = 2.26236
 margin_top = 410.176
 margin_right = 599.262
@@ -136,7 +139,9 @@ margin_left = 2.24493
 margin_top = 456.042
 margin_right = 598.245
 margin_bottom = 498.042
-text = "Submit Event Receipt"
+text = "Submit Event Report"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

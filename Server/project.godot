@@ -8,10 +8,24 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Enums",
+"language": "GDScript",
+"path": "res://Enums/Enums.gd"
+} ]
+_global_script_class_icons={
+"Enums": ""
+}
+
 [application]
 
 config/name="DatabaseServer"
-config/icon="res://icon.png"
+run/main_scene="res://Control.tscn"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )
 
 [physics]
 
