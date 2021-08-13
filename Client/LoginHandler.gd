@@ -7,10 +7,8 @@ onready var _pass = $Entry/HBoxContainer/TextPassword
 onready var _user = $Entry/HBoxContainer/TextUsername
 
 func _ready() -> void:
-	print("what?")
-	
 	var net = NetworkedMultiplayerENet.new()
-	var _error = net.create_client("24.6.196.226", 8766)
+	var _error = net.create_client("10.0.0.8", 4399)
 	
 	get_tree().set_network_peer(net)
 

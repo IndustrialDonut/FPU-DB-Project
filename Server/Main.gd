@@ -7,7 +7,7 @@ var _user_token_dictionary = {1 : {"user" : "SERVER" , "token" : null}}
 
 func _ready() -> void:
 	var net = NetworkedMultiplayerENet.new()
-	net.create_server(8766, 400)
+	net.create_server(4399, 400)
 	get_tree().set_network_peer(net)
 	
 	get_tree().connect("network_peer_connected", self, "_user_connected")
