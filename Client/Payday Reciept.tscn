@@ -1,0 +1,144 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = -1.0
+margin_right = -2.0
+margin_bottom = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 441.0
+margin_top = 5.0
+margin_right = 604.0
+margin_bottom = 79.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 163.0
+margin_bottom = 14.0
+text = "Invoice"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 163.0
+margin_bottom = 32.0
+text = "Date:"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 163.0
+margin_bottom = 50.0
+text = "Invoice#"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_left = 0.00166667
+anchor_right = 0.00166667
+margin_left = 2.00002
+margin_top = 82.0
+margin_right = 592.0
+margin_bottom = 384.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GridContainer"]
+margin_right = 105.0
+margin_bottom = 14.0
+text = "Attendee Name:"
+
+[node name="Label2" type="Label" parent="GridContainer/Label"]
+margin_left = 2.0
+margin_top = 25.0
+margin_right = 122.0
+margin_bottom = 43.0
+text = "Events Completed:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="GridContainer/Label"]
+margin_left = 3.8147e-06
+margin_top = 73.0
+margin_right = 200.0
+margin_bottom = 91.0
+text = "UEC Earned Total At All Events:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="GridContainer/Label"]
+margin_left = -0.999996
+margin_top = 49.0
+margin_right = 146.0
+margin_bottom = 68.0
+text = "Total Hours Completed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="GridContainer/Label"]
+margin_left = 3.0
+margin_top = 390.0
+margin_right = 277.0
+margin_bottom = 409.0
+text = "Department of Defence Hours Completed: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="GridContainer/Label"]
+margin_left = 2.0
+margin_top = 413.0
+margin_right = 295.0
+margin_bottom = 432.0
+text = "Department of Intelligence Hours Completed:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="GridContainer/Label"]
+margin_left = 3.0
+margin_top = 432.0
+margin_right = 277.0
+margin_bottom = 451.0
+text = "Department of Industry Hours Completed: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label9" type="Label" parent="GridContainer/Label"]
+margin_left = 5.0
+margin_top = 456.0
+margin_right = 278.0
+margin_bottom = 475.0
+text = "Department of Logistics Hours Completed:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label10" type="Label" parent="GridContainer/Label"]
+margin_left = 6.0
+margin_top = 477.0
+margin_right = 272.0
+margin_bottom = 496.0
+text = "Department of Finance Hours Completed:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="GridContainer/Label"]
+margin_left = 3.00001
+margin_top = 102.0
+margin_right = 123.0
+margin_bottom = 120.0
+text = "UEC To Hour Ratio:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
