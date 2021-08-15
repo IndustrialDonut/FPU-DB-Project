@@ -75,6 +75,11 @@ func submit_event_report(user, event_name, event_leader, review, gross_funds, ho
 	
 	return bInserted
 
+
+func id_pull_report(report_id):
+	pass
+
+
 #db.query("SELECT Hours FROM MemberData WHERE Username = '" + logged_in_as + "';")
 
 #func createEvents() -> void:

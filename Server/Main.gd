@@ -5,6 +5,8 @@ extends Control
 
 var _user_token_dictionary = {1 : {"user" : "SERVER" , "token" : null}}
 
+var _batch_of_events = {}
+
 func _ready() -> void:
 	var net = NetworkedMultiplayerENet.new()
 	net.create_server(4399, 400)
@@ -73,3 +75,22 @@ remote func _try_submit_event(token, event_name, event_leader, review, gross_fun
 			rpc_id(get_tree().get_rpc_sender_id(), "_event_report_result", "Submit success.")
 		else:
 			rpc_id(get_tree().get_rpc_sender_id(), "_event_report_result", 0)
+
+
+remote func _approve_to_batch(token, report_id):
+	if _verify_status(get_tree().get_rpc_sender_id(), token) == Enums.Verify.VERIFIED_WHITELISTED:
+		pass # approve it to the batch temporarily, then when the admin also
+		# runs the batch calculation, it will be marked Approved.
+		# if admin dc's before having run the calculation, the reports in the batch
+		# will simply be removed from the temporary dictionary/array and remain
+		# in the pending EventReports table as not yet approved.
+
+
+remote func _run_batch_calculation(token):
+	if _verify_status(get_tree().get_rpc_sender_id(), token) == Enums.Verify.VERIFIED_WHITELISTED:
+		pass
+
+
+remote func _reject_report(token, report_id):
+	if _verify_status(get_tree().get_rpc_sender_id(), token) == Enums.Verify.VERIFIED_WHITELISTED:
+		pass
