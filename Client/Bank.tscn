@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="Control" type="Control"]
+[node name="Bank" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -86,12 +86,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="Custom" type="Button" parent="."]
+visible = false
 margin_left = 22.6529
 margin_top = 541.349
 margin_right = 160.653
 margin_bottom = 590.349
 text = "Custom Transaction"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="."]
+margin_left = 23.6529
+margin_top = 478.349
+margin_right = 161.653
+margin_bottom = 527.349
+text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }

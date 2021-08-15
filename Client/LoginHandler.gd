@@ -6,20 +6,29 @@ var logged_in_token = null
 onready var _pass = $Entry/HBoxContainer/TextPassword
 onready var _user = $Entry/HBoxContainer/TextUsername
 
+var net = NetworkedMultiplayerENet.new()
 func _ready() -> void:
-	var net = NetworkedMultiplayerENet.new()
+	$ConnectionStatus.modulate = Color.red
+	
+	get_tree().connect("connected_to_server", self, "_connected")
+	get_tree().connect("server_disconnected", self, "_disconnected")
+	
 	var _error = net.create_client("10.0.0.8", 4399)
 	
 	get_tree().set_network_peer(net)
 
+func _connected():
+	$ConnectionStatus.modulate = Color.green
+func _disconnected():
+	$ConnectionStatus.modulate = Color.red
+	get_tree().network_peer = null
+	net = NetworkedMultiplayerENet.new()
+	net.create_client("10.0.0.8", 4399)
+	get_tree().network_peer = net
+	
 
 func _process(delta: float) -> void:
-	# polls to see if connected, and if so turns label green (does not seem to 
-	# detect DIS-connecting later though, rip)
-	if get_tree().get_network_connected_peers():
-		$ConnectionStatus.modulate = Color.green
-	#else:
-		#$ConnectionStatus.modulate = Color.red
+	#print(net.get_connection_status())
 	
 	# lets you hit enter to login.
 	if get_focus_owner() == _pass or get_focus_owner() == _user:
@@ -46,14 +55,14 @@ func _try_login() -> void:
 	rpc_id(1, "_try_login", get_tree().get_network_unique_id(), _user_string, _pass_string.sha256_text())
 
 
-remote func _login_success(token) -> void:
+remote func login_success(token) -> void:
 	#print("login success with token " + token)
 	logged_in_token = token
 	$Entry.hide()
 	$Members.show()
 
 
-remote func _login_fail(message) -> void:
+remote func login_fail(message) -> void:
 	$Entry/ButtonHint.show()
 	$Entry/ButtonNew.show()
 	$Entry/ButtonLogin.show()
@@ -75,7 +84,7 @@ func _on_Register_registration_submitted(_user_text, _pass_hashed) -> void:
 	rpc_id(1, "_try_register", _user_text, _pass_hashed)
 
 
-remote func _registration_result(message) -> void:
+remote func registration_result(message) -> void:
 	print(message)
 	if message:
 		$Register.hide()
@@ -87,7 +96,8 @@ func _on_Members_event_form_submit(event, leader, review, gross, hours, dept) ->
 	rpc_id(1, "_try_submit_event", logged_in_token, event, leader, review, gross, hours, dept)
 
 
-remote func _event_report_result(message) -> void:
+remote func event_report_result(message) -> void:
 	print(message)
 	if message:
 		pass
+

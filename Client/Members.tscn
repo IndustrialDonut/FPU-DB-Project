@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Members.gd" type="Script" id=1]
 [ext_resource path="res://Submit Event.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Bank.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Verify Event Reports.tscn" type="PackedScene" id=4]
 
 [node name="Control" type="Control"]
 margin_right = 40.0
@@ -33,9 +35,9 @@ __meta__ = {
 }
 
 [node name="Button_Submit_Event_Report" type="Button" parent="Title_Event"]
-margin_left = 1.0
+margin_left = 1.89093
 margin_top = 42.0
-margin_right = 591.0
+margin_right = 591.891
 margin_bottom = 76.0
 text = "Submit an Event Report"
 __meta__ = {
@@ -77,5 +79,22 @@ __meta__ = {
 [node name="EventForm" parent="." instance=ExtResource( 2 )]
 visible = false
 
+[node name="Quit" type="Button" parent="."]
+margin_left = 195.584
+margin_top = 518.595
+margin_right = 393.584
+margin_bottom = 587.595
+text = "Logout and Quit"
+
+[node name="Bank" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="PendingReports" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[connection signal="pressed" from="Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]
 [connection signal="pressed" from="Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]
+[connection signal="pressed" from="Title_Financials/View_Bank" to="." method="_on_View_Bank_pressed"]
 [connection signal="event_submitted" from="EventForm" to="." method="_on_EventForm_event_submitted"]
+[connection signal="return_from_eventform" from="EventForm" to="." method="_on_EventForm_return_from_eventform"]
+[connection signal="pressed" from="Quit" to="." method="_on_Button_pressed"]

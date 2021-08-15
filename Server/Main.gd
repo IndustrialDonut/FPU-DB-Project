@@ -27,22 +27,22 @@ func _user_disconnected(id) -> void:
 remote func _try_register(user_text, pass_hash):
 	match $DB.register(user_text, pass_hash):
 		Enums.Register.REGISTER_SUCCESS:
-			rpc_id(get_tree().get_rpc_sender_id(), "_registration_result", "Success!")
+			rpc_id(get_tree().get_rpc_sender_id(), "registration_result", "Success!")
 		Enums.Register.USERNAME_TAKEN:
-			rpc_id(get_tree().get_rpc_sender_id(), "_registration_result", 0)
+			rpc_id(get_tree().get_rpc_sender_id(), "registration_result", 0)
 
 
 remote func _try_login(id : int, _user : String, _pass : String):
 	match $DB.authenticate(_user, _pass):
 		Enums.Login.LOGIN_OK:
 			_user_token_dictionary[id] = {"user" : _user , "token" : _generate_new_token()}
-			rpc_id(id, "_login_success", _user_token_dictionary[id]["token"])
+			rpc_id(id, "login_success", _user_token_dictionary[id]["token"])
 		Enums.Login.NO_USERNAME_FOUND:
-			rpc_id(id, "_login_fail", "No matching username found.")
+			rpc_id(id, "login_fail", "No matching username found.")
 		Enums.Login.PASSWORD_INCORRECT:
-			rpc_id(id, "_login_fail", "Password incorrect.")
+			rpc_id(id, "login_fail", "Password incorrect.")
 		_:
-			rpc_id(id, "_login_fail", "Something went hella wrong on our end, tell Donut.")
+			rpc_id(id, "login_fail", "Something went hella wrong on our end, tell Donut.")
 			assert(0)
 
 
@@ -67,14 +67,14 @@ remote func _try_submit_event(token, event_name, event_leader, review, gross_fun
 	var user = _user_token_dictionary[get_tree().get_rpc_sender_id()]["user"]
 	if status == Enums.Verify.UNVERIFIED:
 		# did not submit
-		rpc_id(get_tree().get_rpc_sender_id(), "_event_report_result", 0)
+		rpc_id(get_tree().get_rpc_sender_id(), "event_report_result", 0)
 	else:
 		# submit
 		if $DB.submit_event_report(user, event_name, event_leader, review, gross_funds, hours, dept):
 			# reported successfuly
-			rpc_id(get_tree().get_rpc_sender_id(), "_event_report_result", "Submit success.")
+			rpc_id(get_tree().get_rpc_sender_id(), "event_report_result", "Submit success.")
 		else:
-			rpc_id(get_tree().get_rpc_sender_id(), "_event_report_result", 0)
+			rpc_id(get_tree().get_rpc_sender_id(), "event_report_result", 0)
 
 
 remote func _approve_to_batch(token, report_id):

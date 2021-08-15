@@ -141,4 +141,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="returnbutton" type="Button" parent="."]
+margin_left = 9.00513
+margin_top = 537.6
+margin_right = 155.005
+margin_bottom = 565.6
+text = "Go Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="returnbutton" to="." method="_on_returnbutton_pressed"]

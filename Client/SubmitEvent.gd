@@ -20,3 +20,15 @@ func _on_Button_pressed() -> void:
 				return
 	
 	emit_signal("event_submitted", $eventname.text, $leadername.text, $review.text, $gross.text, $hours.text.to_int(), $dept.text)
+	
+	$eventname.text = ""
+	$leadername.text = ""
+	$review.text = ""
+	$gross.text = ""
+	$hours.text = ""
+	$dept.text = ""
+
+
+signal return_from_eventform
+func _on_returnbutton_pressed() -> void:
+	emit_signal("return_from_eventform")
