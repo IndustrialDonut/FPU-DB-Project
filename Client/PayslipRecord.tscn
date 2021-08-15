@@ -1,0 +1,46 @@
+[gd_scene format=2]
+
+[node name="Record" type="HBoxContainer"]
+margin_right = 587.0
+margin_bottom = 800.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_right = 114.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+text = "Event Name"
+
+[node name="TextEdit2" type="TextEdit" parent="."]
+margin_left = 118.0
+margin_right = 232.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+text = "Gross Contr.
+by Player"
+
+[node name="TextEdit3" type="TextEdit" parent="."]
+margin_left = 236.0
+margin_right = 350.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+text = "Total"
+
+[node name="TextEdit4" type="TextEdit" parent="."]
+margin_left = 354.0
+margin_right = 468.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+text = "Dividend per 
+player"
+
+[node name="TextEdit5" type="TextEdit" parent="."]
+margin_left = 472.0
+margin_right = 587.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+text = "Sending Fee on 
+Total Earned"
