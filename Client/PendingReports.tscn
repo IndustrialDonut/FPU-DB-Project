@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="VerifyEventReports" type="Control"]
+[ext_resource path="res://PendingReports.gd" type="Script" id=1]
+
+[node name="PendingReports" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -52,7 +55,7 @@ margin_left = 3.0
 margin_top = 216.0
 margin_right = 153.0
 margin_bottom = 230.0
-text = "Hours Attended Event"
+text = "Hours Attended"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,7 +90,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Review" type="LineEdit" parent="."]
+[node name="ReviewText" type="LineEdit" parent="."]
 margin_left = 5.0
 margin_top = 117.0
 margin_right = 598.0
@@ -167,7 +170,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label7" type="Label" parent="."]
+[node name="Remaining" type="Label" parent="."]
 margin_left = 244.0
 margin_top = 352.0
 margin_right = 337.0
@@ -177,7 +180,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label8" type="Label" parent="."]
+[node name="InBatch" type="Label" parent="."]
 margin_left = 250.673
 margin_top = 481.946
 margin_right = 343.673

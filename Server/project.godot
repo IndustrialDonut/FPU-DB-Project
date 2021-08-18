@@ -21,11 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="DatabaseServer"
-run/main_scene="res://Control.tscn"
+run/main_scene="res://Main.tscn"
 
 [autoload]
 
 Databaser="*res://Databaser.gd"
+SNetworkGlobal="*res://SNetworkGlobal.tscn"
 
 [editor_plugins]
 

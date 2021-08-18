@@ -3,7 +3,7 @@
 [ext_resource path="res://Members.gd" type="Script" id=1]
 [ext_resource path="res://EventForm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bank.tscn" type="PackedScene" id=3]
-[ext_resource path="res://VerifyEventReports.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PendingReports.tscn" type="PackedScene" id=4]
 
 [node name="Members" type="Control"]
 anchor_right = 1.0

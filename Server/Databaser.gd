@@ -8,9 +8,7 @@ var db : sqlite = sqlite.new()
 
 
 func _ready() -> void:
-	print("test " + str(randi()))
 	db.path = db_path
-	#createEvents()
 
 
 func authenticate(user, pass_h) -> int:
@@ -26,7 +24,7 @@ func authenticate(user, pass_h) -> int:
 			return Enums.Login.LOGIN_OK
 		else:
 			return Enums.Login.PASSWORD_INCORRECT
-	
+		
 	else:
 		return -1
 
@@ -76,20 +74,18 @@ func submit_event_report(user, event_name, event_leader, review_text, gross_fund
 	return bInserted
 
 
+func view_pending_reports():
+	db.open_db()
+	
+	db.query("SELECT * FROM EventReports WHERE Approved = 0;")
+	
+	var result = db.query_result
+	
+	db.close_db()
+	
+	return result
+
+
 func id_pull_report(report_id):
 	pass
 
-
-#db.query("SELECT Hours FROM MemberData WHERE Username = '" + logged_in_as + "';")
-
-#func createEvents() -> void:
-	#db.open_db()
-	
-	#db.query("DROP TABLE Events2;")
-	
-	#print(db.query("CREATE TABLE IF NOT EXISTS Events (Username TEXT, Gross INTEGER, Fee INTEGER, Payout INTEGER, PRIMARY KEY(Username));"))
-	
-	#print(db.query("SELECT name FROM sqlite_master where type='table';"))
-	#print(db.query_result)
-	
-	#db.close_db()
