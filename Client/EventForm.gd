@@ -29,6 +29,6 @@ func _on_Button_pressed() -> void:
 	$dept.text = ""
 
 
-signal return_from_eventform
 func _on_returnbutton_pressed() -> void:
-	emit_signal("return_from_eventform")
+	get_parent().show()
+	hide()

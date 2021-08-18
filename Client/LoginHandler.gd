@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 # This times a delay to make it feel like it takes time to connect.
 func _login_pressed() -> void:
-	if NetworkGlobal.connected:
+	if NetworkGlobal.bConnected:
 		$Entry/ButtonHint.hide()
 		$Entry/ButtonNew.hide()
 		$Entry/ButtonLogin.hide()
