@@ -5,7 +5,7 @@
 [ext_resource path="res://Bank.tscn" type="PackedScene" id=3]
 [ext_resource path="res://VerifyEventReports.tscn" type="PackedScene" id=4]
 
-[node name="Control" type="Control"]
+[node name="Members" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -100,3 +100,4 @@ visible = false
 [connection signal="pressed" from="This/Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]
 [connection signal="pressed" from="This/Title_Financials/View_Bank" to="." method="_on_View_Bank_pressed"]
 [connection signal="pressed" from="This/Quit" to="." method="_on_Button_pressed"]
+[connection signal="return_from_eventform" from="EventForm" to="." method="_on_EventForm_return_from_eventform"]

@@ -1,17 +1,5 @@
 extends Control
 
-signal event_submitted(event, leader, review, gross, hours, dept)
-
-func _on_CompleteRegistration_pressed() -> void:
-	if $UsernameText.text.length() > 5 and $PasswordText.text.length() > 5:
-		if $PasswordText.text == $PasswordText2.text:
-			emit_signal("registration_submitted", $UsernameText.text, $PasswordText.text.sha256_text())
-		else:
-			print("passwords not matching")
-	else:
-		print("username or pass too short")
-
-
 func _on_Button_pressed() -> void:
 	for child in get_children():
 		if child is LineEdit:
@@ -19,7 +7,16 @@ func _on_Button_pressed() -> void:
 				print("not all fields filled out")
 				return
 	
-	emit_signal("event_submitted", $eventname.text, $leadername.text, $review.text, $gross.text, $hours.text.to_int(), $dept.text)
+	#emit_signal("event_submitted", $eventname.text, $leadername.text, $review.text, $gross.text, $hours.text.to_int(), $dept.text)
+	rpc_id(1, "_try_submit_event", NetworkGlobal.logged_in_token, 
+		$eventname.text, 
+		$leadername.text, 
+		$review.text, 
+		$gross.text, 
+		$hours.text.to_int(), 
+		$dept.text
+		)
+	
 	
 	$eventname.text = ""
 	$leadername.text = ""
@@ -29,6 +26,11 @@ func _on_Button_pressed() -> void:
 	$dept.text = ""
 
 
+remote func event_report_result(message) -> void:
+	print(message)
+	if message:
+		pass
+
+signal return_from_eventform
 func _on_returnbutton_pressed() -> void:
-	get_parent().show()
-	hide()
+	emit_signal("return_from_eventform")
