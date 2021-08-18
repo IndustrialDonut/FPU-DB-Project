@@ -153,6 +153,7 @@ text = "SERVER DOWN TRY AGAIN LATER"
 
 [connection signal="pressed" from="Entry/ButtonLogin" to="." method="_login_pressed"]
 [connection signal="pressed" from="Entry/ButtonNew" to="." method="_on_ButtonNew_pressed"]
+[connection signal="bank_viewed" from="Members" to="." method="_on_Members_bank_viewed"]
 [connection signal="event_form_submit" from="Members" to="." method="_on_Members_event_form_submit"]
 [connection signal="registration_submitted" from="Register" to="." method="_on_Register_registration_submitted"]
 [connection signal="timeout" from="NetworkCheck" to="." method="_on_NetworkCheck_timeout"]

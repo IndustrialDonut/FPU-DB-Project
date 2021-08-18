@@ -101,3 +101,10 @@ remote func event_report_result(message) -> void:
 	if message:
 		pass
 
+
+func _on_Members_bank_viewed() -> void:
+	pass # Replace with function body.
+
+
+remote func bank_data_result(data) -> void:
+	pass

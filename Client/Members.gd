@@ -1,5 +1,7 @@
 extends Control
 
+signal bank_viewed
+
 func _hide_this():
 	$Title_Event.hide()
 	$Title_Financials.hide()
@@ -39,3 +41,4 @@ func _on_View_Pending_Report_pressed() -> void:
 func _on_View_Bank_pressed() -> void:
 	_hide_this()
 	$Bank.show()
+	emit_signal("bank_viewed")

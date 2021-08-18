@@ -14,6 +14,10 @@ func _ready() -> void:
 	
 	get_tree().connect("network_peer_connected", self, "_user_connected")
 	get_tree().connect("network_peer_disconnected", self, "_user_disconnected")
+	
+	#var string = "123,346,895"
+	#string = string.to_int()
+	#print(string)
 
 
 func _user_connected(id) -> void:
