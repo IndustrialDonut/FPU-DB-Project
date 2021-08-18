@@ -1,13 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://FreePeoplesUnion Logo.png" type="Texture" id=1]
 [ext_resource path="res://LoginHandler.gd" type="Script" id=2]
 [ext_resource path="res://Members.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Register New User.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UserDelay.gd" type="Script" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
 
-[node name="Control" type="Control"]
+[node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -120,6 +119,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Login" type="Control" parent="Entry"]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="Members" parent="." instance=ExtResource( 3 )]
 visible = false
 
@@ -130,30 +133,7 @@ visible = false
 one_shot = true
 script = ExtResource( 5 )
 
-[node name="ConnectionStatus" type="TextureRect" parent="."]
-modulate = Color( 1, 0, 0, 1 )
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -64.0
-margin_bottom = 64.0
-texture = ExtResource( 6 )
-
-[node name="NetworkCheck" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-autostart = true
-
-[node name="SERVERDOWN" type="Label" parent="."]
-visible = false
-margin_left = 193.882
-margin_top = 296.65
-margin_right = 532.882
-margin_bottom = 438.65
-text = "SERVER DOWN TRY AGAIN LATER"
-
 [connection signal="pressed" from="Entry/ButtonLogin" to="." method="_login_pressed"]
 [connection signal="pressed" from="Entry/ButtonNew" to="." method="_on_ButtonNew_pressed"]
 [connection signal="bank_viewed" from="Members" to="." method="_on_Members_bank_viewed"]
-[connection signal="event_form_submit" from="Members" to="." method="_on_Members_event_form_submit"]
-[connection signal="registration_submitted" from="Register" to="." method="_on_Register_registration_submitted"]
-[connection signal="timeout" from="NetworkCheck" to="." method="_on_NetworkCheck_timeout"]
+[connection signal="return_from_register" from="Register" to="." method="_close_Register_View"]

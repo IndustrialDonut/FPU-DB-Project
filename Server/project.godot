@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="DatabaseServer"
 run/main_scene="res://Control.tscn"
 
+[autoload]
+
+Databaser="*res://Databaser.gd"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )

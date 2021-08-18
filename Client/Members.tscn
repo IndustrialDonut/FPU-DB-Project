@@ -13,7 +13,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title_Event" type="LineEdit" parent="."]
+[node name="This" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Title_Event" type="LineEdit" parent="This"]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 599.0
@@ -24,7 +28,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="View_Pending_Report" type="Button" parent="Title_Event"]
+[node name="View_Pending_Report" type="Button" parent="This/Title_Event"]
 margin_left = -2.0
 margin_top = 85.0
 margin_right = 594.0
@@ -34,7 +38,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button_Submit_Event_Report" type="Button" parent="Title_Event"]
+[node name="Button_Submit_Event_Report" type="Button" parent="This/Title_Event"]
 margin_left = 1.89093
 margin_top = 42.0
 margin_right = 591.891
@@ -44,7 +48,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title_Financials" type="LineEdit" parent="."]
+[node name="Title_Financials" type="LineEdit" parent="This"]
 margin_left = 5.33484
 margin_top = 131.477
 margin_right = 600.335
@@ -55,7 +59,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="View_Bank" type="Button" parent="Title_Financials"]
+[node name="View_Bank" type="Button" parent="This/Title_Financials"]
 margin_left = -4.66968
 margin_top = 40.9503
 margin_right = 591.33
@@ -65,7 +69,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title_Hours" type="LineEdit" parent="."]
+[node name="Title_Hours" type="LineEdit" parent="This"]
 margin_left = 3.33258
 margin_top = 212.235
 margin_right = 598.333
@@ -76,15 +80,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EventForm" parent="." instance=ExtResource( 2 )]
-visible = false
-
-[node name="Quit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="This"]
 margin_left = 195.584
 margin_top = 518.595
 margin_right = 393.584
 margin_bottom = 587.595
 text = "Logout and Quit"
+
+[node name="EventForm" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="Bank" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -92,9 +96,9 @@ visible = false
 [node name="PendingReports" parent="." instance=ExtResource( 4 )]
 visible = false
 
-[connection signal="pressed" from="Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]
-[connection signal="pressed" from="Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]
-[connection signal="pressed" from="Title_Financials/View_Bank" to="." method="_on_View_Bank_pressed"]
+[connection signal="pressed" from="This/Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]
+[connection signal="pressed" from="This/Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]
+[connection signal="pressed" from="This/Title_Financials/View_Bank" to="." method="_on_View_Bank_pressed"]
+[connection signal="pressed" from="This/Quit" to="." method="_on_Button_pressed"]
 [connection signal="event_submitted" from="EventForm" to="." method="_on_EventForm_event_submitted"]
 [connection signal="return_from_eventform" from="EventForm" to="." method="_on_EventForm_return_from_eventform"]
-[connection signal="pressed" from="Quit" to="." method="_on_Button_pressed"]
