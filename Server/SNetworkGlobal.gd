@@ -17,14 +17,20 @@ func _user_disconnected(id) -> void:
 	user_token_dictionary.erase(id)
 
 
-func verify_status(id, token) -> int:
+func verify_status(id, token, minimum_status) -> bool:
 	if user_token_dictionary.has(id):
 		if user_token_dictionary[id]["token"] == token:
-			return Databaser.admin_check(user_token_dictionary[id]["user"])
+			if minimum_status == Enums.Verify.VERIFIED_WHITELISTED:
+				if Databaser.admin_check(user_token_dictionary[id]["user"]) == Enums.Verify.VERIFIED_WHITELISTED:
+					return true
+				else:
+					return false
+			else:
+				return true
 		else:
-			return Enums.Verify.UNVERIFIED
+			return false
 	else:
-		return Enums.Verify.UNVERIFIED
+		return false
 
 
 func login_success(id, user) -> String:

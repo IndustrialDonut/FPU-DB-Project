@@ -86,6 +86,25 @@ func view_pending_reports():
 	return result
 
 
-func id_pull_report(report_id):
-	pass
+func view_approved_reports():
+	db.open_db()
+	
+	db.query("SELECT * FROM EventReports WHERE Approved = 1;")
+	
+	var result = db.query_result
+	
+	db.close_db()
+	
+	return result
 
+
+func view_bank_reports():
+	db.open_db()
+	
+	db.query("SELECT EventIdentifier as Event, EventLeader as Leader, Username as Member, Gross, Hours, Department, OwedToPlayer FROM EventReports WHERE Approved = 1;")
+	
+	var result = db.query_result
+	
+	db.close_db()
+	
+	return result

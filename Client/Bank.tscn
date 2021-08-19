@@ -11,11 +11,12 @@ __meta__ = {
 }
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 26.0583
-margin_top = 189.542
-margin_right = 202.058
-margin_bottom = 213.542
+margin_left = 28.0583
+margin_top = 226.542
+margin_right = 204.058
+margin_bottom = 250.542
 text = "Money Sent To Users"
+editable = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -26,16 +27,18 @@ margin_top = 85.4178
 margin_right = 257.408
 margin_bottom = 109.418
 text = "Money Recieved From Events"
+editable = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LineEdit4" type="LineEdit" parent="."]
-margin_left = 26.8467
-margin_top = 309.91
-margin_right = 256.847
-margin_bottom = 333.91
+margin_left = 28.8467
+margin_top = 346.91
+margin_right = 258.847
+margin_bottom = 370.91
 text = "All Other Transactions"
+editable = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -45,45 +48,35 @@ margin_left = 32.332
 margin_top = 27.4531
 margin_right = 208.332
 margin_bottom = 51.4532
-text = "Bank Total"
+text = "Bank Gross Income"
+editable = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ItemList" type="ItemList" parent="."]
-margin_left = 24.3273
-margin_top = 213.891
-margin_right = 532.327
-margin_bottom = 306.891
+margin_left = 26.3273
+margin_top = 250.891
+margin_right = 534.327
+margin_bottom = 343.891
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ItemList3" type="ItemList" parent="."]
-margin_left = 25.3163
-margin_top = 335.91
-margin_right = 533.316
-margin_bottom = 428.91
+margin_left = 27.3163
+margin_top = 372.91
+margin_right = 535.316
+margin_bottom = 465.91
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemList2" type="ItemList" parent="."]
-anchor_left = -0.0353554
-anchor_right = -0.0353554
-margin_left = 30.4142
-margin_top = 103.0
-margin_right = 535.414
-margin_bottom = 186.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="."]
-margin_left = 32.0
-margin_top = 52.0
-margin_right = 534.0
-margin_bottom = 79.0
+[node name="Total" type="Label" parent="."]
+margin_left = 26.0
+margin_top = 61.0
+margin_right = 528.0
+margin_bottom = 81.0
 text = "$"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -106,6 +99,26 @@ margin_top = 478.349
 margin_right = 161.653
 margin_bottom = 527.349
 text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -266.0
+margin_top = -181.0
+margin_right = 261.0
+margin_bottom = -90.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 527.0
+size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
