@@ -1,0 +1,121 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0530396
+margin_top = -1.74632
+margin_right = 0.0530396
+margin_bottom = -1.74634
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 9.32733
+margin_top = 96.1996
+margin_right = 590.327
+margin_bottom = 241.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 288.0
+margin_bottom = 145.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 288.0
+margin_bottom = 14.0
+text = "Recieving Funds From Member"
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 288.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 30, 30 )
+text = "Name of Player Sending Funds:"
+
+[node name="TextEdit2" type="TextEdit" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 52.0
+margin_right = 288.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 30, 30 )
+text = "Amount Recieved:"
+
+[node name="TextEdit3" type="TextEdit" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 86.0
+margin_right = 288.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 30, 30 )
+text = "Reason For Sending Funds:"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 120.0
+margin_right = 288.0
+margin_bottom = 140.0
+text = "Complete Transaction"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 292.0
+margin_right = 581.0
+margin_bottom = 145.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 289.0
+margin_bottom = 14.0
+text = "Sending Funds to Member:"
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 289.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 30, 30 )
+text = "Name of Player Recieving Funds:"
+
+[node name="TextEdit2" type="TextEdit" parent="HBoxContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 289.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 30, 30 )
+text = "Amount Recieved:"
+
+[node name="TextEdit3" type="TextEdit" parent="HBoxContainer/VBoxContainer"]
+margin_top = 86.0
+margin_right = 289.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 30, 30 )
+text = "Reasoning For Sending Funds:"
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 289.0
+margin_bottom = 140.0
+text = "Complete Transaction"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1.96606
+margin_top = 6.77161
+margin_right = 510.966
+margin_bottom = 20.7716
+text = "Custom Transaction: Use This When Sending and Recieving Funds From Players!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 7.15906
+margin_top = 555.019
+margin_right = 212.159
+margin_bottom = 595.019
+text = "Return to Main Page!"
