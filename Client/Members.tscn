@@ -17,16 +17,12 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Title_Event" type="LineEdit" parent="This"]
-margin_left = 4.0
+[node name="Title_Event" type="Label" parent="This"]
+margin_left = 5.0
 margin_top = 4.0
-margin_right = 599.0
+margin_right = 600.0
 margin_bottom = 41.0
 text = "Event"
-editable = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="View_Pending_Report" type="Button" parent="This/Title_Event"]
 margin_left = -2.0
@@ -40,42 +36,27 @@ __meta__ = {
 
 [node name="Button_Submit_Event_Report" type="Button" parent="This/Title_Event"]
 margin_left = 1.89093
-margin_top = 42.0
+margin_top = 43.0
 margin_right = 591.891
-margin_bottom = 76.0
+margin_bottom = 77.0
 text = "Submit an Event Report"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title_Financials" type="LineEdit" parent="This"]
+[node name="Title_Financials" type="Label" parent="This"]
 margin_left = 5.33484
 margin_top = 131.477
 margin_right = 600.335
 margin_bottom = 168.477
 text = "Financials"
-editable = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="View_Bank" type="Button" parent="This/Title_Financials"]
 margin_left = -4.66968
 margin_top = 40.9503
 margin_right = 591.33
 margin_bottom = 74.9503
-text = "View Bank"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title_Hours" type="LineEdit" parent="This"]
-margin_left = 3.33258
-margin_top = 212.235
-margin_right = 598.333
-margin_bottom = 249.235
-text = "Hours Completed"
-editable = false
+text = "View Organization Bank"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -95,6 +76,13 @@ visible = false
 
 [node name="PendingReports" parent="." instance=ExtResource( 4 )]
 visible = false
+
+[node name="Button" type="Button" parent="."]
+margin_left = 7.0
+margin_top = 211.0
+margin_right = 599.0
+margin_bottom = 246.0
+text = "Personal Finance"
 
 [connection signal="pressed" from="This/Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]
 [connection signal="pressed" from="This/Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]

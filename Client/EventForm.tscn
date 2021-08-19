@@ -26,25 +26,26 @@ __meta__ = {
 }
 
 [node name="review" type="TextEdit" parent="."]
-margin_left = 5.0
-margin_top = 143.0
-margin_right = 590.0
-margin_bottom = 251.0
+margin_left = 1.22449
+margin_top = 210.015
+margin_right = 586.224
+margin_bottom = 318.015
+text = "Enter Text Feedback Here:"
 
 [node name="gross" type="LineEdit" parent="."]
-margin_left = 0.877533
-margin_top = 282.695
-margin_right = 592.878
-margin_bottom = 306.695
+margin_left = 1.82144
+margin_top = 353.486
+margin_right = 593.822
+margin_bottom = 377.486
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="hours" type="LineEdit" parent="."]
 margin_left = -1.68369
-margin_top = 344.747
+margin_top = 396.66
 margin_right = 595.316
-margin_bottom = 368.747
+margin_bottom = 420.66
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -84,26 +85,26 @@ margin_left = 5.0
 margin_top = 121.0
 margin_right = 590.0
 margin_bottom = 135.0
-text = "Rate How The Leader Did on a Scale of 1-10! Give Feedback On What Can Be Improved!"
+text = "Rate How The Leader Did on a Scale of 1-10, 10 Being The Best!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="."]
 margin_left = 5.65179
-margin_top = 259.362
-margin_right = 190.652
-margin_bottom = 273.362
+margin_top = 331.096
+margin_right = 406.652
+margin_bottom = 345.096
 text = "Enter Total Funds Grossed From Event! - Excluding Sending Fee"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label4" type="Label" parent="."]
-margin_left = 6.11292
-margin_top = 317.8
-margin_right = 191.113
-margin_bottom = 331.8
+margin_left = 4.22516
+margin_top = 381.983
+margin_right = 220.225
+margin_bottom = 395.983
 text = "Enter Total Hours Attended  Here!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -111,19 +112,19 @@ __meta__ = {
 
 [node name="Label5" type="Label" parent="."]
 margin_left = 11.0876
-margin_top = 385.165
+margin_top = 426.695
 margin_right = 588.088
-margin_bottom = 399.165
+margin_bottom = 440.695
 text = "List Which Department The Hours Were For!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="dept" type="OptionButton" parent="."]
-margin_left = 2.26236
-margin_top = 410.176
-margin_right = 599.262
-margin_bottom = 444.176
+margin_left = -3.40091
+margin_top = 451.706
+margin_right = 593.599
+margin_bottom = 485.706
 text = "Finance"
 items = [ "Finance", null, false, 0, null, "Logistics", null, false, 1, null, "Defense", null, false, 2, null, "Industry", null, false, 3, null, "Intelligence", null, false, 4, null ]
 selected = 0
@@ -132,10 +133,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 2.24493
-margin_top = 456.042
-margin_right = 598.245
-margin_bottom = 498.042
+margin_left = 0.357174
+margin_top = 488.134
+margin_right = 596.357
+margin_bottom = 530.134
 text = "Submit Event Report"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -150,6 +151,13 @@ text = "Go Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 11.0
+margin_top = 148.776
+margin_right = 576.0
+margin_bottom = 188.776
+text = "Enter Scale of 1-10 Here!"
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="returnbutton" to="." method="_on_returnbutton_pressed"]
