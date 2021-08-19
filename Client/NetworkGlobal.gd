@@ -2,7 +2,9 @@ extends Control
 
 const SERVER_IP_DONUT = "24.6.196.226"
 const SERVER_IP_LOCAL = "10.0.0.8"
-const SERVER_PORT = 4399
+
+const ACTIVE_SERVER_IP = SERVER_IP_LOCAL
+const ACTIVE_SERVER_PORT = 4399
 
 
 var logged_in_token = null
@@ -18,7 +20,7 @@ func _ready() -> void:
 	get_tree().connect("connected_to_server", self, "_connected")
 	get_tree().connect("server_disconnected", self, "_disconnected")
 	
-	var _error = _net.create_client(SERVER_IP_DONUT, SERVER_PORT)
+	var _error = _net.create_client(ACTIVE_SERVER_IP, ACTIVE_SERVER_PORT)
 	
 	get_tree().set_network_peer(_net)
 
@@ -31,5 +33,5 @@ func _disconnected():
 	$ConnectionStatus.modulate = Color.red
 	get_tree().network_peer = null
 	_net = NetworkedMultiplayerENet.new()
-	_net.create_client(SERVER_IP_DONUT, SERVER_PORT)
+	_net.create_client(ACTIVE_SERVER_IP, ACTIVE_SERVER_PORT)
 	get_tree().network_peer = _net

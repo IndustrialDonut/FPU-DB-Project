@@ -12,9 +12,11 @@ func _ready() -> void:
 
 func _user_connected(id) -> void:
 	user_token_dictionary[id] = null
+	print("Player ID " + str(id) + " connected!")
 
 func _user_disconnected(id) -> void:
 	user_token_dictionary.erase(id)
+	print("Player ID " + str(id) + " disconnected!")
 
 
 func verify_status(id, token, minimum_status) -> bool:
@@ -36,6 +38,7 @@ func verify_status(id, token, minimum_status) -> bool:
 func login_success(id, user) -> String:
 	var token = _s_generate_new_token()
 	user_token_dictionary[id] = {"user" : user , "token" : token}
+	print("User " + user + " logged in!")
 	return token
 
 
