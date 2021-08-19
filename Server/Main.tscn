@@ -72,3 +72,7 @@ margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
 script = ExtResource( 7 )
+
+[node name="Authenticator" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0

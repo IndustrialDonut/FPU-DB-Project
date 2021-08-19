@@ -108,3 +108,5 @@ func view_bank_reports():
 	db.close_db()
 	
 	return result
+
+

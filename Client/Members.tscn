@@ -14,8 +14,8 @@ __meta__ = {
 }
 
 [node name="This" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="Title_Event" type="Label" parent="This"]
 margin_left = 5.0
