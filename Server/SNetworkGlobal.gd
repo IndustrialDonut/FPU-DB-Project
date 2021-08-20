@@ -6,6 +6,10 @@ var waiting_username = null
 
 var connected_dictionary = {1 : {"user" : "SERVER", "admin" : false}}
 
+var first_has_connected = false
+var gateway_id = 0
+var queued_users = []
+
 func idToUsername(id) -> String:
 	return connected_dictionary[id]["user"]
 
@@ -22,10 +26,16 @@ func _ready() -> void:
 	get_tree().connect("network_peer_disconnected", self, "_user_disconnected")
 
 func _user_connected(id) -> void:
+	if not first_has_connected:
+		first_has_connected = true
+		gateway_id = id
+		print("Gateway has connected by id " + str(id))
+	else:
 	
-	print("Player ID " + str(id) + " connected!")
-	
-	rpc_id(id, "_check_token")
+		print("Player ID " + str(id) + " connected!")
+		
+		rpc_id(id, "_check_token")
+		queued_users.append(id)
 
 func _user_disconnected(id) -> void:
 	
@@ -42,18 +52,36 @@ remote func _prepare_client_connection(token, user, admin) -> void:
 
 
 remote func _check_token(token):
+	print("checking token")
 	var id = multiplayer.get_rpc_sender_id()
 	
 	if token != last_validation_token:
+		print("Token invalid")
 		multiplayer.disconnect_peer(id, true)
 	else:
-		connected_dictionary[id]["user"] = waiting_username
-		connected_dictionary[id]["admin"] = waiting_admin_status
+		print("Token valid!")
+		
+		# Don't get kicked by the timer right after logging in!
+		queued_users.erase(id)
+		
+		connected_dictionary[id] = {"user" : waiting_username,
+									"admin" : waiting_admin_status}
 		_reset_temporaries()
 
 
-# called by timer and once a player is validated and joined on here
+# Called by timer and once a player is validated and joined on here
 func _reset_temporaries() -> void:
 	last_validation_token = null
 	waiting_admin_status = false
 	waiting_username = null
+
+
+func _on_CheckTokenTimer_timeout() -> void:
+	if queued_users:
+		
+		print("kicking user from timeout " + str(queued_users[0]))
+		
+		multiplayer.network_peer.call("disconnect_peer", queued_users[0], true)
+		
+		queued_users.remove(0)
+		

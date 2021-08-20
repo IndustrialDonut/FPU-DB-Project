@@ -5,7 +5,7 @@ func _ready() -> void:
 
 
 func _visibility_changed() -> void:
-	rpc_id(1, "_initialize_view", NetworkGlobal.logged_in_token)
+	rpc_id(1, "_initialize_view", SNetworkGlobal.logged_in_token)
 
 remote func _initialize_view(dict, total) -> void:
 	$Username.text = dict["Username"]

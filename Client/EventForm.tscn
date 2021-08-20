@@ -10,82 +10,50 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="eventname" type="LineEdit" parent="."]
-margin_left = 12.0
-margin_top = 28.0
-margin_right = 594.0
-margin_bottom = 52.0
-
-[node name="leadername" type="LineEdit" parent="."]
-margin_left = 10.0
-margin_top = 86.0
-margin_right = 595.0
-margin_bottom = 110.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="review" type="TextEdit" parent="."]
 margin_left = 1.22449
 margin_top = 210.015
 margin_right = 586.224
 margin_bottom = 318.015
 text = "Enter Text Feedback Here:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="gross" type="LineEdit" parent="."]
-margin_left = 1.82144
-margin_top = 353.486
-margin_right = 593.822
-margin_bottom = 377.486
+margin_left = 118.0
+margin_top = 353.0
+margin_right = 445.0
+margin_bottom = 377.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="hours" type="LineEdit" parent="."]
-margin_left = -1.68369
-margin_top = 396.66
-margin_right = 595.316
-margin_bottom = 420.66
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="."]
-margin_left = 12.4867
-margin_top = 6.54063
-margin_right = 197.487
-margin_bottom = 20.5406
-text = "Name of the Event Attended!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label7" type="Label" parent="."]
-margin_left = 12.4867
-margin_top = 6.54063
-margin_right = 197.487
-margin_bottom = 20.5406
-text = "Name of the Event Attended!"
+margin_left = 118.0
+margin_top = 397.0
+margin_right = 446.0
+margin_bottom = 421.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 10.1083
-margin_top = 61.8388
-margin_right = 195.108
-margin_bottom = 75.8388
-text = "Name of Event Leader!"
+margin_left = 20.1991
+margin_top = 32.4074
+margin_right = 205.199
+margin_bottom = 46.4074
+text = "Select Event (Event, Leader , Date as Year:Month:Day:Hour:Minute)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label6" type="Label" parent="."]
-margin_left = 5.0
-margin_top = 121.0
-margin_right = 590.0
-margin_bottom = 135.0
-text = "Rate How The Leader Did on a Scale of 1-10, 10 Being The Best!"
+margin_left = 119.385
+margin_top = 163.841
+margin_right = 437.385
+margin_bottom = 177.841
+text = "Rate how well the Leader did on a scale of 1-10."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,10 +89,10 @@ __meta__ = {
 }
 
 [node name="dept" type="OptionButton" parent="."]
-margin_left = -3.40091
-margin_top = 451.706
-margin_right = 593.599
-margin_bottom = 485.706
+margin_left = 7.0
+margin_top = 452.0
+margin_right = 589.0
+margin_bottom = 486.0
 text = "Finance"
 items = [ "Finance", null, false, 0, null, "Logistics", null, false, 1, null, "Defense", null, false, 2, null, "Industry", null, false, 3, null, "Intelligence", null, false, 4, null ]
 selected = 0
@@ -133,10 +101,10 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 0.357174
-margin_top = 488.134
-margin_right = 596.357
-margin_bottom = 530.134
+margin_left = 1.47961
+margin_top = 491.501
+margin_right = 597.479
+margin_bottom = 533.501
 text = "Submit Event Report"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,12 +120,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 11.0
-margin_top = 148.776
-margin_right = 576.0
-margin_bottom = 188.776
-text = "Enter Scale of 1-10 Here!"
+[node name="Score" type="OptionButton" parent="."]
+margin_left = 471.273
+margin_top = 151.523
+margin_right = 569.273
+margin_bottom = 191.523
+text = "1"
+items = [ "1", null, false, 0, null, "2", null, false, 1, null, "3", null, false, 2, null, "4", null, false, 3, null, "5", null, false, 4, null, "6", null, false, 5, null, "7", null, false, 6, null, "8", null, false, 7, null, "9", null, false, 8, null, "10", null, false, 9, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Event" type="OptionButton" parent="."]
+margin_left = 15.0
+margin_top = 61.0
+margin_right = 534.0
+margin_bottom = 93.0
+text = "Item 0"
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="returnbutton" to="." method="_on_returnbutton_pressed"]

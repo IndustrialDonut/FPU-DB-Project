@@ -11,16 +11,16 @@ func _ready() -> void:
 	db.path = db_path
 
 
-func submit_event_report(user, event_name, event_leader, review_text, gross_funds, hours, dept) -> bool:
+func submit_event_report(dict) -> bool:
+	var id = multiplayer.get_rpc_sender_id()
+	var user = SNetworkGlobal.idToUsername(id)
+	
+	dict["Username"] = user
+	
 	db.open_db()
 	
-	var bInserted = db.query(
-		"INSERT INTO EventReports (EventIdentifier, EventLeader, Username, Gross, "
-		+ "Hours, ReviewText, Department, OwedToPlayer, Approved) VALUES ('"
-		 + event_name + "','" + event_leader + "','" + user + "'," + str(gross_funds)
-		+ "," + str(hours) + ",'" + review_text + "','" + dept + "', 0," + "0" + ");"
-		)
-		
+	var bInserted = db.insert_row("EventReports", dict)
+	
 	db.close_db()
 	
 	return bInserted
@@ -54,6 +54,18 @@ func view_bank_reports():
 	db.open_db()
 	
 	db.query("SELECT EventIdentifier as Event, EventLeader as Leader, Username as Member, Gross, Hours, Department, OwedToPlayer FROM EventReports WHERE Approved = 1;")
+	
+	var result = db.query_result
+	
+	db.close_db()
+	
+	return result
+
+
+func get_event_labels():
+	db.open_db()
+	
+	db.query("SELECT EventName, Leader, Datetime, ID FROM Events;")
 	
 	var result = db.query_result
 	

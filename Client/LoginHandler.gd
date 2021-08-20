@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 # This times a delay to make it feel like it takes time to connect.
 func _login_pressed() -> void:
-	if NetworkGlobal.bConnected:
+	if SNetworkGlobal.bConnected:
 		$Entry/ButtonHint.hide()
 		$Entry/ButtonNew.hide()
 		$Entry/ButtonLogin.hide()
@@ -23,7 +23,8 @@ func _login_pressed() -> void:
 		print("not connected")
 
 
-# Hash and send user and pass to server, try to login
+# This is what fires after the user experience timer delay.
+# Hash and send user and pass to gateway, try to login.
 func _try_login() -> void:
 	var _user_string = _user.text
 	var _pass_string = _pass.text
@@ -35,7 +36,7 @@ func _try_login() -> void:
 remote func login_success(token, ip, port, message) -> void:
 	$Entry.hide()
 	$Members.show()
-	NetworkGlobal.try_connect_main(token, ip, port)
+	SNetworkGlobal.try_connect_main(token, ip, port)
 	print(message)
 
 

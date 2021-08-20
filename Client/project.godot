@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-NetworkGlobal="*res://NetworkGlobal.tscn"
+SNetworkGlobal="*res://NetworkGlobal.tscn"
 
 [display]
 

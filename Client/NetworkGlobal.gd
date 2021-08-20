@@ -35,8 +35,10 @@ func try_connect_main(token, ip, port): # try to connect to the main, now that g
 	temp_token = token
 	var _net = NetworkedMultiplayerENet.new()
 	_net.create_client(ip, port)
-	multiplayer.network_peer = _net
+	multiplayer.set_network_peer(null)
+	multiplayer.set_network_peer(_net)
 
 
 remote func _check_token():
 	rpc_id(1, "_check_token" , temp_token)
+	print("sending token to be checked")

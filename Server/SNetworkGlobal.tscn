@@ -10,7 +10,12 @@ script = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="TokenTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
 
+[node name="CheckTokenTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
 [connection signal="timeout" from="TokenTimer" to="." method="_reset_temporaries"]
+[connection signal="timeout" from="CheckTokenTimer" to="." method="_on_CheckTokenTimer_timeout"]
