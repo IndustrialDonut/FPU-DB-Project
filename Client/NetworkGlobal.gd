@@ -3,26 +3,24 @@ extends Control
 const SERVER_IP_DONUT = "24.6.196.226"
 const SERVER_IP_LOCAL = "10.0.0.8"
 
-const ACTIVE_SERVER_IP = SERVER_IP_LOCAL
-const ACTIVE_SERVER_PORT = 4399
+const GATEWAY_SERVER_IP = SERVER_IP_LOCAL
+const GATEWAY_SERVER_PORT = 4399
 
-
-var logged_in_token = null
 
 var bConnected = false
-
-var _net = NetworkedMultiplayerENet.new()
 
 
 func _ready() -> void:
 	$ConnectionStatus.modulate = Color.red
 	
-	get_tree().connect("connected_to_server", self, "_connected")
-	get_tree().connect("server_disconnected", self, "_disconnected")
+	multiplayer.connect("connected_to_server", self, "_connected")
+	multiplayer.connect("server_disconnected", self, "_disconnected")
 	
-	var _error = _net.create_client(ACTIVE_SERVER_IP, ACTIVE_SERVER_PORT)
+	var _net = NetworkedMultiplayerENet.new()
 	
-	get_tree().set_network_peer(_net)
+	_net.create_client(GATEWAY_SERVER_IP, GATEWAY_SERVER_PORT)
+	
+	multiplayer.set_network_peer(_net)
 
 func _connected():
 	bConnected = true
@@ -31,7 +29,14 @@ func _connected():
 func _disconnected():
 	bConnected = false
 	$ConnectionStatus.modulate = Color.red
-	get_tree().network_peer = null
-	_net = NetworkedMultiplayerENet.new()
-	_net.create_client(ACTIVE_SERVER_IP, ACTIVE_SERVER_PORT)
-	get_tree().network_peer = _net
+
+var temp_token
+func try_connect_main(token, ip, port): # try to connect to the main, now that gateway has authorized
+	temp_token = token
+	var _net = NetworkedMultiplayerENet.new()
+	_net.create_client(ip, port)
+	multiplayer.network_peer = _net
+
+
+remote func _check_token():
+	rpc_id(1, "_check_token" , temp_token)

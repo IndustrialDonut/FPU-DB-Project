@@ -78,11 +78,15 @@ visible = false
 visible = false
 
 [node name="Button" type="Button" parent="."]
+visible = false
 margin_left = 7.0
 margin_top = 211.0
 margin_right = 599.0
 margin_bottom = 246.0
 text = "Personal Finance"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="This/Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]
 [connection signal="pressed" from="This/Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]

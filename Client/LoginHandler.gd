@@ -28,15 +28,15 @@ func _try_login() -> void:
 	var _user_string = _user.text
 	var _pass_string = _pass.text
 	
-	rpc_id(1, "_try_login", get_tree().get_network_unique_id(), _user_string, _pass_string.sha256_text())
+	rpc_id(1, "_try_login", _user_string, _pass_string.sha256_text())
 
 
 # Methods for server to report login attempt status
-remote func login_success(token) -> void:
-	#print("login success with token " + token)
-	NetworkGlobal.logged_in_token = token
+remote func login_success(token, ip, port, message) -> void:
 	$Entry.hide()
 	$Members.show()
+	NetworkGlobal.try_connect_main(token, ip, port)
+	print(message)
 
 
 remote func login_fail(message) -> void:

@@ -1,10 +1,9 @@
 extends Control
 
-var _batch_of_events = {}
 
 remote func _initialize_view(token) -> void:
-	var id = get_tree().get_rpc_sender_id()
-	if SNetworkGlobal.verify_status(id, token, Enums.Verify.VERIFIED_WHITELISTED):
+	var id = multiplayer.get_rpc_sender_id()
+	if SNetworkGlobal.isIdAdmin(id):
 		var first = Databaser.view_pending_reports()[0]
 		var total = Databaser.view_pending_reports().size()
 		rpc_id(id, "_initialize_view", first, total)
