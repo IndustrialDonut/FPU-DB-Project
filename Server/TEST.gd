@@ -14,7 +14,9 @@ func practice_image_local():
 	var inst = TextureRect.new()
 	var tex = ImageTexture.new()
 	
-	image.load("res://eye.jpg")
+	#image.load("res://eye.jpg")
+	
+	image.load("D:/GodotProjects/FreePeoplesUnionDB/FreePeoplesUnionDBProject/timingdiagram.png")
 	
 	tex.create_from_image(image)
 	

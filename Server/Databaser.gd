@@ -72,3 +72,38 @@ func get_event_labels():
 	db.close_db()
 	
 	return result
+
+
+func pending_reports_for(id):
+	db.open_db()
+	
+	var b = db.query("""
+	SELECT * FROM 
+	(SELECT * FROM Events INNER JOIN EventReports ON Events.ID = EventReports.EventID 
+	WHERE EventReports.EventID = 3 ORDER BY Events.ID)
+	WHERE Approved = 0;""")
+	
+	assert(b)
+	
+	var result = db.query_result
+	
+	db.close_db()
+	
+	return result
+
+func total_reports_for(id) -> int:
+	db.open_db()
+	
+	var b = db.query("""SELECT * FROM
+		(SELECT * FROM Events INNER JOIN EventReports 
+		ON Events.ID = EventReports.EventID 
+		ORDER BY Events.ID)
+	WHERE EventID =""" + str(id) + ';')
+	
+	assert(b)
+	
+	var result = db.query_result
+	
+	db.close_db()
+	
+	return result.size()

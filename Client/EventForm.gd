@@ -52,7 +52,7 @@ remote func _initialize_events(events) -> void:
 		$Event.add_item(
 			event["EventName"] + " " 
 			+ event["Leader"] + " " 
-			+ event["Datetime"], event["ID"]
+			+ event["Datetime"], event["ID"] # make sure to use Event.get_item_id since you only have signals to get INDICES
 			)
 
 

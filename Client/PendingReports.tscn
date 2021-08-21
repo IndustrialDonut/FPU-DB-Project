@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://PendingReports.gd" type="Script" id=1]
+[ext_resource path="res://PendingReport.tscn" type="PackedScene" id=2]
 
 [node name="PendingReports" type="Control"]
 anchor_right = 1.0
@@ -25,186 +26,101 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 16.1208
-margin_top = 11.4932
-margin_right = 82.1208
-margin_bottom = 25.4932
-text = "Username"
+margin_left = 20.1991
+margin_top = 32.4074
+margin_right = 205.199
+margin_bottom = 46.4074
+text = "Select Event (Event, Leader , Date as Year:Month:Day:Hour:Minute)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="."]
-margin_left = 196.056
-margin_top = 12.4593
-margin_right = 279.056
-margin_bottom = 26.4593
-text = "Event Name"
+[node name="Event" type="OptionButton" parent="."]
+margin_left = 15.0
+margin_top = 61.0
+margin_right = 534.0
+margin_bottom = 93.0
+text = "Item 1"
+items = [ "Item 0", null, false, 0, null, "Item 1", null, false, 1, null, "Item 2", null, false, 5, null ]
+selected = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label4" type="Label" parent="."]
-margin_left = 10.5398
-margin_top = 107.506
-margin_right = 406.54
-margin_bottom = 121.506
-text = "Scale The Event From 1-10, 10 being the best!"
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -272.0
+margin_top = -134.0
+margin_right = 266.0
+margin_bottom = 206.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label5" type="Label" parent="."]
-margin_left = 19.0459
-margin_top = 272.632
-margin_right = 169.046
-margin_bottom = 286.632
-text = "Hours Attended"
+[node name="Report" parent="TabContainer" instance=ExtResource( 2 )]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -103.0
+margin_top = -85.0
+margin_right = 103.0
+margin_bottom = -45.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label6" type="Label" parent="."]
-margin_left = 206.0
-margin_top = 276.0
-margin_right = 587.0
-margin_bottom = 290.0
-text = "Department Hours Logged Within"
+[node name="Approve" type="Button" parent="HBoxContainer"]
+margin_right = 101.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "APPROVE"
+
+[node name="Deny" type="Button" parent="HBoxContainer"]
+margin_left = 105.0
+margin_right = 206.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "DENY"
+
+[node name="Status" type="Label" parent="."]
+margin_left = 161.852
+margin_top = 101.166
+margin_right = 477.852
+margin_bottom = 128.166
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Username" type="LineEdit" parent="."]
-margin_left = 7.39288
-margin_top = 33.1889
-margin_right = 177.393
-margin_bottom = 57.1889
-editable = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EventName" type="LineEdit" parent="."]
-margin_left = 188.944
-margin_top = 34.0767
-margin_right = 589.944
-margin_bottom = 58.0767
-editable = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ReviewText" type="LineEdit" parent="."]
-margin_left = 2.1684
-margin_top = 166.081
-margin_right = 595.168
-margin_bottom = 260.081
-text = "Feedback From Members Here!"
-editable = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Hours" type="LineEdit" parent="."]
-margin_left = 12.4388
-margin_top = 295.576
-margin_right = 192.439
-margin_bottom = 322.576
-editable = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Dept" type="LineEdit" parent="."]
-margin_left = 203.439
-margin_top = 296.689
-margin_right = 584.439
-margin_bottom = 320.689
-editable = false
+[node name="Memo" type="Label" parent="."]
+margin_left = 36.9424
+margin_top = 131.7
+margin_right = 561.942
+margin_bottom = 162.7
+text = "IF TOTAL REPORTS = ATTENDANCE, 
+AND THERE ARE NO PENDING REPORTS, COMMIT PAYOUTS!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 295.776
-margin_top = 335.913
-margin_right = 599.776
-margin_bottom = 377.913
-text = "Cycle Next Report"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -157.0
+margin_top = -58.0
+margin_right = -19.0
+margin_bottom = -19.0
+text = "COMMIT PAYOUTS"
 
-[node name="Button2" type="Button" parent="."]
-margin_left = 7.40176
-margin_top = 336.432
-margin_right = 287.402
-margin_bottom = 378.432
-text = "Cycle Previous Report"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button3" type="Button" parent="."]
-margin_left = 6.5
-margin_top = 412.311
-margin_right = 591.5
-margin_bottom = 454.311
-text = "Decline Report"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button4" type="Button" parent="."]
-margin_left = 16.0
-margin_top = 468.0
-margin_right = 590.0
-margin_bottom = 510.0
-text = "Approve to Batch"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button5" type="Button" parent="."]
-margin_left = 19.0
-margin_top = 542.0
-margin_right = 504.0
-margin_bottom = 584.0
-text = "Send Banch To Bank"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Remaining" type="Label" parent="."]
-margin_left = 244.0
-margin_top = 390.699
-margin_right = 337.0
-margin_bottom = 404.699
-text = "X Remaining"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InBatch" type="Label" parent="."]
-margin_left = 256.336
-margin_top = 514.982
-margin_right = 349.336
-margin_bottom = 528.982
-text = "X in Batch"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 10.0
-margin_top = 125.046
-margin_right = 589.0
-margin_bottom = 165.046
-text = "Score From Members Here!"
-
-[node name="TextEdit2" type="TextEdit" parent="."]
-margin_left = 12.0
-margin_top = 61.0
-margin_right = 581.0
-margin_bottom = 101.0
-text = "Amount Player Made:"
+[connection signal="item_selected" from="Event" to="." method="_on_Event_item_selected"]
+[connection signal="pressed" from="HBoxContainer/Approve" to="." method="_on_Approve_pressed"]
+[connection signal="pressed" from="HBoxContainer/Deny" to="." method="_on_Deny_pressed"]

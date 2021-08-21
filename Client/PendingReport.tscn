@@ -1,0 +1,117 @@
+[gd_scene format=2]
+
+[node name="Report" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+rect_min_size = Vector2( 500, 250 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 592.0
+margin_bottom = 14.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_left = 218.0
+margin_right = 300.0
+margin_bottom = 14.0
+text = "USERNAME:  "
+
+[node name="Username" type="Label" parent="HBoxContainer"]
+margin_left = 304.0
+margin_right = 374.0
+margin_bottom = 14.0
+text = "USERNAME"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_top = 18.0
+margin_right = 592.0
+margin_bottom = 32.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+margin_left = 212.0
+margin_right = 334.0
+margin_bottom = 14.0
+text = "User Given Score:  "
+
+[node name="Score" type="Label" parent="HBoxContainer2"]
+margin_left = 338.0
+margin_right = 379.0
+margin_bottom = 14.0
+text = "SCORE"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+margin_top = 36.0
+margin_right = 592.0
+margin_bottom = 50.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer3"]
+margin_left = 207.0
+margin_right = 296.0
+margin_bottom = 14.0
+text = "Department:  "
+
+[node name="Department" type="Label" parent="HBoxContainer3"]
+margin_left = 300.0
+margin_right = 385.0
+margin_bottom = 14.0
+text = "DEPARTMENT"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="."]
+margin_top = 54.0
+margin_right = 592.0
+margin_bottom = 68.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer4"]
+margin_left = 204.0
+margin_right = 336.0
+margin_bottom = 14.0
+text = "Gross Contribution:  "
+
+[node name="Gross" type="Label" parent="HBoxContainer4"]
+margin_left = 340.0
+margin_right = 387.0
+margin_bottom = 14.0
+text = "MONEY"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="."]
+margin_top = 72.0
+margin_right = 592.0
+margin_bottom = 86.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer5"]
+margin_left = 214.0
+margin_right = 327.0
+margin_bottom = 14.0
+text = "Hours Attended:  "
+
+[node name="Hours" type="Label" parent="HBoxContainer5"]
+margin_left = 331.0
+margin_right = 377.0
+margin_bottom = 14.0
+text = "HOURS"
+
+[node name="Review" type="TextEdit" parent="."]
+margin_top = 90.0
+margin_right = 592.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 0, 200 )
+text = "REVIeW
+REVIeW
+REVIeW
+REVIeW
+REVIeW
+REVIeW"
+readonly = true

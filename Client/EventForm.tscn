@@ -138,7 +138,6 @@ margin_top = 61.0
 margin_right = 534.0
 margin_bottom = 93.0
 text = "Item 0"
-selected = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
