@@ -61,7 +61,7 @@ func _sort_by_date(events : Array):
 									 # Take an array of event dictionaries, sort them by datetime which is key "Datetime"
 									 # that has value stored as Y:M:D:H:MIN
 									 # Var is used to Declare Variables
-	var Date =events[0]["Datetime"]  # Declaring Date as a string, [0] means array, then your indexing "Datetime"
+	var Date = events[0]["Datetime"]  # Declaring Date as a string, [0] means array, then your indexing "Datetime"
 									 # then this puts the String called "DateTime" from the other function up above in
 	var Date_Array = Date.split(":") # This Declares Date_Array. Then the second half splits it based by where colons are
 	print(Date_Array.size())         # Size is Arbitrary allows you to do stuff bellow
@@ -71,7 +71,5 @@ func _sort_by_date(events : Array):
 	print(Date_Array[3])             # Print  "Hour"
 	print(Date_Array[4])             # Print  "Minute"
 	
-
-
 
 
