@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Register.gd" type="Script" id=2]
 [ext_resource path="res://Members.gd" type="Script" id=3]
 [ext_resource path="res://EventForm.gd" type="Script" id=4]
 [ext_resource path="res://Bank.gd" type="Script" id=5]
@@ -66,3 +67,11 @@ margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
 script = ExtResource( 7 )
+
+[node name="Register" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
