@@ -39,7 +39,6 @@ func _on_returnbutton_pressed() -> void:
 
 func _ready() -> void:
 	connect("visibility_changed", self, "_visibility_changed")
-	_sort_by_date([{"Datetime" : "2021:08:19:14:48"}])
 
 
 func _visibility_changed() -> void:
@@ -48,28 +47,14 @@ func _visibility_changed() -> void:
 
 remote func _initialize_events(events) -> void:
 	$Event.clear()
-	#_sort_by_date(events)
-	for event in events:
-		$Event.add_item(
-			event["EventName"] + " " 
-			+ event["Leader"] + " " 
-			+ event["Datetime"], event["ID"] # make sure to use Event.get_item_id since you only have signals to get INDICES
-			)
-
-
-func _sort_by_date(events : Array):
-									 # Take an array of event dictionaries, sort them by datetime which is key "Datetime"
-									 # that has value stored as Y:M:D:H:MIN
-									 # Var is used to Declare Variables
-	var Date = events[0]["Datetime"]  # Declaring Date as a string, [0] means array, then your indexing "Datetime"
-									 # then this puts the String called "DateTime" from the other function up above in
-	var Date_Array = Date.split(":") # This Declares Date_Array. Then the second half splits it based by where colons are
-	print(Date_Array.size())         # Size is Arbitrary allows you to do stuff bellow
-	print(Date_Array[0])             # Prints "Year"
-	print(Date_Array[1])             # Prints "Month"
-	print(Date_Array[2])             # Print  "Day"
-	print(Date_Array[3])             # Print  "Hour"
-	print(Date_Array[4])             # Print  "Minute"
-	
-
-
+	if events:
+		var random = events.duplicate()
+		random.shuffle()
+		#print($Sorter.sort_by_date(random))
+		var sorted_events = $Sorter.sort_by_date(events)
+		for event in sorted_events:
+			$Event.add_item(
+				event["EventName"] + " " 
+				+ event["Leader"] + " " 
+				+ event["Datetime"], event["ID"] # make sure to use Event.get_item_id since you only have signals to get INDICES
+				)

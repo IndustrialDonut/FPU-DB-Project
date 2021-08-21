@@ -117,11 +117,17 @@ func view_bank_reports():
 func get_event_labels():
 	db.open_db()
 	
-	db.query("SELECT EventName, Leader, Datetime, ID FROM Events;")
+	# This SQL command actually ended up WORKING exactly right, however, I had already spent
+	# 4 + hours working on a sorting algorithm by Datetime and would rather kill myself
+	# than not use it after realizing this anyway. So, that sorting algorithm is 
+	# on the Sorter class on the Event Report for the Client!
+	db.query("SELECT EventName, Leader, Datetime, ID FROM Events")# ORDER BY Datetime")
 	
 	var result = db.query_result
 	
 	db.close_db()
+	
+	result.invert()
 	
 	return result
 
