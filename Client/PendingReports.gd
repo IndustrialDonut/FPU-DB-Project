@@ -57,12 +57,10 @@ remote func _get_pending_reports_for(reports, TOTAL_reports):
 func _on_Approve_pressed() -> void:
 	var tab = $TabContainer.get_current_tab_control()
 	
-	if tab:
-		
-		var rep_id = tab.report_id
-		
-		print(rep_id)
-		
+	var rep_id = tab.report_id
+	
+	if rep_id:
+	
 		rpc_id(1, "_approve", rep_id)
 		
 		# refresh view afterwards
@@ -71,19 +69,15 @@ func _on_Approve_pressed() -> void:
 
 func _on_Deny_pressed() -> void:
 	var tab = $TabContainer.get_current_tab_control()
+		
+	var rep_id = tab.report_id
 	
-	if tab:
-		
-		var rep_id = tab.report_id
-		
-		print(rep_id)
+	if rep_id:
 		
 		rpc_id(1, "_deny", rep_id)
 		
 		# refresh view afterwards
 		_on_Event_item_selected(0)
-	
-	
 
 
 func _on_Button_pressed() -> void:
