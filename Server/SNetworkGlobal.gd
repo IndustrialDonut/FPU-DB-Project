@@ -19,7 +19,7 @@ func idIsAdmin(id) -> bool:
 
 func _ready() -> void:
 	var net = NetworkedMultiplayerENet.new()
-	net.create_server(3005)
+	net.create_server(4399)
 	get_tree().set_network_peer(net)
 	
 	get_tree().connect("network_peer_connected", self, "_user_connected")

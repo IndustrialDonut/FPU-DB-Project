@@ -1,5 +1,5 @@
 extends Control
-
+#4399
 func _ready() -> void:
 
 	var net = NetworkedMultiplayerENet.new()
@@ -33,7 +33,7 @@ remote func _try_login(_user : String, _pass : String):
 	match Databaser.authenticate(_user, _pass):
 		
 		Enums.VER.VERIFIED:
-			var token = _login_success(id, _user)
+			var token = _login_success(_user)
 			
 			# rpc client
 			rpc_id(id, "login_success", 
@@ -46,7 +46,7 @@ remote func _try_login(_user : String, _pass : String):
 			SNetworkGlobal.send_token_db(token, _user, false)
 			
 		Enums.VER.VERIFIED_WHITELISTED:
-			var token = _login_success(id, _user)
+			var token = _login_success(_user)
 			
 			# rpc client
 			rpc_id(id, "login_success", 
@@ -67,7 +67,7 @@ remote func _try_login(_user : String, _pass : String):
 			assert(0)
 
 
-func _login_success(id, user) -> String:
+func _login_success(user) -> String:
 	var token = _s_generate_new_token()
 	print("User " + user + " logged in!")
 	return token

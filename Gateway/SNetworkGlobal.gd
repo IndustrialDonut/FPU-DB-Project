@@ -2,7 +2,7 @@ extends Node
 
 # The TREE names are very important for rpc calls.
 
-const DBSERVER_PORT = 3005
+const DBSERVER_PORT = 2302
 const DBSERVER_IP_LOCAL = "10.0.0.8"
 const DBSERVER_IP_PUBLIC = "24.6.196.226"
 
