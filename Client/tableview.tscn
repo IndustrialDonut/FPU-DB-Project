@@ -4,18 +4,23 @@
 [ext_resource path="res://FreePeoplesUnion Logo.png" type="Texture" id=2]
 
 [node name="Control" type="Control"]
+anchor_top = -0.00280299
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.997197
+margin_left = 1.5874
+margin_top = -0.793701
+margin_right = 1.5874
+margin_bottom = -0.793701
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 0.998
-anchor_bottom = 1.0
+anchor_bottom = 0.41
 margin_top = 130.0
 margin_right = 0.200012
-margin_bottom = -140.0
+margin_bottom = 214.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -25,6 +30,7 @@ margin_right = 587.0
 margin_bottom = 800.0
 rect_min_size = Vector2( 0, 800 )
 size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,36 +40,53 @@ margin_right = 587.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 
+[node name="Record2" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 44.0
+margin_right = 587.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 0, 40 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.703
 anchor_right = 1.0
 anchor_bottom = 0.183
-margin_left = 0.199982
+margin_left = -91.8
 margin_top = 11.0
-margin_bottom = 0.199989
+margin_bottom = 12.2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
-margin_right = 178.0
+margin_right = 270.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 17, 16 )
 text = "Invoice #"
+readonly = true
 
 [node name="TextEdit2" type="TextEdit" parent="VBoxContainer"]
 margin_top = 20.0
-margin_right = 178.0
+margin_right = 270.0
 margin_bottom = 36.0
 rect_min_size = Vector2( 17, 16 )
 text = "Name of User:"
+readonly = true
 
 [node name="TextEdit3" type="TextEdit" parent="VBoxContainer"]
 margin_top = 40.0
-margin_right = 178.0
+margin_right = 270.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 17, 16 )
-text = "Date: "
+text = "Date Pay Sent: Every Friday"
+readonly = true
+
+[node name="TextEdit4" type="TextEdit" parent="VBoxContainer"]
+margin_top = 60.0
+margin_right = 270.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 17, 40 )
+text = "From MM/DD Through MM/DD/YYYY"
+readonly = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 0.046
@@ -78,38 +101,122 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-anchor_left = 0.59
-anchor_top = 0.776
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.958
 anchor_right = 0.995
-anchor_bottom = 0.997
-margin_left = -3.05176e-05
-margin_top = 24.4
+anchor_bottom = 1.0
+margin_top = -110.8
 margin_right = -6.10352e-05
-margin_bottom = -4.20001
+margin_bottom = -1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer2"]
-margin_right = 243.0
-margin_bottom = 24.0
-text = "Total Earned:"
+[node name="ScrollContainer2" type="ScrollContainer" parent="HBoxContainer"]
+margin_right = 296.0
+margin_bottom = 135.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="LineEdit2" type="LineEdit" parent="VBoxContainer2"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/ScrollContainer2"]
+margin_right = 284.0
+margin_bottom = 189.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
+margin_right = 284.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 250, 65 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Directors Comments:
+USER aUEC to Hour Ratio:
+Event Total aUEC to Hour Ratio:"
+readonly = true
+
+[node name="Label" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
+margin_top = 69.0
+margin_right = 284.0
+margin_bottom = 83.0
+text = "Hours Completed For Week:"
+
+[node name="Label2" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
+margin_top = 87.0
+margin_right = 284.0
+margin_bottom = 101.0
+text = "Department of Intelligence: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
+margin_top = 105.0
+margin_right = 284.0
+margin_bottom = 119.0
+text = "Department of Finance: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
+margin_top = 123.0
+margin_right = 284.0
+margin_bottom = 137.0
+text = "Department of Industry: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
+margin_top = 141.0
+margin_right = 284.0
+margin_bottom = 189.0
+text = "Department of Logistics: 0
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 300.0
+margin_right = 597.0
+margin_bottom = 135.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 297.0
+margin_bottom = 24.0
+text = "Total Earned From All Events:"
+editable = false
+
+[node name="LineEdit2" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 28.0
-margin_right = 243.0
+margin_right = 297.0
 margin_bottom = 52.0
 text = "ORG Dividend Amount:"
+editable = false
 
-[node name="LineEdit3" type="LineEdit" parent="VBoxContainer2"]
+[node name="LineEdit3" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 56.0
-margin_right = 243.0
+margin_right = 297.0
 margin_bottom = 80.0
 text = "UBI Amount:"
+editable = false
 
-[node name="LineEdit4" type="LineEdit" parent="VBoxContainer2"]
+[node name="LineEdit4" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 84.0
-margin_right = 243.0
+margin_right = 297.0
 margin_bottom = 108.0
-text = "Income Grossed: "
+text = "Total Income Grossed: "
+editable = false
