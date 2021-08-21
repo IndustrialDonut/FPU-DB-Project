@@ -1,9 +1,11 @@
 extends Control
 
+const DONUT = "{84fdbe25-04e0-11eb-b175-806e6f6e6963}"
+
 const SERVER_IP_DONUT = "24.6.196.226"
 const SERVER_IP_LOCAL = "10.0.0.8"
 
-const GATEWAY_SERVER_IP = SERVER_IP_LOCAL
+var GATEWAY_SERVER_IP = SERVER_IP_LOCAL
 const GATEWAY_SERVER_PORT = 4399
 
 
@@ -11,6 +13,10 @@ var bConnected = false
 
 
 func _ready() -> void:
+	if OS.get_unique_id() == DONUT:
+		GATEWAY_SERVER_IP = SERVER_IP_LOCAL
+	else:
+		GATEWAY_SERVER_IP = SERVER_IP_DONUT
 	$ConnectionStatus.modulate = Color.red
 	
 	multiplayer.connect("connected_to_server", self, "_connected")

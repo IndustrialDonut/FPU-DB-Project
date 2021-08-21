@@ -4,6 +4,7 @@ extends Node
 
 const DBSERVER_PORT = 3005
 const DBSERVER_IP_LOCAL = "10.0.0.8"
+const DBSERVER_IP_PUBLIC = "24.6.196.226"
 
 
 func send_token_db(token, user, bAdmin):

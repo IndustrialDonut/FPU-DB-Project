@@ -22,6 +22,13 @@ func _user_disconnected(id) -> void:
 remote func _try_login(_user : String, _pass : String):
 	
 	var id = multiplayer.get_rpc_sender_id()
+	var peer_ip = multiplayer.network_peer.get_peer_address(id)
+	
+	var distributed_ip
+	if peer_ip != "10.0.0.8":
+		distributed_ip = SNetworkGlobal.DBSERVER_IP_PUBLIC
+	else:
+		distributed_ip = SNetworkGlobal.DBSERVER_IP_LOCAL
 	
 	match Databaser.authenticate(_user, _pass):
 		
@@ -31,7 +38,7 @@ remote func _try_login(_user : String, _pass : String):
 			# rpc client
 			rpc_id(id, "login_success", 
 			token,
-			SNetworkGlobal.DBSERVER_IP_LOCAL,
+			distributed_ip,
 			SNetworkGlobal.DBSERVER_PORT,
 			"Logged in as member.")
 			
@@ -44,7 +51,7 @@ remote func _try_login(_user : String, _pass : String):
 			# rpc client
 			rpc_id(id, "login_success", 
 			token,
-			SNetworkGlobal.DBSERVER_IP_LOCAL,
+			distributed_ip,
 			SNetworkGlobal.DBSERVER_PORT,
 			"Logged in as admin.")
 			
