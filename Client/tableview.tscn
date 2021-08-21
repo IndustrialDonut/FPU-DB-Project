@@ -186,7 +186,7 @@ __meta__ = {
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 300.0
-margin_right = 597.0
+margin_right = 596.0
 margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -195,28 +195,28 @@ __meta__ = {
 }
 
 [node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
-margin_right = 297.0
+margin_right = 296.0
 margin_bottom = 24.0
 text = "Total Earned From All Events:"
 editable = false
 
 [node name="LineEdit2" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 28.0
-margin_right = 297.0
+margin_right = 296.0
 margin_bottom = 52.0
 text = "ORG Dividend Amount:"
 editable = false
 
 [node name="LineEdit3" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 56.0
-margin_right = 297.0
+margin_right = 296.0
 margin_bottom = 80.0
 text = "UBI Amount:"
 editable = false
 
 [node name="LineEdit4" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 84.0
-margin_right = 297.0
+margin_right = 296.0
 margin_bottom = 108.0
 text = "Total Income Grossed: "
 editable = false

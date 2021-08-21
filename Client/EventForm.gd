@@ -39,6 +39,7 @@ func _on_returnbutton_pressed() -> void:
 
 func _ready() -> void:
 	connect("visibility_changed", self, "_visibility_changed")
+	_sort_by_date([{"Datetime" : "2021:08:19:14:48"}])
 
 
 func _visibility_changed() -> void:
@@ -57,9 +58,20 @@ remote func _initialize_events(events) -> void:
 
 
 func _sort_by_date(events : Array):
-	#events[0]["Datetime"]
+									 # Take an array of event dictionaries, sort them by datetime which is key "Datetime"
+									 # that has value stored as Y:M:D:H:MIN
+									 # Var is used to Declare Variables
+	var Date =events[0]["Datetime"]  # Declaring Date as a string, [0] means array, then your indexing "Datetime"
+									 # then this puts the String called "DateTime" from the other function up above in
+	var Date_Array = Date.split(":") # This Declares Date_Array. Then the second half splits it based by where colons are
+	print(Date_Array.size())         # Size is Arbitrary allows you to do stuff bellow
+	print(Date_Array[0])             # Prints "Year"
+	print(Date_Array[1])             # Prints "Month"
+	print(Date_Array[2])             # Print  "Day"
+	print(Date_Array[3])             # Print  "Hour"
+	print(Date_Array[4])             # Print  "Minute"
 	
-	# Take an array of event dictionaries, sort them by datetime which is key "Datetime"
-	# that has value stored as Y:M:D:H:MIN
-	#event["Datetime"]
-	pass
+
+
+
+

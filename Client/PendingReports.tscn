@@ -6,10 +6,10 @@
 [node name="PendingReports" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.77551
-margin_top = 1.88773
-margin_right = 3.77551
-margin_bottom = 1.88776
+margin_left = 4.66641
+margin_top = 6.34226
+margin_right = 4.66638
+margin_bottom = 6.34229
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,10 +52,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -272.0
-margin_top = -134.0
-margin_right = 266.0
-margin_bottom = 206.0
+margin_left = -274.673
+margin_top = -196.363
+margin_right = 263.327
+margin_bottom = 143.637
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -67,10 +67,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -103.0
-margin_top = -85.0
-margin_right = 103.0
-margin_bottom = -45.0
+margin_left = -269.598
+margin_top = -143.799
+margin_right = -63.5984
+margin_bottom = -103.799
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -104,8 +104,6 @@ margin_left = 36.9424
 margin_top = 131.7
 margin_right = 561.942
 margin_bottom = 162.7
-text = "IF TOTAL REPORTS = ATTENDANCE, 
-AND THERE ARE NO PENDING REPORTS, COMMIT PAYOUTS!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -115,11 +113,22 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -157.0
-margin_top = -58.0
-margin_right = -19.0
-margin_bottom = -19.0
+margin_left = -359.0
+margin_top = -142.0
+margin_right = -38.0
+margin_bottom = -103.0
 text = "COMMIT PAYOUTS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+anchor_right = 0.01
+margin_left = 32.0
+margin_top = 503.0
+margin_right = 230.0
+margin_bottom = 549.0
+text = "Return to Main Page"
 __meta__ = {
 "_edit_use_anchors_": false
 }

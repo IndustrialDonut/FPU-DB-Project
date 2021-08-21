@@ -16,62 +16,37 @@ __meta__ = {
 [node name="This" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title_Event" type="Label" parent="This"]
-margin_left = 5.0
-margin_top = 4.0
-margin_right = 600.0
-margin_bottom = 41.0
-text = "Event"
-
-[node name="View_Pending_Report" type="Button" parent="This/Title_Event"]
-margin_left = -2.0
-margin_top = 85.0
-margin_right = 594.0
-margin_bottom = 119.0
-text = "View Pending Reports"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button_Submit_Event_Report" type="Button" parent="This/Title_Event"]
-margin_left = 1.89093
-margin_top = 43.0
-margin_right = 591.891
-margin_bottom = 77.0
-text = "Submit an Event Report"
+margin_top = -1.49835
+margin_bottom = -1.49835
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title_Financials" type="Label" parent="This"]
-margin_left = 8.0
-margin_top = 275.0
-margin_right = 603.0
-margin_bottom = 423.0
+margin_left = 4.75928
+margin_top = 193.041
+margin_right = 599.759
+margin_bottom = 340.041
 text = "Financials"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="View_Bank" type="Button" parent="This/Title_Financials"]
-margin_left = -4.07508
-margin_top = 68.8967
-margin_right = 591.925
-margin_bottom = 102.897
+margin_left = -8.57001
+margin_top = 21.7
+margin_right = 587.43
+margin_bottom = 55.7003
 text = "View Organization Bank"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="View_Bank2" type="Button" parent="This/Title_Financials"]
-margin_left = -5.26428
-margin_top = 107.546
-margin_right = 590.735
-margin_bottom = 141.546
+margin_left = -8.26086
+margin_top = 59.6002
+margin_right = 587.738
+margin_bottom = 93.6002
 text = "View Personal Financials"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -83,6 +58,46 @@ margin_top = 518.595
 margin_right = 393.584
 margin_bottom = 587.595
 text = "Logout and Quit"
+
+[node name="Title_Event" type="Label" parent="This"]
+margin_left = 4.25079
+margin_top = 10.7424
+margin_right = 599.251
+margin_bottom = 185.742
+text = "Event"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="View_Pending_Report2" type="Button" parent="This/Title_Event"]
+margin_left = -2.74915
+margin_top = 35.5559
+margin_right = 593.251
+margin_bottom = 69.5559
+text = "Create New Event"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="View_Pending_Report" type="Button" parent="This/Title_Event"]
+margin_left = -1.25085
+margin_top = 115.715
+margin_right = 594.749
+margin_bottom = 149.715
+text = "View Pending Reports"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_Submit_Event_Report" type="Button" parent="This/Title_Event"]
+margin_left = 2.0
+margin_top = 76.0
+margin_right = 592.0
+margin_bottom = 110.0
+text = "Submit an Event Report"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="EventForm" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -104,9 +119,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="This/Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]
-[connection signal="pressed" from="This/Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]
 [connection signal="pressed" from="This/Title_Financials/View_Bank" to="." method="_on_View_Bank_pressed"]
 [connection signal="pressed" from="This/Title_Financials/View_Bank2" to="." method="_on_View_Bank_pressed"]
 [connection signal="pressed" from="This/Quit" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="This/Title_Event/View_Pending_Report2" to="." method="_on_View_Pending_Report_pressed"]
+[connection signal="pressed" from="This/Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]
+[connection signal="pressed" from="This/Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]
 [connection signal="return_from_eventform" from="EventForm" to="." method="_on_EventForm_return_from_eventform"]
