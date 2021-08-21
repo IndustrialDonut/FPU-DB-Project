@@ -13,9 +13,11 @@ remote func _initialize_events():
 remote func _get_pending_reports_for(event_id):
 	var id = multiplayer.get_rpc_sender_id()
 	if SNetworkGlobal.idIsAdmin(id):
-		var reports  = Databaser.pending_reports_for(event_id) # fill this with the pending reports for the given event id
+		var reports = Databaser.pending_reports_for(event_id) # fill this with the pending reports for the given event id
 		
 		var TOTAL_report_count = Databaser.total_reports_for(event_id)
+		
+		print(reports.size())
 		
 		rpc_id(id, "_get_pending_reports_for", reports, TOTAL_report_count)
 
@@ -29,7 +31,8 @@ remote func _approve(reportid):
 remote func _deny(reportid):
 	var id = multiplayer.get_rpc_sender_id()
 	if SNetworkGlobal.idIsAdmin(id):
-		pass
+		
+		Databaser.delete_report(id)
 
 
 

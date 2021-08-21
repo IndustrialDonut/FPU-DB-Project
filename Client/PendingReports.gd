@@ -26,6 +26,9 @@ func _on_Event_item_selected(index: int) -> void:
 
 
 remote func _get_pending_reports_for(reports, TOTAL_reports):
+	
+	print(reports)
+	
 	$Status.text = str(reports.size()) + " Pending reports out of " + str(TOTAL_reports) + " Total reports."
 	
 	for tab in $TabContainer.get_children():
@@ -47,6 +50,8 @@ remote func _get_pending_reports_for(reports, TOTAL_reports):
 		inst.find_node("Hours").text = str(report["Hours"])
 		inst.find_node("Review").text = str(report["ReviewText"])
 		
+		inst.report_id = report["ReportID"]
+		
 
 
 func _on_Approve_pressed() -> void:
@@ -55,4 +60,8 @@ func _on_Approve_pressed() -> void:
 
 
 func _on_Deny_pressed() -> void:
-	pass # Replace with function body.
+	var rep_id = $TabContainer.get_current_tab_control().report_id
+	
+	rpc_id(1, "_deny", rep_id)
+	
+	

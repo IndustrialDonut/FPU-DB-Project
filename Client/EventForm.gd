@@ -47,7 +47,7 @@ func _visibility_changed() -> void:
 
 remote func _initialize_events(events) -> void:
 	$Event.clear()
-	#events = _sort_by_date(events)
+	#_sort_by_date(events)
 	for event in events:
 		$Event.add_item(
 			event["EventName"] + " " 
@@ -56,7 +56,10 @@ remote func _initialize_events(events) -> void:
 			)
 
 
-func _sort_by_date(events):
+func _sort_by_date(events : Array):
+	#events[0]["Datetime"]
+	
 	# Take an array of event dictionaries, sort them by datetime which is key "Datetime"
-	# that has value stored as Y:M:D:H:MIN  
+	# that has value stored as Y:M:D:H:MIN
+	#event["Datetime"]
 	pass
