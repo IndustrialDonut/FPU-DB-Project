@@ -1,0 +1,140 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 595.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 595.0
+margin_bottom = 14.0
+text = "Create New Event- Use this To Create a Event for Members to Report On!"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 6.11011
+margin_top = 35.7708
+margin_right = 595.11
+margin_bottom = 329.771
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_right = 589.0
+margin_bottom = 14.0
+text = "Enter The Name You Wish To Call The Event!"
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer2"]
+margin_top = 18.0
+margin_right = 589.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 30, 30 )
+text = "Enter Name Here!"
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+margin_top = 52.0
+margin_right = 589.0
+margin_bottom = 66.0
+text = "What Department Will This Event Be For?"
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer2"]
+margin_top = 70.0
+margin_right = 589.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 30, 20 )
+items = [ "Department Of Defense", null, false, "Department of Industry", null, false, "Department of Logistics", null, false, "Department of Intelligence", null, false, "Department of Finance", null, false ]
+
+[node name="Label3" type="Label" parent="VBoxContainer2"]
+margin_top = 94.0
+margin_right = 589.0
+margin_bottom = 108.0
+text = "How Many Hours Will This Event Be?"
+
+[node name="TextEdit2" type="TextEdit" parent="VBoxContainer2"]
+margin_top = 112.0
+margin_right = 589.0
+margin_bottom = 142.0
+rect_min_size = Vector2( 30, 30 )
+text = "Enter Max Hour Amount Here!"
+
+[node name="Label4" type="Label" parent="VBoxContainer2"]
+margin_top = 146.0
+margin_right = 589.0
+margin_bottom = 160.0
+text = "What Member Will Lead This Event?"
+
+[node name="TextEdit3" type="TextEdit" parent="VBoxContainer2"]
+margin_top = 164.0
+margin_right = 589.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 30, 30 )
+text = "Enter The Leaders Name Here!"
+
+[node name="Label5" type="Label" parent="VBoxContainer2"]
+margin_top = 198.0
+margin_right = 589.0
+margin_bottom = 212.0
+text = "What Will The Date of The Event Be?"
+
+[node name="List" type="OptionButton" parent="VBoxContainer2"]
+margin_top = 216.0
+margin_right = 589.0
+margin_bottom = 246.0
+rect_min_size = Vector2( 30, 30 )
+text = "YYYY(Year)"
+items = [ "YYYY(Year)", null, false, 0, null, "2021", null, false, 1, null, "2022", null, false, 2, null ]
+selected = 0
+
+[node name="List2" type="OptionButton" parent="VBoxContainer2"]
+margin_top = 250.0
+margin_right = 589.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 30, 30 )
+text = "MM(Month) 1-12"
+items = [ "MM(Month) 1-12", null, false, 0, null, "False", null, false, 0, " 3", "[Object:null]", null, true, 0, false, "Item 5", null, false, 6, null, "False", null, false, 0, "Item 8", "[Object:null]", null, true, 0, false ]
+selected = 0
+
+[node name="List3" type="OptionButton" parent="VBoxContainer2"]
+margin_top = 284.0
+margin_right = 589.0
+margin_bottom = 314.0
+rect_min_size = Vector2( 30, 30 )
+text = "DD(Day)"
+items = [ "DD(Day)", null, false, 0, null, "1", null, false, 1, null, "2", null, false, 2, null, "3", null, false, 3, null, "4", null, false, 4, null, "5", null, false, 5, null, "6", null, false, 6, null, "7", null, false, 7, null, "8", null, false, 8, null, "9", null, false, 9, null, "10", null, false, 10, null, "11", null, false, 11, null, "12", null, false, 12, null, "13", null, false, 13, null, "14", null, false, 14, null, "15", null, false, 15, null, "16", null, false, 16, null, "17", null, false, 17, null, "18", null, false, 18, null, "19", null, false, 19, null, "20", null, false, 20, null, "21", null, false, 21, null, "22", null, false, 22, null, "23", null, false, 23, null, " 24", null, false, 24, null, "25", null, false, 25, null, "26", null, false, 26, null, "27", null, false, 27, null, "28", null, false, 28, null, "29", null, false, 29, null, "30", null, false, 30, null, "31", null, false, 31, null ]
+selected = 0
+
+[node name="List4" type="OptionButton" parent="VBoxContainer2"]
+margin_top = 318.0
+margin_right = 589.0
+margin_bottom = 348.0
+rect_min_size = Vector2( 30, 30 )
+text = "HH(Hour)"
+items = [ "HH(Hour)", null, false, 0, null, "1am", null, false, 1, null, "2am", null, false, 2, null, "3am", null, false, 3, null, "4am", null, false, 4, null, "5am", null, false, 5, null, "6am", null, false, 6, null, "7am", null, false, 7, null, "8am", null, false, 8, null, "9am", null, false, 9, null, "10am", null, false, 10, null, "11am", null, false, 11, null, "12pm", null, false, 12, null, "1pm", null, false, 13, null, "2pm", null, false, 14, null, "3pm", null, false, 15, null, "4pm", null, false, 16, null, "5pm", null, false, 17, null, "6pm", null, false, 18, null, "7pm", null, false, 19, null, "8pm", null, false, 20, null, "9pm", null, false, 21, null, "10pm", null, false, 22, null, "11pm", null, false, 23, null, "12am", null, false, 24, null ]
+selected = 0
+
+[node name="List5" type="OptionButton" parent="VBoxContainer2"]
+margin_top = 352.0
+margin_right = 589.0
+margin_bottom = 382.0
+rect_min_size = Vector2( 30, 30 )
+text = "MM(Minute)"
+items = [ "MM(Minute)", null, false, 0, null, "00", null, false, 1, null, "15", null, false, 2, null, "30", null, false, 3, null, "45", null, false, 4, null ]
+selected = 0
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+margin_top = 386.0
+margin_right = 589.0
+margin_bottom = 406.0
+text = "Finish, and Upload Event To Database!"
+
+[node name="Button2" type="Button" parent="VBoxContainer2"]
+margin_top = 410.0
+margin_right = 589.0
+margin_bottom = 430.0
+text = "Return To Main Page!"

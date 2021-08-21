@@ -1,0 +1,88 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 131.0
+margin_bottom = 31.0
+text = "My Personal Finance
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 8.0
+margin_top = 37.0
+margin_right = 398.0
+margin_bottom = 167.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_right = 390.0
+margin_bottom = 14.0
+text = "My Loands:"
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer2"]
+margin_top = 18.0
+margin_right = 390.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 30, 80 )
+text = "Loan Payments
+"
+readonly = true
+
+[node name="VScrollBar2" type="VScrollBar" parent="VBoxContainer2/TextEdit"]
+margin_top = 34.0
+margin_right = 12.0
+margin_bottom = 46.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
+margin_top = 102.0
+margin_right = 390.0
+margin_bottom = 116.0
+text = "Loan Amount Left:"
+
+[node name="Label3" type="Label" parent="VBoxContainer2"]
+margin_top = 120.0
+margin_right = 390.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+margin_left = 3.0
+margin_top = 183.0
+margin_right = 597.0
+margin_bottom = 338.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer3"]
+margin_right = 594.0
+margin_bottom = 14.0
+text = "My Eqipment Funds:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
+margin_top = 18.0
+margin_right = 594.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="VBoxContainer3/HBoxContainer"]
+margin_bottom = 14.0

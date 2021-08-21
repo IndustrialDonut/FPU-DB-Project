@@ -16,6 +16,11 @@ __meta__ = {
 [node name="This" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.75241
+margin_bottom = -1.75244
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Title_Event" type="Label" parent="This"]
 margin_left = 5.0
@@ -45,11 +50,22 @@ __meta__ = {
 }
 
 [node name="Title_Financials" type="Label" parent="This"]
-margin_left = 5.33484
-margin_top = 131.477
-margin_right = 600.335
-margin_bottom = 168.477
+margin_left = 8.0
+margin_top = 131.0
+margin_right = 600.0
+margin_bottom = 168.0
 text = "Financials"
+
+[node name="Button" type="Button" parent="This/Title_Financials"]
+margin_left = 2.24493
+margin_top = 83.0
+margin_right = 588.245
+margin_bottom = 117.0
+rect_min_size = Vector2( 30, 0 )
+text = "View Personal Financials"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="View_Bank" type="Button" parent="This/Title_Financials"]
 margin_left = -4.66968

@@ -168,7 +168,7 @@ __meta__ = {
 [node name="Button5" type="Button" parent="."]
 margin_left = 19.0
 margin_top = 542.0
-margin_right = 504.0
+margin_right = 584.0
 margin_bottom = 584.0
 text = "Send Banch To Bank"
 __meta__ = {
@@ -197,9 +197,9 @@ __meta__ = {
 
 [node name="TextEdit" type="TextEdit" parent="."]
 margin_left = 10.0
-margin_top = 125.046
-margin_right = 589.0
-margin_bottom = 165.046
+margin_top = 125.0
+margin_right = 198.0
+margin_bottom = 165.0
 text = "Score From Members Here!"
 
 [node name="TextEdit2" type="TextEdit" parent="."]
