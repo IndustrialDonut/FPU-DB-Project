@@ -21,7 +21,6 @@ remote func _initialize_events(events) -> void:
 
 
 func _on_Event_item_selected(index: int) -> void:
-	#var event_id = $Event.get_item_id(index)
 	rpc_id(1, "_get_pending_reports_for", $Event.get_selected_id())
 
 
@@ -52,16 +51,42 @@ remote func _get_pending_reports_for(reports, TOTAL_reports):
 		
 		inst.report_id = report["ReportID"]
 		
+		print("Report id is " + str(inst.report_id))
 
 
 func _on_Approve_pressed() -> void:
-	pass
-	#rpc_id(1, )
+	var tab = $TabContainer.get_current_tab_control()
+	
+	if tab:
+		
+		var rep_id = tab.report_id
+		
+		print(rep_id)
+		
+		rpc_id(1, "_approve", rep_id)
+		
+		# refresh view afterwards
+		_on_Event_item_selected(0)
 
 
 func _on_Deny_pressed() -> void:
-	var rep_id = $TabContainer.get_current_tab_control().report_id
+	var tab = $TabContainer.get_current_tab_control()
 	
-	rpc_id(1, "_deny", rep_id)
+	if tab:
+		
+		var rep_id = tab.report_id
+		
+		print(rep_id)
+		
+		rpc_id(1, "_deny", rep_id)
+		
+		# refresh view afterwards
+		_on_Event_item_selected(0)
 	
 	
+
+
+func _on_Button_pressed() -> void:
+	var event_id = $Event.get_selected_id()
+	
+	rpc_id(1, "_run_event_payout", event_id)

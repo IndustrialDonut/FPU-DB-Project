@@ -114,4 +114,81 @@ func total_reports_for(id) -> int:
 
 
 func delete_report(id):
-	pass
+	db.open_db()
+	
+	assert(typeof(id) == typeof(5))
+	
+	var condition = "ReportID" + " = " + str(id)
+	#print(condition)
+	#print("ReportID = 3")
+	
+	print(db.delete_rows("EventReports", condition))
+	
+	db.close_db()
+	
+
+func approve_report(id):
+	db.open_db()
+	
+	db.query("""UPDATE EventReports
+	SET Approved = 1
+	WHERE ReportID = """ + str(id))
+	
+	db.close_db()
+
+
+const SC_TRANSFER_FEE = 0.005 # 0.5% fee rate
+const ORG_DIVIDEND_RATE = 0.5 # ORG TAKES HALF
+const PLAYER_DIVIDEND_RATE = 0.5 # PLAYERS TAKE HALF
+func payout_event_id(id):
+	db.open_db()
+	
+	db.query("SELECT HasBeenPaid FROM Events WHERE ID = " + str(id))
+	
+	if db.query_result[0]["HasBeenPaid"]:
+		return
+	
+	#SUM(Gross) as Sum
+	
+	db.query("""
+	SELECT * FROM EventReports
+	WHERE Approved = 1 AND EventID = """ + str(id)
+	+ " GROUP BY Username")
+	
+	var result = db.query_result.duplicate(true)
+	
+	var total_gross = 0
+	for record in result:
+		total_gross += record["Gross"]
+	
+	var total_players = result.size()
+	
+	var total_initial_fee = total_gross * SC_TRANSFER_FEE
+	
+	var pre_payment_total = total_gross - total_initial_fee
+	
+	var org_gross = pre_payment_total * ORG_DIVIDEND_RATE
+	var players_net = pre_payment_total * PLAYER_DIVIDEND_RATE
+	
+	var org_net = org_gross - (players_net * SC_TRANSFER_FEE)
+	
+	var player_each_net = float(players_net) / float(total_players)
+	
+	db.query("""
+	UPDATE Events
+	SET HasBeenPaid = 1, TotalGrossed = """ + str(total_gross) +
+	""" WHERE ID = """ + str(id))
+	
+	for i in range(total_players):
+		
+		var row = {
+			"Username" : result[i]["Username"],
+			"Grossed" : result[i]["Gross"],
+			"PlayerNet" : player_each_net,
+			"OrgNet" : org_net,
+			"EventID" : result[i]["EventID"]
+		}
+		
+		db.insert_row("PayRecords", row)
+	
+	db.close_db()
