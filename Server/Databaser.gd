@@ -200,6 +200,7 @@ const SC_TRANSFER_FEE = 0.005 # 0.5% fee rate
 const ORG_DIVIDEND_RATE = 0.5 # ORG TAKES HALF
 const PLAYER_DIVIDEND_RATE = 0.5 # PLAYERS TAKE HALF
 func payout_event_id(id):
+	print("event id for payout is " + str(id))
 	db.open_db()
 	
 	db.query("SELECT HasBeenPaid FROM Events WHERE ID = " + str(id))
@@ -237,11 +238,13 @@ func payout_event_id(id):
 	
 	var gross_to_hours : float = total_gross / total_hours
 	
-	db.query("""
+	var b = db.query("""
 	UPDATE Events
 	SET HasBeenPaid = 1, TotalGrossed = """ + str(total_gross) +
 	", GrossedToHours = " + str(gross_to_hours) +
 	""" WHERE ID = """ + str(id))
+	
+	assert(b)
 	
 	for i in range(total_players):
 		
@@ -251,10 +254,12 @@ func payout_event_id(id):
 			"PlayerNet" : player_each_net,
 			"OrgNet" : org_net,
 			"EventID" : result[i]["EventID"],
-			"GrossedToHours" : (result[i]["Gross"] / result[i]["Hours"])
+			"GrossToHours" : (result[i]["Gross"] / result[i]["Hours"])
 		}
 		
-		db.insert_row("PayRecords", row)
+		b = db.insert_row("PayRecords", row)
+		assert(b)
+		print("pay record???")
 	
 	db.close_db()
 

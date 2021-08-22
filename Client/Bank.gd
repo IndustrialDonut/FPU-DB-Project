@@ -22,6 +22,6 @@ remote func _initialize_view(dicts, total) -> void:
 	$Total.text = "$ " + str(total)
 
 
-signal _return_bank
+signal _return_bank(node)
 func _on_Back_pressed() -> void:
-	emit_signal("_return_bank")
+	emit_signal("_return_bank", self)

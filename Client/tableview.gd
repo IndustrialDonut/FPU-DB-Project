@@ -69,6 +69,6 @@ remote func _initialize_records(records):
 	print(commentlabel % [str(user_uec_hour), str(event_uec_hour)])
 	
 
-signal return_from_invoice
+signal return_from_invoice(node)
 func _on_Button_pressed() -> void:
-	emit_signal("return_from_invoice")
+	emit_signal("return_from_invoice", self)

@@ -1,6 +1,6 @@
 extends Control
 
-signal return_from_eventform
+signal return_from_eventform(node)
 
 func _on_Button_pressed() -> void:
 	for child in get_children():
@@ -34,7 +34,7 @@ remote func event_report_result(message) -> void:
 
 
 func _on_returnbutton_pressed() -> void:
-	emit_signal("return_from_eventform")
+	emit_signal("return_from_eventform", self)
 
 
 func _ready() -> void:

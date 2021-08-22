@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Members.gd" type="Script" id=1]
 [ext_resource path="res://EventForm.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://PendingReports.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tableview.tscn" type="PackedScene" id=5]
 [ext_resource path="res://CreateNewEvent.tscn" type="PackedScene" id=6]
+[ext_resource path="res://SpecialButton.gd" type="Script" id=7]
 
 [node name="Members" type="Control"]
 anchor_right = 1.0
@@ -38,10 +39,12 @@ __meta__ = {
 margin_top = 22.0
 margin_right = 590.0
 margin_bottom = 56.0
-text = "View Organization Bank"
+text = "View Bank"
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+scene = "Bank"
 
 [node name="ViewPersonal" type="Button" parent="This/Title_Financials"]
 anchor_top = -0.0101924
@@ -51,9 +54,8 @@ margin_top = 59.4983
 margin_right = 588.0
 margin_bottom = 93.4983
 text = "View Personal Financials"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 7 )
+scene = "PersonalFinance"
 
 [node name="ViewInvoice" type="Button" parent="This/Title_Financials"]
 anchor_top = -0.0101924
@@ -63,9 +65,8 @@ margin_top = 95.4983
 margin_right = 593.0
 margin_bottom = 129.498
 text = "View My Payslip"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 7 )
+scene = "InvoiceView"
 
 [node name="Quit" type="Button" parent="This"]
 margin_left = 195.584
@@ -90,9 +91,8 @@ margin_top = 35.5559
 margin_right = 593.251
 margin_bottom = 69.5559
 text = "Create New Event"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 7 )
+scene = "CreateEvent"
 
 [node name="View_Pending_Report" type="Button" parent="This/Title_Event"]
 margin_left = -1.25085
@@ -100,9 +100,8 @@ margin_top = 115.715
 margin_right = 594.749
 margin_bottom = 149.715
 text = "View Pending Reports"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 7 )
+scene = "PendingReports"
 
 [node name="Button_Submit_Event_Report" type="Button" parent="This/Title_Event"]
 margin_left = 2.0
@@ -110,9 +109,8 @@ margin_top = 76.0
 margin_right = 592.0
 margin_bottom = 110.0
 text = "Submit an Event Report"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 7 )
+scene = "EventForm"
 
 [node name="EventForm" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -140,13 +138,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="This/Title_Financials/ViewBank" to="." method="_on_View_Bank_pressed"]
-[connection signal="pressed" from="This/Title_Financials/ViewInvoice" to="." method="_on_ViewInvoice"]
+[connection signal="pressed" from="This/Title_Financials/ViewBank" to="This/Title_Financials/ViewBank" method="_on_SpecialButton_pressed"]
+[connection signal="special_signal" from="This/Title_Financials/ViewBank" to="." method="on_scene_button_pressed"]
+[connection signal="pressed" from="This/Title_Financials/ViewPersonal" to="This/Title_Financials/ViewPersonal" method="_on_SpecialButton_pressed"]
+[connection signal="pressed" from="This/Title_Financials/ViewInvoice" to="This/Title_Financials/ViewInvoice" method="_on_SpecialButton_pressed"]
+[connection signal="special_signal" from="This/Title_Financials/ViewInvoice" to="." method="on_scene_button_pressed"]
 [connection signal="pressed" from="This/Quit" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="This/Title_Event/CreateEvent" to="." method="_on_CreateEvent_pressed"]
-[connection signal="pressed" from="This/Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]
-[connection signal="pressed" from="This/Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]
-[connection signal="return_from_eventform" from="EventForm" to="." method="_on_EventForm_return_from_eventform"]
-[connection signal="_return_bank" from="Bank" to="." method="_on_Bank__return_bank"]
-[connection signal="return_pending" from="PendingReports" to="." method="_on_PendingReports_return_pending"]
-[connection signal="return_from_invoice" from="InvoiceView" to="." method="_on_InvoiceView_return_from_invoice"]
+[connection signal="pressed" from="This/Title_Event/CreateEvent" to="This/Title_Event/CreateEvent" method="_on_SpecialButton_pressed"]
+[connection signal="special_signal" from="This/Title_Event/CreateEvent" to="." method="on_scene_button_pressed"]
+[connection signal="pressed" from="This/Title_Event/View_Pending_Report" to="This/Title_Event/View_Pending_Report" method="_on_SpecialButton_pressed"]
+[connection signal="special_signal" from="This/Title_Event/View_Pending_Report" to="." method="on_scene_button_pressed"]
+[connection signal="pressed" from="This/Title_Event/Button_Submit_Event_Report" to="This/Title_Event/Button_Submit_Event_Report" method="_on_SpecialButton_pressed"]
+[connection signal="special_signal" from="This/Title_Event/Button_Submit_Event_Report" to="." method="on_scene_button_pressed"]
+[connection signal="return_from_eventform" from="EventForm" to="." method="return_from_scene"]
+[connection signal="_return_bank" from="Bank" to="." method="return_from_scene"]
+[connection signal="return_pending" from="PendingReports" to="." method="return_from_scene"]
+[connection signal="return_from_invoice" from="InvoiceView" to="." method="return_from_scene"]

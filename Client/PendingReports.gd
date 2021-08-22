@@ -89,6 +89,6 @@ func _on_Button_pressed() -> void:
 	
 	rpc_id(1, "_run_event_payout", event_id)
 
-signal return_pending
+signal return_pending(node)
 func _on_Button2_pressed() -> void:
-	emit_signal("return_pending")
+	emit_signal("return_pending", self)

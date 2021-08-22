@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Button",
+"class": "SpecialButton",
+"language": "GDScript",
+"path": "res://SpecialButton.gd"
+} ]
+_global_script_class_icons={
+"SpecialButton": ""
+}
+
 [application]
 
 config/name="DatabaseCLIENT"

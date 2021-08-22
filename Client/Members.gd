@@ -1,50 +1,17 @@
 extends Control
 
-signal bank_viewed
-
-
-func _on_Button_Submit_Event_Report_pressed() -> void:
-	$This.hide()
-	$EventForm.show()
-func _on_EventForm_return_from_eventform() -> void:
-	$This.show()
-	$EventForm.hide()
-
 
 func _on_Button_pressed() -> void:
 	get_tree().quit()
 
 
-func _on_View_Pending_Report_pressed() -> void:
-	$This.hide()
-	$PendingReports.show()
-
-
-func _on_View_Bank_pressed() -> void:
-	$This.hide()
-	$Bank.show()
-	emit_signal("bank_viewed")
-
-
-func _on_Bank__return_bank() -> void:
+func return_from_scene(scene):
+	scene.hide()
 	$This.show()
-	$Bank.hide()
 
 
-func _on_PendingReports_return_pending() -> void:
-	$This.show()
-	$PendingReports.hide()
-
-
-func _on_ViewInvoice() -> void:
+func on_scene_button_pressed(scene_name):
 	$This.hide()
-	$InvoiceView.show()
-
-func _on_CreateEvent_pressed() -> void:
-	$This.hide()
-	$CreateEvent.show()
+	get_node(scene_name).show()
 
 
-func _on_InvoiceView_return_from_invoice() -> void:
-	$This.show()
-	$InvoiceView.hide()
