@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Enums",
 "language": "GDScript",
 "path": "res://Enums/Enums.gd"
+}, {
+"base": "Reference",
+"class": "Queue",
+"language": "GDScript",
+"path": "res://TestImplementations/queue.gd"
 } ]
 _global_script_class_icons={
-"Enums": ""
+"Enums": "",
+"Queue": ""
 }
 
 [application]
