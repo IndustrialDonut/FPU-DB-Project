@@ -43,3 +43,8 @@ func _on_ViewInvoice() -> void:
 func _on_CreateEvent_pressed() -> void:
 	$This.hide()
 	$CreateEvent.show()
+
+
+func _on_InvoiceView_return_from_invoice() -> void:
+	$This.show()
+	$InvoiceView.hide()

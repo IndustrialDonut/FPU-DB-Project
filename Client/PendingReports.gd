@@ -18,6 +18,9 @@ remote func _initialize_events(events) -> void:
 			+ event["Leader"] + " " 
 			+ event["Datetime"], event["ID"]
 			)
+	
+	# make it so you don't have to click an option to refresh the view
+	_on_Event_item_selected(0)
 
 
 func _on_Event_item_selected(index: int) -> void:
@@ -80,6 +83,7 @@ func _on_Deny_pressed() -> void:
 		_on_Event_item_selected(0)
 
 
+# COMMIT PAYOUTS
 func _on_Button_pressed() -> void:
 	var event_id = $Event.get_selected_id()
 	

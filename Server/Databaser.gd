@@ -215,9 +215,11 @@ func payout_event_id(id):
 	
 	var result = db.query_result.duplicate(true)
 	
-	var total_gross = 0
+	var total_gross : float = 0
+	var total_hours : float = 0
 	for record in result:
 		total_gross += record["Gross"]
+		total_hours += record["Hours"]
 	
 	var total_players = result.size()
 	
@@ -232,9 +234,12 @@ func payout_event_id(id):
 	
 	var player_each_net = float(players_net) / float(total_players)
 	
+	var gross_to_hours : float = total_gross / total_hours
+	
 	db.query("""
 	UPDATE Events
 	SET HasBeenPaid = 1, TotalGrossed = """ + str(total_gross) +
+	", GrossedToHours = " + str(gross_to_hours) +
 	""" WHERE ID = """ + str(id))
 	
 	for i in range(total_players):
@@ -244,7 +249,8 @@ func payout_event_id(id):
 			"Grossed" : result[i]["Gross"],
 			"PlayerNet" : player_each_net,
 			"OrgNet" : org_net,
-			"EventID" : result[i]["EventID"]
+			"EventID" : result[i]["EventID"],
+			"GrossedToHours" : (result[i]["Gross"] / result[i]["Hours"])
 		}
 		
 		db.insert_row("PayRecords", row)

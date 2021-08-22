@@ -149,3 +149,4 @@ __meta__ = {
 [connection signal="return_from_eventform" from="EventForm" to="." method="_on_EventForm_return_from_eventform"]
 [connection signal="_return_bank" from="Bank" to="." method="_on_Bank__return_bank"]
 [connection signal="return_pending" from="PendingReports" to="." method="_on_PendingReports_return_pending"]
+[connection signal="return_from_invoice" from="InvoiceView" to="." method="_on_InvoiceView_return_from_invoice"]

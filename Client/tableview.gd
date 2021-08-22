@@ -19,7 +19,14 @@ remote func _initialize_records(records):
 	var playernet = 0
 	var orgnet = 0
 	var overalltotalgross = 0
+	
+	var user_uec_hour = 0
+	var event_uec_hour = 0
 	for record in records:
+		
+		user_uec_hour += record["GrossToHours"]
+		event_uec_hour += record["GrossedToHours"]
+		
 		var inst = preload("res://PayslipRecord.tscn").instance()
 		
 		$ScrollContainer/VBoxContainer.add_child(inst)
@@ -52,3 +59,14 @@ remote func _initialize_records(records):
 	
 	var playernetlabel = vbox.get_node("PlayerNet").text
 	vbox.get_node("PlayerNet").text = playernetlabel % str(playernet)
+	
+	
+	var commentlabel = $HBoxContainer/ScrollContainer2/VBoxContainer3/Comments.text
+	$HBoxContainer/ScrollContainer2/VBoxContainer3/Comments.text = commentlabel % [str(user_uec_hour), str(event_uec_hour)]
+	
+	print(commentlabel % [str(user_uec_hour), str(event_uec_hour)])
+	
+
+signal return_from_invoice
+func _on_Button_pressed() -> void:
+	emit_signal("return_from_invoice")
