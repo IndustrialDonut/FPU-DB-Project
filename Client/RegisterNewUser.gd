@@ -21,3 +21,8 @@ remote func registration_result(message) -> void:
 	print(message)
 	if message:
 		emit_signal("return_from_register")
+
+
+func _on_Button_pressed() -> void:
+	
+	emit_signal("return_from_register")

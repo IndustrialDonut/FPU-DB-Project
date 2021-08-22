@@ -33,21 +33,34 @@ __meta__ = {
 }
 
 [node name="View_Bank" type="Button" parent="This/Title_Financials"]
-margin_left = -8.57001
-margin_top = 21.7
-margin_right = 587.43
-margin_bottom = 55.7003
+margin_top = 22.0
+margin_right = 590.0
+margin_bottom = 56.0
 text = "View Organization Bank"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="View_Bank2" type="Button" parent="This/Title_Financials"]
-margin_left = -8.26086
-margin_top = 59.6002
-margin_right = 587.738
-margin_bottom = 93.6002
+anchor_top = -0.0101924
+anchor_bottom = -0.0101924
+margin_left = 1.0
+margin_top = 59.4983
+margin_right = 588.0
+margin_bottom = 93.4983
 text = "View Personal Financials"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="View_Bank3" type="Button" parent="This/Title_Financials"]
+anchor_top = -0.0101924
+anchor_bottom = -0.0101924
+margin_left = -3.0
+margin_top = 95.4983
+margin_right = 593.0
+margin_bottom = 129.498
+text = "View My Payslip"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,6 +134,7 @@ __meta__ = {
 
 [connection signal="pressed" from="This/Title_Financials/View_Bank" to="." method="_on_View_Bank_pressed"]
 [connection signal="pressed" from="This/Title_Financials/View_Bank2" to="." method="_on_View_Bank_pressed"]
+[connection signal="pressed" from="This/Title_Financials/View_Bank3" to="." method="_on_View_Bank_pressed"]
 [connection signal="pressed" from="This/Quit" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="This/Title_Event/View_Pending_Report2" to="." method="_on_View_Pending_Report_pressed"]
 [connection signal="pressed" from="This/Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]

@@ -3,86 +3,188 @@
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 3.78107
+margin_bottom = 3.78107
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 424.727
+margin_top = -0.370041
+margin_right = 597.727
+margin_bottom = 47.63
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 131.0
-margin_bottom = 31.0
+margin_right = 173.0
+margin_bottom = 48.0
 text = "My Personal Finance
+Username:
 "
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_left = 8.0
-margin_top = 37.0
-margin_right = 398.0
-margin_bottom = 167.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer2"]
-margin_right = 390.0
-margin_bottom = 14.0
-text = "My Loands:"
-
-[node name="TextEdit" type="TextEdit" parent="VBoxContainer2"]
-margin_top = 18.0
-margin_right = 390.0
-margin_bottom = 98.0
-rect_min_size = Vector2( 30, 80 )
-text = "Loan Payments
-"
-readonly = true
-
-[node name="VScrollBar2" type="VScrollBar" parent="VBoxContainer2/TextEdit"]
-margin_top = 34.0
-margin_right = 12.0
-margin_bottom = 46.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="VBoxContainer2"]
-margin_top = 102.0
-margin_right = 390.0
-margin_bottom = 116.0
-text = "Loan Amount Left:"
-
-[node name="Label3" type="Label" parent="VBoxContainer2"]
-margin_top = 120.0
-margin_right = 390.0
-margin_bottom = 134.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
-margin_left = 3.0
-margin_top = 183.0
-margin_right = 597.0
-margin_bottom = 338.0
+margin_top = 44.0
+margin_right = 598.0
+margin_bottom = 199.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer3"]
-margin_right = 594.0
+margin_right = 598.0
 margin_bottom = 14.0
-text = "My Eqipment Funds:"
+text = "Past Pay"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3/Label"]
+margin_left = 1.0
+margin_top = 20.0
+margin_right = 613.0
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer3/Label/HBoxContainer"]
+margin_right = 145.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 145, 40 )
+text = "Total Contibutions:	"
+
+[node name="TextEdit3" type="TextEdit" parent="VBoxContainer3/Label/HBoxContainer"]
+margin_left = 149.0
+margin_right = 294.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 145, 40 )
+text = "Total Hours Worked:"
+
+[node name="TextEdit4" type="TextEdit" parent="VBoxContainer3/Label/HBoxContainer"]
+margin_left = 298.0
+margin_right = 443.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 145, 40 )
+text = "My Gross Amount:"
+
+[node name="TextEdit5" type="TextEdit" parent="VBoxContainer3/Label/HBoxContainer"]
+margin_left = 447.0
+margin_right = 592.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 145, 40 )
+text = "Date of Pay:"
+
+[node name="TextEdit2" type="TextEdit" parent="VBoxContainer3/Label/HBoxContainer"]
+margin_left = 596.0
+margin_right = 596.0
+margin_bottom = 54.0
+
+[node name="VScrollBar" type="VScrollBar" parent="VBoxContainer3/Label/HBoxContainer"]
+margin_left = 600.0
+margin_right = 612.0
+margin_bottom = 54.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 8.55591
+margin_top = 134.969
+margin_right = 598.556
+margin_bottom = 267.969
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_right = 590.0
+margin_bottom = 14.0
+text = "My Budget:"
+
+[node name="Label2" type="Label" parent="VBoxContainer2"]
 margin_top = 18.0
-margin_right = 594.0
+margin_right = 590.0
 margin_bottom = 32.0
+text = "What Amount Ingame "
 
-[node name="Label" type="Label" parent="VBoxContainer3/HBoxContainer"]
-margin_bottom = 14.0
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer2"]
+margin_top = 36.0
+margin_right = 590.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 30, 30 )
+text = "Enter Amount Here:"
+
+[node name="Label3" type="Label" parent="VBoxContainer2"]
+margin_top = 70.0
+margin_right = 590.0
+margin_bottom = 84.0
+text = "Enter The Amount That Is Total In-Game in Your Bank!"
+
+[node name="TextEdit2" type="TextEdit" parent="VBoxContainer2"]
+margin_top = 88.0
+margin_right = 590.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 40, 40 )
+text = "Total in Bank Here:"
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+margin_top = 132.0
+margin_right = 590.0
+margin_bottom = 152.0
+text = "Complete Budget Here:"
+
+[node name="Label4" type="Label" parent="VBoxContainer2"]
+margin_top = 156.0
+margin_right = 590.0
+margin_bottom = 170.0
+text = "My ORG Budget Amount:"
+
+[node name="Label5" type="Label" parent="VBoxContainer2"]
+margin_top = 174.0
+margin_right = 590.0
+margin_bottom = 188.0
+text = "Non-Budget Amount:"
+
+[node name="TextEdit3" type="TextEdit" parent="VBoxContainer2"]
+margin_top = 192.0
+margin_right = 590.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 40, 40 )
+text = "Add New Funds To Budget Here:"
+
+[node name="TextEdit4" type="TextEdit" parent="VBoxContainer2"]
+margin_top = 236.0
+margin_right = 590.0
+margin_bottom = 276.0
+rect_min_size = Vector2( 40, 40 )
+text = "Subtract Funds From Budget Here:"
+
+[node name="TextEdit5" type="TextEdit" parent="VBoxContainer2"]
+margin_top = 280.0
+margin_right = 590.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 40, 40 )
+text = "Subtract Funds From Non-Budget Here:"
+
+[node name="Button2" type="Button" parent="VBoxContainer2"]
+margin_top = 324.0
+margin_right = 590.0
+margin_bottom = 344.0
+text = "Confirm Addition/Subtraction From Budget!"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 13.0
+margin_top = 533.0
+margin_right = 595.0
+margin_bottom = 591.0
+text = "Return To Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 11.0
+margin_top = 482.0
+margin_right = 593.0
+margin_bottom = 531.0
+text = "Next Page- Loans,etc"
+__meta__ = {
+"_edit_use_anchors_": false
+}
