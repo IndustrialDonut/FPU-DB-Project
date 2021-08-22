@@ -4,9 +4,11 @@ extends Control
 func _ready() -> void:
 	connect("visibility_changed", self, "_visibility_changed")
 
-
+var done = false
 func _visibility_changed() -> void:
-	rpc_id(1, "_initialize_records")
+	if visible and not done:
+		done = true
+		rpc_id(1, "_initialize_records")
 
 
 remote func _initialize_records(records):
