@@ -7,3 +7,7 @@ func isEmpty():
 	
 func add_Element(element):
 	empty = false
+
+func pull_Element():
+	empty = true
+
