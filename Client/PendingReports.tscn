@@ -137,3 +137,4 @@ __meta__ = {
 [connection signal="pressed" from="HBoxContainer/Approve" to="." method="_on_Approve_pressed"]
 [connection signal="pressed" from="HBoxContainer/Deny" to="." method="_on_Deny_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

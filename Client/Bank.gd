@@ -6,7 +6,7 @@ func _ready() -> void:
 
 
 func _visibility_changed() -> void:
-	rpc_id(1, "_initialize_view", SNetworkGlobal.logged_in_token)
+	rpc_id(1, "_initialize_view")
 
 
 remote func _initialize_view(dicts, total) -> void:
@@ -20,3 +20,8 @@ remote func _initialize_view(dicts, total) -> void:
 		inst.text = str(dict)
 	
 	$Total.text = "$ " + str(total)
+
+
+signal _return_bank
+func _on_Back_pressed() -> void:
+	emit_signal("_return_bank")

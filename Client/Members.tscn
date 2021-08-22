@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Members.gd" type="Script" id=1]
 [ext_resource path="res://EventForm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bank.tscn" type="PackedScene" id=3]
 [ext_resource path="res://PendingReports.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tableview.tscn" type="PackedScene" id=5]
 
 [node name="Members" type="Control"]
 anchor_right = 1.0
@@ -42,7 +43,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="View_Bank2" type="Button" parent="This/Title_Financials"]
+[node name="ViewPersonal" type="Button" parent="This/Title_Financials"]
 margin_left = -8.26086
 margin_top = 59.6002
 margin_right = 587.738
@@ -69,7 +70,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="View_Pending_Report2" type="Button" parent="This/Title_Event"]
+[node name="CreateNewEvent" type="Button" parent="This/Title_Event"]
 margin_left = -2.74915
 margin_top = 35.5559
 margin_right = 593.251
@@ -108,6 +109,11 @@ visible = false
 [node name="PendingReports" parent="." instance=ExtResource( 4 )]
 visible = false
 
+[node name="InvoiceView" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_top = -1.7937
+margin_bottom = -1.7937
+
 [node name="Button" type="Button" parent="."]
 visible = false
 margin_left = 7.0
@@ -120,9 +126,11 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="This/Title_Financials/View_Bank" to="." method="_on_View_Bank_pressed"]
-[connection signal="pressed" from="This/Title_Financials/View_Bank2" to="." method="_on_View_Bank_pressed"]
+[connection signal="pressed" from="This/Title_Financials/ViewPersonal" to="." method="_on_ViewPersonal_pressed"]
 [connection signal="pressed" from="This/Quit" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="This/Title_Event/View_Pending_Report2" to="." method="_on_View_Pending_Report_pressed"]
+[connection signal="pressed" from="This/Title_Event/CreateNewEvent" to="." method="_on_View_Pending_Report_pressed"]
 [connection signal="pressed" from="This/Title_Event/View_Pending_Report" to="." method="_on_View_Pending_Report_pressed"]
 [connection signal="pressed" from="This/Title_Event/Button_Submit_Event_Report" to="." method="_on_Button_Submit_Event_Report_pressed"]
 [connection signal="return_from_eventform" from="EventForm" to="." method="_on_EventForm_return_from_eventform"]
+[connection signal="_return_bank" from="Bank" to="." method="_on_Bank__return_bank"]
+[connection signal="return_pending" from="PendingReports" to="." method="_on_PendingReports_return_pending"]
