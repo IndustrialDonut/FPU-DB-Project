@@ -24,6 +24,7 @@ func register(user, pass_h):
 	print("username OK, registering")
 	db.open_db()
 	db.query("INSERT INTO Credentials (Username, Password) VALUES ('" + user + "','" + pass_h + "');")
+	db.query("INSERT INTO Users (Username) VALUES ('" + user + "')")
 	db.close_db()
 
 	return Enums.Register.REGISTER_SUCCESS
