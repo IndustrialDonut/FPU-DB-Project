@@ -84,3 +84,7 @@ func _on_Button_pressed() -> void:
 	var event_id = $Event.get_selected_id()
 	
 	rpc_id(1, "_run_event_payout", event_id)
+
+signal return_pending
+func _on_Button2_pressed() -> void:
+	emit_signal("return_pending")

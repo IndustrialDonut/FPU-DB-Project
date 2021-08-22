@@ -1,21 +1,24 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://PayslipRecord.gd" type="Script" id=1]
 
 [node name="Record" type="HBoxContainer"]
 margin_right = 600.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 400, 50 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="Eventname" type="TextEdit" parent="."]
 margin_right = 116.0
 margin_bottom = 60.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Event Name:"
 
-[node name="TextEdit2" type="TextEdit" parent="."]
+[node name="Playergross" type="TextEdit" parent="."]
 margin_left = 120.0
 margin_right = 237.0
 margin_bottom = 60.0
@@ -24,7 +27,7 @@ size_flags_vertical = 3
 text = "Gross Contr.
 by Player:"
 
-[node name="TextEdit3" type="TextEdit" parent="."]
+[node name="Fee" type="TextEdit" parent="."]
 margin_left = 241.0
 margin_right = 358.0
 margin_bottom = 60.0
@@ -33,7 +36,7 @@ size_flags_vertical = 3
 text = "Sending Fee on 
 Total Earned:"
 
-[node name="TextEdit4" type="TextEdit" parent="."]
+[node name="Playernet" type="TextEdit" parent="."]
 margin_left = 362.0
 margin_right = 479.0
 margin_bottom = 60.0
@@ -42,7 +45,7 @@ size_flags_vertical = 3
 text = "Dividend per 
 Player:"
 
-[node name="TextEdit5" type="TextEdit" parent="."]
+[node name="Totalgross" type="TextEdit" parent="."]
 margin_left = 483.0
 margin_right = 600.0
 margin_bottom = 60.0

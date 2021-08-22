@@ -24,3 +24,18 @@ func _on_View_Bank_pressed() -> void:
 	$This.hide()
 	$Bank.show()
 	emit_signal("bank_viewed")
+
+
+func _on_Bank__return_bank() -> void:
+	$This.show()
+	$Bank.hide()
+
+
+func _on_PendingReports_return_pending() -> void:
+	$This.show()
+	$PendingReports.hide()
+
+
+func _on_ViewPersonal_pressed() -> void:
+	$This.hide()
+	$InvoiceView.show()

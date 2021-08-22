@@ -250,3 +250,23 @@ func payout_event_id(id):
 		db.insert_row("PayRecords", row)
 	
 	db.close_db()
+
+
+
+func get_pay_records_for(id):
+	var user = SNetworkGlobal.idToUsername(id)
+	
+	db.open_db()
+	
+	var b = db.query("""
+	SELECT * FROM PayRecords INNER JOIN Events ON PayRecords.EventID = Events.ID 
+	WHERE HasBeenPaid = 1 AND PayRecords.Username = '""" + user + "'"
+	)
+	
+	assert(b)
+	
+	var result = db.query_result
+	
+	db.close_db()
+	
+	return result

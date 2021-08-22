@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://PayslipRecord.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FreePeoplesUnion Logo.png" type="Texture" id=2]
+[ext_resource path="res://tableview.gd" type="Script" id=3]
 
-[node name="Control" type="Control"]
+[node name="InvoiceView" type="Control"]
 anchor_top = -0.00280299
 anchor_right = 1.0
 anchor_bottom = 0.997197
@@ -11,6 +12,7 @@ margin_left = 1.5874
 margin_top = -0.793701
 margin_right = 1.5874
 margin_bottom = -0.793701
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,12 +40,6 @@ __meta__ = {
 [node name="Record" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
 margin_right = 587.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 0, 40 )
-
-[node name="Record2" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
-margin_top = 44.0
-margin_right = 587.0
-margin_bottom = 84.0
 rect_min_size = Vector2( 0, 40 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
