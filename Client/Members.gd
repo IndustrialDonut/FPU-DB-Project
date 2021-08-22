@@ -36,6 +36,10 @@ func _on_PendingReports_return_pending() -> void:
 	$PendingReports.hide()
 
 
-func _on_ViewPersonal_pressed() -> void:
+func _on_ViewInvoice() -> void:
 	$This.hide()
 	$InvoiceView.show()
+
+func _on_CreateEvent_pressed() -> void:
+	$This.hide()
+	$CreateEvent.show()
