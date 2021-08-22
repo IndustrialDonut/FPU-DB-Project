@@ -91,10 +91,10 @@ size_flags_vertical = 3
 text = "DENY"
 
 [node name="Status" type="Label" parent="."]
-margin_left = 161.852
-margin_top = 101.166
-margin_right = 477.852
-margin_bottom = 128.166
+margin_left = 251.673
+margin_top = 500.546
+margin_right = 567.673
+margin_bottom = 547.546
 __meta__ = {
 "_edit_use_anchors_": false
 }
