@@ -121,7 +121,7 @@ func get_event_labels():
 	# 4 + hours working on a sorting algorithm by Datetime and would rather kill myself
 	# than not use it after realizing this anyway. So, that sorting algorithm is 
 	# on the Sorter class on the Event Report for the Client!
-	db.query("SELECT EventName, Leader, Datetime, ID FROM Events")# ORDER BY Datetime")
+	db.query("SELECT EventName, Leader, Datetime, ID FROM Events ORDER BY Datetime")
 	
 	var result = db.query_result
 	

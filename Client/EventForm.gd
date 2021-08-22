@@ -49,10 +49,11 @@ remote func _initialize_events(events) -> void:
 	$Event.clear()
 	if events:
 		var random = events.duplicate()
-		random.shuffle()
+		#random.shuffle()
 		#print($Sorter.sort_by_date(random))
-		var sorted_events = $Sorter.sort_by_date(events)
-		for event in sorted_events:
+		#var sorted_events = $Sorter.sort_by_date(events)
+		#for event in sorted_events:
+		for event in events:
 			$Event.add_item(
 				event["EventName"] + " " 
 				+ event["Leader"] + " " 
