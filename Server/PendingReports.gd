@@ -36,5 +36,5 @@ remote func _deny(REPORT_ID):
 		Databaser.delete_report(REPORT_ID)
 
 
-remote func _run_event_payout(EVENT_ID):
-	Databaser.payout_event_id(EVENT_ID)
+remote func _run_event_commit(EVENT_ID):
+	Databaser.commit_event_id(EVENT_ID)

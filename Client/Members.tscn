@@ -99,8 +99,11 @@ margin_left = -1.25085
 margin_top = 115.715
 margin_right = 594.749
 margin_bottom = 149.715
-text = "View Pending Reports"
+text = "View Pending Reports (non-committed Events)"
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 scene = "PendingReports"
 
 [node name="Button_Submit_Event_Report" type="Button" parent="This/Title_Event"]

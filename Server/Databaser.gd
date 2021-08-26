@@ -70,9 +70,18 @@ func submit_event_report(dict) -> bool:
 	
 	dict["Username"] = user
 	
+	var eventID = dict["EventID"]
+	
 	db.open_db()
 	
-	var bInserted = db.insert_row("EventReports", dict)
+	db.query("SELECT * FROM EventReports WHERE Username = '" + user + "' AND EventID = " + str(eventID))
+	
+	var bInserted
+	
+	# Do not allow players to submit more than 1 event report
+	if db.query_result.size() == 0:
+	
+		bInserted = db.insert_row("EventReports", dict)
 	
 	db.close_db()
 	
@@ -122,7 +131,7 @@ func get_event_labels():
 	# 4 + hours working on a sorting algorithm by Datetime and would rather kill myself
 	# than not use it after realizing this anyway. So, that sorting algorithm is 
 	# on the Sorter class on the Event Report for the Client!
-	db.query("SELECT EventName, Leader, Datetime, ID FROM Events ORDER BY Datetime")
+	db.query("SELECT EventName, Leader, Datetime, ID FROM Events WHERE Committed = 0 ORDER BY Datetime")
 	
 	var result = db.query_result
 	
@@ -199,21 +208,21 @@ func approve_report(id):
 const SC_TRANSFER_FEE = 0.005 # 0.5% fee rate
 const ORG_DIVIDEND_RATE = 0.5 # ORG TAKES HALF
 const PLAYER_DIVIDEND_RATE = 0.5 # PLAYERS TAKE HALF
-func payout_event_id(id):
+# Commit event and generate UNPAID PAY-RECORDS FOR PLAYERS
+func commit_event_id(id):
 	print("event id for payout is " + str(id))
 	db.open_db()
 	
-	db.query("SELECT HasBeenPaid FROM Events WHERE ID = " + str(id))
+	db.query("SELECT Committed FROM Events WHERE ID = " + str(id))
 	
-	if db.query_result[0]["HasBeenPaid"]:
+	if db.query_result[0]["Committed"]:
 		return
 	
 	#SUM(Gross) as Sum
 	
 	db.query("""
 	SELECT * FROM EventReports
-	WHERE Approved = 1 AND EventID = """ + str(id)
-	+ " GROUP BY Username")
+	WHERE Approved = 1 AND EventID = """ + str(id))
 	
 	var result = db.query_result.duplicate(true)
 	
@@ -240,7 +249,7 @@ func payout_event_id(id):
 	
 	var b = db.query("""
 	UPDATE Events
-	SET HasBeenPaid = 1, TotalGrossed = """ + str(total_gross) +
+	SET Committed = 1, TotalGrossed = """ + str(total_gross) +
 	", GrossedToHours = " + str(gross_to_hours) +
 	""" WHERE ID = """ + str(id))
 	
@@ -272,7 +281,7 @@ func get_pay_records_for(id):
 	
 	var b = db.query("""
 	SELECT * FROM PayRecords INNER JOIN Events ON PayRecords.EventID = Events.ID 
-	WHERE HasBeenPaid = 1 AND PayRecords.Username = '""" + user + "'"
+	WHERE Committed = 1 AND PayRecords.Username = '""" + user + "'"
 	)
 	
 	assert(b)
