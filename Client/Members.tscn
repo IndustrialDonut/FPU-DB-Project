@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Members.gd" type="Script" id=1]
 [ext_resource path="res://EventForm.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://tableview.tscn" type="PackedScene" id=5]
 [ext_resource path="res://CreateNewEvent.tscn" type="PackedScene" id=6]
 [ext_resource path="res://SpecialButton.gd" type="Script" id=7]
+[ext_resource path="res://FreePeoplesUnion Logo.png" type="Texture" id=8]
 
 [node name="Members" type="Control"]
 anchor_right = 1.0
@@ -26,10 +27,10 @@ __meta__ = {
 }
 
 [node name="Title_Financials" type="Label" parent="This"]
-margin_left = 4.75928
-margin_top = 193.041
-margin_right = 599.759
-margin_bottom = 340.041
+margin_left = 3.75928
+margin_top = 363.041
+margin_right = 598.759
+margin_bottom = 510.041
 text = "Financials"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -76,22 +77,25 @@ margin_bottom = 587.595
 text = "Logout and Quit"
 
 [node name="Title_Event" type="Label" parent="This"]
-margin_left = 4.25079
-margin_top = 10.7424
-margin_right = 599.251
-margin_bottom = 185.742
+margin_left = 1.25079
+margin_top = 211.742
+margin_right = 596.251
+margin_bottom = 386.742
 text = "Event"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CreateEvent" type="Button" parent="This/Title_Event"]
-margin_left = -2.74915
-margin_top = 35.5559
-margin_right = 593.251
-margin_bottom = 69.5559
+margin_left = 4.0
+margin_top = 36.0
+margin_right = 596.0
+margin_bottom = 70.0
 text = "Create New Event"
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 scene = "CreateEvent"
 
 [node name="View_Pending_Report" type="Button" parent="This/Title_Event"]
@@ -137,6 +141,59 @@ margin_top = 211.0
 margin_right = 599.0
 margin_bottom = 246.0
 text = "Personal Finance"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 410.531
+margin_top = 5.88776
+margin_right = 597.531
+margin_bottom = 108.888
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 187.0
+margin_bottom = 31.0
+text = "Database Main Menu
+"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+margin_top = 35.0
+margin_right = 187.0
+margin_bottom = 49.0
+text = "Server Status: STATUS"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_top = 53.0
+margin_right = 187.0
+margin_bottom = 67.0
+text = "Signed In As: USERNAME"
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+margin_top = 71.0
+margin_right = 187.0
+margin_bottom = 85.0
+text = "Member Status: STATUS"
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+margin_top = 89.0
+margin_right = 187.0
+margin_bottom = 103.0
+text = "Main Department: NAME"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 2.0
+margin_top = -5.0
+margin_right = 283.0
+margin_bottom = 217.0
+rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 8 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
