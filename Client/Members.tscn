@@ -119,6 +119,19 @@ text = "Submit an Event Report"
 script = ExtResource( 7 )
 scene = "EventForm"
 
+[node name="TextureRect" type="TextureRect" parent="This"]
+margin_left = 2.0
+margin_top = -4.0
+margin_right = 283.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="EventForm" parent="." instance=ExtResource( 2 )]
 visible = false
 
@@ -183,20 +196,6 @@ margin_top = 89.0
 margin_right = 187.0
 margin_bottom = 103.0
 text = "Main Department: NAME"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 2.0
-margin_top = -5.0
-margin_right = 283.0
-margin_bottom = 217.0
-rect_min_size = Vector2( 30, 30 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource( 8 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="This/Title_Financials/ViewBank" to="This/Title_Financials/ViewBank" method="_on_SpecialButton_pressed"]
 [connection signal="special_signal" from="This/Title_Financials/ViewBank" to="." method="on_scene_button_pressed"]
