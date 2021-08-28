@@ -16,6 +16,7 @@ remote func _initialize_records(records):
 		if i > 0:
 			$ScrollContainer/VBoxContainer.get_child(i).queue_free()
 	
+	var total_hours = 0
 	
 	var totalplayercontri = 0
 	var playernet = 0
@@ -25,7 +26,14 @@ remote func _initialize_records(records):
 	var user_uec_hour = 0
 	var event_uec_hour = 0
 	for record in records:
+		# We are only showing for 1 user here, the person logged in.
+		# There is only 1 event joined per 1 payrecord therefore, since it's
+		# just per user. The database itself is not a 1-1 relationship, but
+		# we here do not have to worry about duplicate events for the user
+		# filter reason.
 		
+		# 'records' is a joined table between events and payrecords
+		# 'GrossToHours' is on payrecord table, 'GrossedToHours' is on Events
 		user_uec_hour += record["GrossToHours"]
 		event_uec_hour += record["GrossedToHours"]
 		
@@ -46,6 +54,8 @@ remote func _initialize_records(records):
 		inst.set_fee(record["TotalGrossed"] * 0.005) # lol
 		
 		orgnet += record["OrgNet"]
+		
+		#total_hours += record["Hours"]
 		
 	
 	var vbox = $HBoxContainer/VBoxContainer2

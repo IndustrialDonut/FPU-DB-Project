@@ -57,7 +57,7 @@ __meta__ = {
 margin_right = 270.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 17, 16 )
-text = "Invoice #"
+text = "Transaction #"
 readonly = true
 
 [node name="Username" type="TextEdit" parent="VBoxContainer"]
@@ -118,14 +118,15 @@ __meta__ = {
 }
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/ScrollContainer2"]
-margin_right = 284.0
-margin_bottom = 189.0
+margin_right = 296.0
+margin_bottom = 120.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Comments" type="TextEdit" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
+visible = false
 margin_right = 284.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 250, 65 )
@@ -133,46 +134,45 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Directors Comments:
 USER aUEC to Hour Ratio: %s
-Event Total aUEC to Hour Ratio: %s"
+"
 readonly = true
 
 [node name="Label" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
-margin_top = 69.0
-margin_right = 284.0
-margin_bottom = 83.0
-text = "Hours Completed For Week:"
+margin_right = 296.0
+margin_bottom = 14.0
+text = "Hours Completed For Week: %s"
 
 [node name="Label2" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
-margin_top = 87.0
-margin_right = 284.0
-margin_bottom = 101.0
+margin_top = 18.0
+margin_right = 296.0
+margin_bottom = 32.0
 text = "Department of Intelligence: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
-margin_top = 105.0
-margin_right = 284.0
-margin_bottom = 119.0
+margin_top = 36.0
+margin_right = 296.0
+margin_bottom = 50.0
 text = "Department of Finance: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label4" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
-margin_top = 123.0
-margin_right = 284.0
-margin_bottom = 137.0
+margin_top = 54.0
+margin_right = 296.0
+margin_bottom = 68.0
 text = "Department of Industry: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label5" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
-margin_top = 141.0
-margin_right = 284.0
-margin_bottom = 189.0
+margin_top = 72.0
+margin_right = 296.0
+margin_bottom = 120.0
 text = "Department of Logistics: 0
 
 "

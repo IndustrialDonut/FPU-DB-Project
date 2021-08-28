@@ -146,6 +146,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Custom Transactions" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/Custom Transactions"]
+margin_right = 428.0
+margin_bottom = 50.0
+
+[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/Custom Transactions/HBoxContainer"]
+margin_right = 140.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 140, 50 )
+text = "User:"
+
+[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/Custom Transactions/HBoxContainer"]
+margin_left = 144.0
+margin_right = 284.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 140, 50 )
+text = "Amount Recieved:"
+
+[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/Custom Transactions/HBoxContainer"]
+margin_left = 288.0
+margin_right = 428.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 140, 50 )
+text = "Reason:"
+
 [node name="Paid To Members" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -159,7 +194,7 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/Paid To Members"]
-margin_right = 1144.0
+margin_right = 564.0
 margin_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -191,40 +226,5 @@ margin_right = 564.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
 text = "Paid: T/F"
-
-[node name="Custom Transactions" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = 3.0
-margin_bottom = -4.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/Custom Transactions"]
-margin_right = 435.0
-margin_bottom = 50.0
-
-[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/Custom Transactions/HBoxContainer"]
-margin_right = 140.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 140, 50 )
-text = "User:"
-
-[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/Custom Transactions/HBoxContainer"]
-margin_left = 144.0
-margin_right = 284.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 140, 50 )
-text = "Amount Recieved:"
-
-[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/Custom Transactions/HBoxContainer"]
-margin_left = 288.0
-margin_right = 428.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 140, 50 )
-text = "Reason:"
 
 [connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_Back_pressed"]

@@ -1,22 +1,12 @@
 class_name Enums
 extends Node
 
-#enum Login{
-#	LOGIN_OK,
-#	PASSWORD_INCORRECT,
-#	NO_USERNAME_FOUND
-#}
-#
-#enum Register{
-#	REGISTER_SUCCESS,
-#	USERNAME_TAKEN
-#}
-#
-#enum Verify{
-#	UNVERIFIED,
-#	VERIFIED,
-#	VERIFIED_WHITELISTED
-#}
+enum Member{
+	Prospect,
+	Associate,
+	Member,
+	Emissary
+}
 
 enum Register{
 	REGISTER_SUCCESS,
@@ -29,3 +19,6 @@ enum VER{
 	VERIFIED,
 	VERIFIED_WHITELISTED
 }
+
+
+

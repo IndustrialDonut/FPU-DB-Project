@@ -1,6 +1,8 @@
 extends Control
 
 
+
+
 remote func _initialize_view(token) -> void:
 	var id = multiplayer.get_rpc_sender_id()
 

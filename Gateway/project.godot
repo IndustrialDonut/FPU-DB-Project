@@ -9,10 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Parent",
+"class": "Child",
+"language": "GDScript",
+"path": "res://child.gd"
+}, {
+"base": "Parent",
+"class": "Child2",
+"language": "GDScript",
+"path": "res://Ssdfdsfpatial.gd"
+}, {
+"base": "Parent",
+"class": "Child3",
+"language": "GDScript",
+"path": "res://Control.gd"
+}, {
 "base": "Node",
 "class": "Enums",
 "language": "GDScript",
 "path": "res://Enums/Enums.gd"
+}, {
+"base": "Node2D",
+"class": "Parent",
+"language": "GDScript",
+"path": "res://Node2D.gd"
 }, {
 "base": "Reference",
 "class": "Queue",
@@ -20,7 +40,11 @@ _global_script_classes=[ {
 "path": "res://TestImplementations/queue.gd"
 } ]
 _global_script_class_icons={
+"Child": "",
+"Child2": "",
+"Child3": "",
 "Enums": "",
+"Parent": "",
 "Queue": ""
 }
 

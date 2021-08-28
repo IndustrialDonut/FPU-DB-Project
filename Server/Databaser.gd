@@ -8,6 +8,7 @@ var db : sqlite = sqlite.new()
 
 
 func _ready() -> void:
+	#print("Associate is enumeration: " + str(Enums.Member.Associate))
 	db.path = db_path
 
 func register(user, pass_h):
