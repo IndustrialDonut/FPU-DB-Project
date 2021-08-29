@@ -79,39 +79,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Custom_Tran_Name" type="TextEdit" parent="VBoxContainer2"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer2"]
 margin_right = 594.0
-margin_bottom = 38.0
-rect_min_size = Vector2( 594, 38 )
-text = "Custom Transaction: Enter Name of Reciepient Here:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 24.0
+text = "Enter Name Of Recipeint Here"
 
-[node name="Custom_Tran_Amount" type="TextEdit" parent="VBoxContainer2"]
-margin_top = 42.0
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer2"]
+margin_top = 28.0
+margin_right = 594.0
+margin_bottom = 52.0
+text = "Amount Sent:"
+
+[node name="LineEdit3" type="LineEdit" parent="VBoxContainer2"]
+margin_top = 56.0
 margin_right = 594.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 594, 38 )
-text = "Enter Amount Sending To Reciepient:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Reason_Tran" type="TextEdit" parent="VBoxContainer2"]
-margin_top = 84.0
-margin_right = 594.0
-margin_bottom = 122.0
-rect_min_size = Vector2( 594, 38 )
-text = "Reason For Transaction:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "Reason For Transaction"
 
 [node name="Button" type="Button" parent="VBoxContainer2"]
-margin_top = 126.0
+margin_top = 84.0
 margin_right = 594.0
-margin_bottom = 156.0
+margin_bottom = 114.0
 rect_min_size = Vector2( 594, 30 )
 text = "Send Custom Transaction"
 
