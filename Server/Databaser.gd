@@ -354,3 +354,13 @@ func metadata_payrecords_to_pay(event_id : int) -> Array:
 		
 	
 	return records
+
+
+func insert_event(dict) -> bool:
+	db.open_db()
+	
+	var b = db.insert_row("Events", dict)
+	
+	db.close_db()
+	
+	return b

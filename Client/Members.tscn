@@ -158,45 +158,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 410.531
-margin_top = 5.88776
-margin_right = 597.531
-margin_bottom = 108.888
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 187.0
-margin_bottom = 31.0
-text = "Database Main Menu
-"
-
-[node name="Label3" type="Label" parent="VBoxContainer"]
-margin_top = 35.0
-margin_right = 187.0
-margin_bottom = 49.0
-text = "Server Status: STATUS"
-
-[node name="Label2" type="Label" parent="VBoxContainer"]
-margin_top = 53.0
-margin_right = 187.0
-margin_bottom = 67.0
-text = "Signed In As: USERNAME"
-
-[node name="Label4" type="Label" parent="VBoxContainer"]
-margin_top = 71.0
-margin_right = 187.0
-margin_bottom = 85.0
-text = "Member Status: STATUS"
-
-[node name="Label5" type="Label" parent="VBoxContainer"]
-margin_top = 89.0
-margin_right = 187.0
-margin_bottom = 103.0
-text = "Main Department: NAME"
-
 [connection signal="pressed" from="This/Title_Financials/ViewBank" to="This/Title_Financials/ViewBank" method="_on_SpecialButton_pressed"]
 [connection signal="special_signal" from="This/Title_Financials/ViewBank" to="." method="on_scene_button_pressed"]
 [connection signal="pressed" from="This/Title_Financials/ViewPersonal" to="This/Title_Financials/ViewPersonal" method="_on_SpecialButton_pressed"]
@@ -213,3 +174,4 @@ text = "Main Department: NAME"
 [connection signal="_return_bank" from="Bank" to="." method="return_from_scene"]
 [connection signal="return_pending" from="PendingReports" to="." method="return_from_scene"]
 [connection signal="return_from_invoice" from="InvoiceView" to="." method="return_from_scene"]
+[connection signal="return_from_createevent" from="CreateEvent" to="." method="return_from_scene"]

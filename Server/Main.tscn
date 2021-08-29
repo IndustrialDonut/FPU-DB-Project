@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Register.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://PendingReports.gd" type="Script" id=6]
 [ext_resource path="res://TEST.gd" type="Script" id=7]
 [ext_resource path="res://InvoiceView.gd" type="Script" id=8]
+[ext_resource path="res://CreateEvent.gd" type="Script" id=9]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -62,6 +63,14 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreateEvent" type="Control" parent="Members"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
