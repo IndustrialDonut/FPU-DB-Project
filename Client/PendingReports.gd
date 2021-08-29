@@ -52,7 +52,7 @@ remote func _get_pending_reports_for(reports, TOTAL_reports):
 		inst.find_node("Hours").text = str(report["Hours"])
 		inst.find_node("Review").text = str(report["ReviewText"])
 		
-		inst.report_id = report["ReportID"]
+		inst.report_id = report["ID"]
 		
 		print("Report id is " + str(inst.report_id))
 

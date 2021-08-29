@@ -99,7 +99,6 @@ func submit_event_report(dict) -> bool:
 		db.close_db()
 		return false
 	
-	
 	# Do not allow players to submit more than 1 event report.
 	db.query("SELECT * FROM EventReports WHERE Username = '" + user + "' AND EventID = " + str(eventID))
 	
@@ -116,35 +115,37 @@ func submit_event_report(dict) -> bool:
 
 # use OS.get_datetime() with this one for example
 func _format_datetime(dict):
-	var string = str(dict["year"])
+	var string = dict["year"] as String
 	
 	string += ":"
 	
 	if dict["month"] < 10:
 		string += "0"
 	
-	string += dict["month"]
+	string += dict["month"] as String
 	
 	string += ":"
 	
 	if dict["day"] < 10:
 		string += "0"
 	
-	string += dict["day"]
+	string += dict["day"] as String
 	
 	string += ":"
 	
 	if dict["hour"] < 10:
 		string += "0"
 	
-	string += dict["hour"]
+	string += dict["hour"] as String
 	
 	string += ":"
 	
 	if dict["minute"] < 10:
 		string += "0"
 	
-	string += dict["minute"]
+	string += dict["minute"] as String
+	
+	return string
 
 
 func view_pending_reports():
