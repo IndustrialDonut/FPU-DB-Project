@@ -36,24 +36,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="VBoxContainer"]
+[node name="Server" type="Label" parent="VBoxContainer"]
 margin_right = 174.0
 margin_bottom = 14.0
 text = "Server Status: STATUS"
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Username" type="Label" parent="VBoxContainer"]
 margin_top = 18.0
 margin_right = 174.0
 margin_bottom = 32.0
 text = "Signed In As: USERNAME"
 
-[node name="Label4" type="Label" parent="VBoxContainer"]
+[node name="Member" type="Label" parent="VBoxContainer"]
 margin_top = 36.0
 margin_right = 174.0
 margin_bottom = 50.0
 text = "Member Status: STATUS"
 
-[node name="Label5" type="Label" parent="VBoxContainer"]
+[node name="Department" type="Label" parent="VBoxContainer"]
 margin_top = 54.0
 margin_right = 174.0
 margin_bottom = 68.0

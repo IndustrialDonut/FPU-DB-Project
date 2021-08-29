@@ -78,6 +78,14 @@ func member_status(_user) -> String:
 	return db.query_result[0]["Member"]
 
 
+func member_department(_user) -> String:
+	db.open_db()
+	db.query("SELECT Department FROM Credentials WHERE Username = '" + str(_user) + "'")
+	db.close_db()
+	
+	return db.query_result[0]["Department"]
+
+
 func submit_event_report(dict) -> bool:
 	var id = multiplayer.get_rpc_sender_id()
 	var user = SNetworkGlobal.idToUsername(id)
