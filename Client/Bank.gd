@@ -15,7 +15,7 @@ remote func _initialize_view(dicts, total) -> void:
 
 		var inst = preload("res://CustomTransaction.tscn").instance()
 
-		$ScrollContainer/VBoxContainer.add_child(inst)
+		$ScrollContainer/TabContainer/CustomTransactions.add_child(inst)
 
 		inst.set_labels(dict)
 
