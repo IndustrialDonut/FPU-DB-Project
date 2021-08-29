@@ -33,10 +33,13 @@ func _try_login() -> void:
 
 
 # Methods for server to report login attempt status
-remote func login_success(message) -> void:
+remote func login_success(message, member_stat, dept_name) -> void:
 	$Entry.hide()
 	$Members.show()
 	print(message)
+	SNetworkGlobal.set_department_name(dept_name)
+	SNetworkGlobal.set_member_status(member_stat)
+	SNetworkGlobal.set_user_name(_user.text)
 
 
 remote func login_fail(message) -> void:

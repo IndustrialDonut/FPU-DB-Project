@@ -1,7 +1,7 @@
 extends Node
 
 
-var connected_dictionary = {1 : {"user" : "SERVER", "admin" : false, "member" : "Prospect"}}
+var connected_dictionary = {1 : {"user" : "SERVER", "admin" : false, "member" : "Prospect", "department" : "Logistics"}}
 
 
 func idToUsername(id) -> String:
@@ -14,6 +14,10 @@ func idIsAdmin(id) -> bool:
 
 func idMemberStatus(id) -> String:
 	return connected_dictionary[id]["member"]
+
+
+func idDepartmentStatus(id) -> String:
+	return connected_dictionary[id]["department"]
 
 
 func _ready() -> void:
@@ -37,9 +41,10 @@ func _user_disconnected(id) -> void:
 	print("Player ID " + str(id) + " disconnected!")
 
 
-func register_player(id, admin, user, eMember):
+func register_player(id, admin, user, eMember, eDept):
 	
 	connected_dictionary[id] = {"user" : user,
 								"admin" : admin,
-								"member" : eMember}
+								"member" : eMember,
+								"department" : eDept}
 

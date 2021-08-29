@@ -14,6 +14,8 @@ remote func _try_login(_user : String, _pass : String):
 			
 			var message = "Logged in."
 			
+			var dept = Databaser.member_department(_user)
+			
 			var member = Databaser.member_status(_user)
 			
 			var admin = false
@@ -25,9 +27,9 @@ remote func _try_login(_user : String, _pass : String):
 				message = "Logged in as admin."
 				
 			# rpc client
-			rpc_id(id, "login_success", message)
+			rpc_id(id, "login_success", message, member, dept)
 			
-			SNetworkGlobal.register_player(id, admin, _user, member)
+			SNetworkGlobal.register_player(id, admin, _user, member, dept)
 		
 		Enums.VER.NOUSER:
 			rpc_id(id, "login_fail", "No matching username found.")

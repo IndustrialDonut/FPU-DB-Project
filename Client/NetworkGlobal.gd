@@ -31,20 +31,19 @@ func _ready() -> void:
 func _connected():
 	bConnected = true
 	$ConnectionStatus.modulate = Color.green
+	$VBoxContainer/Server.text = "Server Status: CONNECTED"
 	
 func _disconnected():
 	bConnected = false
 	$ConnectionStatus.modulate = Color.red
-
-var temp_token
-func try_connect_main(token, ip, port): # try to connect to the main, now that gateway has authorized
-	temp_token = token
-	var _net = NetworkedMultiplayerENet.new()
-	_net.create_client(ip, port)
-	multiplayer.set_network_peer(null)
-	multiplayer.set_network_peer(_net)
+	$VBoxContainer/Server.text = "Server Status: DISCONNECTED"
 
 
-remote func _check_token():
-	rpc_id(1, "_check_token" , temp_token)
-	print("sending token to be checked")
+func set_user_name(username):
+	$VBoxContainer/Username.text = "Signed In As: %s" % username
+
+func set_department_name(dept_name : String):
+	$VBoxContainer/Department.text = "Main Department: %s" % dept_name.to_upper()
+
+func set_member_status(membername : String):
+	$VBoxContainer/Member.text = "Member Status: %s" % membername.to_upper()
