@@ -83,11 +83,12 @@ func _on_Deny_pressed() -> void:
 		_on_Event_item_selected(0)
 
 
-# COMMIT PAYOUTS
+# COMMIT Events
 func _on_Button_pressed() -> void:
 	var event_id = $Event.get_selected_id()
 	
 	rpc_id(1, "_run_event_commit", event_id)
+
 
 signal return_pending(node)
 func _on_Button2_pressed() -> void:
