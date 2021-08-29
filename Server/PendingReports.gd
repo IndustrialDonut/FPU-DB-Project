@@ -17,8 +17,6 @@ remote func _get_pending_reports_for(event_id):
 		
 		var TOTAL_report_count = Databaser.total_reports_for(event_id)
 		
-		print(reports.size())
-		
 		rpc_id(id, "_get_pending_reports_for", reports, TOTAL_report_count)
 
 
@@ -37,4 +35,4 @@ remote func _deny(REPORT_ID):
 
 
 remote func _run_event_commit(EVENT_ID):
-	Databaser.commit_event_id(EVENT_ID)
+	Databaser.commit_event(EVENT_ID)

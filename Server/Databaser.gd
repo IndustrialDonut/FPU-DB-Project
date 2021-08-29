@@ -59,7 +59,6 @@ func authenticate(user, pass_h) -> int:
 		return -1
 
 
-
 func _admin_check(user) -> int:
 	db.open_db()
 	db.query("SELECT Admin FROM Credentials WHERE Username='" + user + "'")
@@ -79,7 +78,6 @@ func member_status(_user) -> String:
 	return db.query_result[0]["Member"]
 
 
-
 func submit_event_report(dict) -> bool:
 	var id = multiplayer.get_rpc_sender_id()
 	var user = SNetworkGlobal.idToUsername(id)
@@ -92,11 +90,21 @@ func submit_event_report(dict) -> bool:
 	
 	db.open_db()
 	
-	db.query("SELECT * FROM EventReports WHERE Username = '" + user + "' AND ID = " + str(eventID))
+	# Do not allow submitting a report to an event that has already been committed.
+	db.query("SELECT Committed FROM Events WHERE COMMITTED = 1 AND ID = " + str(eventID))
+	
+	var eventAlreadyCommitted = db.query_result.size()
+	
+	if eventAlreadyCommitted:
+		db.close_db()
+		return false
+	
+	
+	# Do not allow players to submit more than 1 event report.
+	db.query("SELECT * FROM EventReports WHERE Username = '" + user + "' AND EventID = " + str(eventID))
 	
 	var bInserted
 	
-	# Do not allow players to submit more than 1 event report
 	if db.query_result.size() == 0:
 	
 		bInserted = db.insert_row("EventReports", dict)
@@ -104,6 +112,7 @@ func submit_event_report(dict) -> bool:
 	db.close_db()
 	
 	return bInserted
+
 
 # use OS.get_datetime() with this one for example
 func _format_datetime(dict):
@@ -160,6 +169,7 @@ func view_approved_reports():
 	db.close_db()
 	
 	return result
+
 
 ### todo ###
 func view_bank_reports():
@@ -232,6 +242,7 @@ func total_reports_for(id) -> int:
 	return result.size()
 
 
+# when a report is denied, this deletes it
 func delete_report(id) -> bool:
 	db.open_db()
 	
@@ -244,7 +255,7 @@ func delete_report(id) -> bool:
 	db.close_db()
 	
 	return b
-	
+
 
 func approve_report(id) -> bool:
 	db.open_db()
@@ -253,93 +264,36 @@ func approve_report(id) -> bool:
 	SET Approved = 1
 	WHERE ReportID = """ + str(id))
 	
+	_ratestamp_report(id)
+	
 	db.close_db()
 	
 	return b
 
 
-const SC_TRANSFER_FEE = 0.005 # 0.5% fee rate
-const ORG_DIVIDEND_RATE = 0.5 # ORG TAKES HALF
-const PLAYER_DIVIDEND_RATE = 0.5 # PLAYERS TAKE HALF
-# Commit event and generate UNPAID PAY-RECORDS FOR PLAYERS
-func commit_event_id(id):
-	print("event id for payout is " + str(id))
-	db.open_db()
+func _ratestamp_report(report_id) -> bool:
+	# only call from within the db.open and db.close scope of another func!
+	db.query("SELECT Username FROM EventReports WHERE ID = " + str(report_id))
+	var user = db.query_result[0]["Username"]
 	
-	db.query("SELECT Committed FROM Events WHERE ID = " + str(id))
+	db.query("SELECT Member FROM Credentials WHERE Username = '" + user + "'")
+	var member = db.query_result[0]["Member"]
 	
-	if db.query_result[0]["Committed"]:
-		return
+	db.query("SELECT MAX(ID) FROM MemberRates WHERE Enum = '" + str(member) + "'")
+	var rateID = db.query_result[0]["ID"]
 	
-	#SUM(Gross) as Sum
+	var b = db.query("UPDATE EventReports SET RateID = " + str(rateID) + " WHERE ID = " + str(report_id))
 	
-	db.query("""
-	SELECT * FROM EventReports
-	WHERE Approved = 1 AND EventID = """ + str(id))
-	
-	var result = db.query_result.duplicate(true)
-	
-	var total_gross : float = 0
-	var total_hours : float = 0
-	for record in result:
-		total_gross += record["Gross"]
-		total_hours += record["Hours"]
-	
-	var total_players = result.size()
-	
-	var total_initial_fee = total_gross * SC_TRANSFER_FEE
-	
-	var pre_payment_total = total_gross - total_initial_fee
-	
-	var org_gross = pre_payment_total * ORG_DIVIDEND_RATE
-	var players_net = pre_payment_total * PLAYER_DIVIDEND_RATE
-	
-	var org_net = org_gross - (players_net * SC_TRANSFER_FEE)
-	
-	var player_each_net = float(players_net) / float(total_players)
-	
-	var gross_to_hours : float = total_gross / total_hours
-	
-	var b = db.query("""
-	UPDATE Events
-	SET Committed = 1, TotalGrossed = """ + str(total_gross) +
-	", GrossedToHours = " + str(gross_to_hours) +
-	""" WHERE ID = """ + str(id))
-	
-	assert(b)
-	
-	for i in range(total_players):
-		
-		var row = {
-			"Username" : result[i]["Username"],
-			"Grossed" : result[i]["Gross"],
-			"PlayerNet" : player_each_net,
-			"OrgNet" : org_net,
-			"EventID" : result[i]["EventID"],
-			"GrossToHours" : (result[i]["Gross"] / result[i]["Hours"])
-		}
-		
-		b = db.insert_row("PayRecords", row)
-		assert(b)
-		print("pay record???")
-	
-	db.close_db()
+	return b
 
 
-func get_pay_records_for(id):
-	var user = SNetworkGlobal.idToUsername(id)
-	
+func commit_event(id) -> bool:
 	db.open_db()
 	
-	var b = db.query("""
-	SELECT * FROM PayRecords INNER JOIN Events ON PayRecords.EventID = Events.ID 
-	WHERE Committed = 1 AND PayRecords.Username = '""" + user + "'"
-	)
-	
-	assert(b)
-	
-	var result = db.query_result
+	var b = db.query("""UPDATE Events
+	SET Committed = 1
+	WHERE ID = """ + str(id))
 	
 	db.close_db()
 	
-	return result
+	return b
