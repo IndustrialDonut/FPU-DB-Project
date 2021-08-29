@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Bank.gd" type="Script" id=1]
+[ext_resource path="res://TabContainer.gd" type="Script" id=2]
 
 [node name="Bank" type="Control"]
 anchor_right = 1.0
@@ -24,32 +25,6 @@ text = "Custom Transaction"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Right_ Hand_Corner" type="VBoxContainer" parent="."]
-margin_left = 439.017
-margin_top = 7.1272
-margin_right = 595.017
-margin_bottom = 57.1272
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Name_Of_Page" type="Label" parent="Right_ Hand_Corner"]
-margin_right = 156.0
-margin_bottom = 14.0
-text = "Organization Bank"
-
-[node name="Logged_In_Username" type="Label" parent="Right_ Hand_Corner"]
-margin_top = 18.0
-margin_right = 156.0
-margin_bottom = 32.0
-text = "Logged In As: Username"
-
-[node name="Server_Status" type="Label" parent="Right_ Hand_Corner"]
-margin_top = 36.0
-margin_right = 156.0
-margin_bottom = 50.0
-text = "Server Status: STATUS"
 
 [node name="Label" type="Label" parent="."]
 margin_left = 6.50168
@@ -142,11 +117,12 @@ __meta__ = {
 [node name="TabContainer" type="TabContainer" parent="ScrollContainer"]
 margin_right = 436.0
 margin_bottom = 86.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Custom Transactions" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
+[node name="CustomTransactions" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -157,31 +133,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/Custom Transactions"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/CustomTransactions"]
 margin_right = 428.0
 margin_bottom = 50.0
 
-[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/Custom Transactions/HBoxContainer"]
+[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
 margin_right = 140.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 140, 50 )
 text = "User:"
 
-[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/Custom Transactions/HBoxContainer"]
+[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
 margin_left = 144.0
 margin_right = 284.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 140, 50 )
 text = "Amount Recieved:"
 
-[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/Custom Transactions/HBoxContainer"]
+[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
 margin_left = 288.0
 margin_right = 428.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 140, 50 )
 text = "Reason:"
 
-[node name="Paid To Members" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
+[node name="PaidToMembers" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -193,34 +169,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/Paid To Members"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/PaidToMembers"]
 margin_right = 564.0
 margin_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/Paid To Members/HBoxContainer"]
+[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
 margin_right = 138.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
 text = "Name Of User"
 
-[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/Paid To Members/HBoxContainer"]
+[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
 margin_left = 142.0
 margin_right = 280.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
 text = "Hours Worked"
 
-[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/Paid To Members/HBoxContainer"]
+[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
 margin_left = 284.0
 margin_right = 422.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
 text = "Amount Owed"
 
-[node name="TextEdit4" type="TextEdit" parent="ScrollContainer/TabContainer/Paid To Members/HBoxContainer"]
+[node name="TextEdit4" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
 margin_left = 426.0
 margin_right = 564.0
 margin_bottom = 50.0
