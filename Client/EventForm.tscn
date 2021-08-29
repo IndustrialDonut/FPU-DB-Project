@@ -64,7 +64,7 @@ margin_left = 5.65179
 margin_top = 331.096
 margin_right = 406.652
 margin_bottom = 345.096
-text = "Enter Total Funds Grossed From Event! - Excluding Sending Fee"
+text = "Enter Total Funds Grossed and Sent From Event! - Including Sending Fee"
 __meta__ = {
 "_edit_use_anchors_": false
 }

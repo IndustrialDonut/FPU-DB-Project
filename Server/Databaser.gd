@@ -325,7 +325,7 @@ func metadata_payrecords_to_pay(event_id : int) -> Array:
 	
 	db.query("""SELECT * FROM 
 	EventReports INNER JOIN MemberRates 
-	ON RateID = MemberRates.ID
+	ON RateID = MemberRates.ID 
 	WHERE EventID = """ + str(event_id))
 	
 	# I now have all the rate and event report info FOR A PARTICULAR EVENT,
