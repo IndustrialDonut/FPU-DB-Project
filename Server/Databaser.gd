@@ -8,8 +8,8 @@ var db : sqlite = sqlite.new()
 
 
 func _ready() -> void:
-	#print("Associate is enumeration: " + str(Enums.Member.Associate))
 	db.path = db_path
+
 
 func register(user, pass_h):
 	db.open_db()
@@ -33,7 +33,7 @@ func register(user, pass_h):
 
 func authenticate(user, pass_h) -> int:
 	db.open_db()
-	db.query("SELECT Password FROM Credentials WHERE Username = '" + user + "';")
+	db.query("SELECT Password, Active FROM Credentials WHERE Username = '" + user + "'")
 	db.close_db()
 	
 	if db.query_result.size() == 0:
@@ -42,26 +42,41 @@ func authenticate(user, pass_h) -> int:
 	elif db.query_result.size() == 1:
 		if pass_h == db.query_result[0]["Password"]:
 			
-			return _admin_check(user)
+			if db.query_result[0]["Active"] == 1:
+			
+				return _admin_check(user)
+				
+			else:
+				# User not activated yet.
+				return Enums.VER.INACTIVE
 			
 		else:
-			return Enums.VER.UNVERIFIED
+			# Wrong password to sign in.
+			return Enums.VER.WRONGPASS
 		
 	else:
-		# means there were multiple user entries with the same username, shouldn't be possible.
+		# Multiple user entries with the same username, shouldn't be possible.
 		return -1
 
 
 
 func _admin_check(user) -> int:
 	db.open_db()
-	db.query("SELECT Admin FROM Credentials WHERE Username='" + user + "';")
+	db.query("SELECT Admin FROM Credentials WHERE Username='" + user + "'")
 	db.close_db()
 	
 	if db.query_result[0]["Admin"] == 1:
 		return Enums.VER.VERIFIED_WHITELISTED
 	else:
 		return Enums.VER.VERIFIED
+
+
+func member_status(_user) -> String:
+	db.open_db()
+	db.query("SELECT Member FROM Credentials WHERE Username = '" + str(_user) + "'")
+	db.close_db()
+	
+	return db.query_result[0]["Member"]
 
 
 
@@ -71,11 +86,13 @@ func submit_event_report(dict) -> bool:
 	
 	dict["Username"] = user
 	
+	dict["Datetime"] = _format_datetime(OS.get_datetime())
+	
 	var eventID = dict["EventID"]
 	
 	db.open_db()
 	
-	db.query("SELECT * FROM EventReports WHERE Username = '" + user + "' AND EventID = " + str(eventID))
+	db.query("SELECT * FROM EventReports WHERE Username = '" + user + "' AND ID = " + str(eventID))
 	
 	var bInserted
 	
@@ -88,11 +105,43 @@ func submit_event_report(dict) -> bool:
 	
 	return bInserted
 
+# use OS.get_datetime() with this one for example
+func _format_datetime(dict):
+	var string = str(dict["year"])
+	
+	string += ":"
+	
+	if dict["month"] < 10:
+		string += "0"
+	
+	string += dict["month"]
+	
+	string += ":"
+	
+	if dict["day"] < 10:
+		string += "0"
+	
+	string += dict["day"]
+	
+	string += ":"
+	
+	if dict["hour"] < 10:
+		string += "0"
+	
+	string += dict["hour"]
+	
+	string += ":"
+	
+	if dict["minute"] < 10:
+		string += "0"
+	
+	string += dict["minute"]
+
 
 func view_pending_reports():
 	db.open_db()
 	
-	db.query("SELECT * FROM EventReports WHERE Approved = 0;")
+	db.query("SELECT * FROM EventReports WHERE Approved = 0")
 	
 	var result = db.query_result
 	
@@ -104,7 +153,7 @@ func view_pending_reports():
 func view_approved_reports():
 	db.open_db()
 	
-	db.query("SELECT * FROM EventReports WHERE Approved = 1;")
+	db.query("SELECT * FROM EventReports WHERE Approved = 1")
 	
 	var result = db.query_result
 	
@@ -112,11 +161,11 @@ func view_approved_reports():
 	
 	return result
 
-
+### todo ###
 func view_bank_reports():
 	db.open_db()
 	
-	db.query("SELECT EventIdentifier as Event, EventLeader as Leader, Username as Member, Gross, Hours, Department, OwedToPlayer FROM EventReports WHERE Approved = 1;")
+	db.query("SELECT EventIdentifier as Event, EventLeader as Leader, Username as Member, Gross, Hours, Department, OwedToPlayer FROM EventReports WHERE Approved = 1")
 	
 	var result = db.query_result
 	
@@ -143,14 +192,14 @@ func get_event_labels():
 	return result
 
 
-func pending_reports_for(id):
+func pending_reports_for(eventId):
 	db.open_db()
 	
 	var b = db.query("""SELECT * FROM
 		(SELECT * FROM Events INNER JOIN EventReports 
 		ON Events.ID = EventReports.EventID 
 		ORDER BY Events.ID)
-	WHERE EventID = """ + str(id) + ' AND Approved = 0;')
+	WHERE EventID = """ + str(eventId) + ' AND Approved = 0')
 
 	assert(b)
 
@@ -164,6 +213,7 @@ func pending_reports_for(id):
 
 	return result
 
+
 func total_reports_for(id) -> int:
 	db.open_db()
 	
@@ -171,7 +221,7 @@ func total_reports_for(id) -> int:
 		(SELECT * FROM Events INNER JOIN EventReports 
 		ON Events.ID = EventReports.EventID 
 		ORDER BY Events.ID)
-	WHERE EventID =""" + str(id) + ';')
+	WHERE EventID =""" + str(id))
 	
 	assert(b)
 	
@@ -182,28 +232,30 @@ func total_reports_for(id) -> int:
 	return result.size()
 
 
-func delete_report(id):
+func delete_report(id) -> bool:
 	db.open_db()
 	
 	assert(typeof(id) == typeof(5))
 	
-	var condition = "ReportID" + " = " + str(id)
-	#print(condition)
-	#print("ReportID = 3")
+	var condition = "ReportID = " + str(id)
 	
-	print(db.delete_rows("EventReports", condition))
+	var b = db.delete_rows("EventReports", condition)
 	
 	db.close_db()
 	
+	return b
+	
 
-func approve_report(id):
+func approve_report(id) -> bool:
 	db.open_db()
 	
-	db.query("""UPDATE EventReports
+	var b = db.query("""UPDATE EventReports
 	SET Approved = 1
 	WHERE ReportID = """ + str(id))
 	
 	db.close_db()
+	
+	return b
 
 
 const SC_TRANSFER_FEE = 0.005 # 0.5% fee rate
@@ -272,7 +324,6 @@ func commit_event_id(id):
 		print("pay record???")
 	
 	db.close_db()
-
 
 
 func get_pay_records_for(id):

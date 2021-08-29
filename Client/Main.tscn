@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://FreePeoplesUnion Logo.png" type="Texture" id=1]
 [ext_resource path="res://LoginHandler.gd" type="Script" id=2]
 [ext_resource path="res://Members.tscn" type="PackedScene" id=3]
 [ext_resource path="res://RegisterNewUser.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UserDelay.gd" type="Script" id=5]
-[ext_resource path="res://TEST.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -76,7 +75,6 @@ __meta__ = {
 }
 
 [node name="ButtonHint" type="Button" parent="Entry"]
-modulate = Color( 1, 1, 1, 0.454902 )
 margin_left = 310.0
 margin_top = 436.0
 margin_right = 455.0
@@ -133,9 +131,6 @@ visible = false
 [node name="UserDelay" type="Timer" parent="."]
 one_shot = true
 script = ExtResource( 5 )
-
-[node name="TEST" parent="." instance=ExtResource( 6 )]
-mouse_filter = 2
 
 [connection signal="pressed" from="Entry/ButtonLogin" to="." method="_login_pressed"]
 [connection signal="pressed" from="Entry/ButtonNew" to="." method="_on_ButtonNew_pressed"]
