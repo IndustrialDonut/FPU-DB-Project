@@ -28,9 +28,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 margin_left = 6.50168
-margin_top = 86.2068
+margin_top = 83.0284
 margin_right = 202.502
-margin_bottom = 104.207
+margin_bottom = 101.029
 text = "Bank Total Amount"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -47,41 +47,51 @@ __meta__ = {
 }
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_top = 378.0
-margin_right = 594.0
-margin_bottom = 546.0
+anchor_top = 0.611
+anchor_right = 1.0
+anchor_bottom = 0.91
+margin_left = -0.749207
+margin_top = 11.4
+margin_right = -6.74921
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer2"]
+[node name="LineEdit4" type="LineEdit" parent="VBoxContainer2"]
 margin_right = 594.0
 margin_bottom = 24.0
-text = "Enter Name Of Recipeint Here"
+placeholder_text = "From:"
 
-[node name="LineEdit2" type="LineEdit" parent="VBoxContainer2"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer2"]
 margin_top = 28.0
 margin_right = 594.0
 margin_bottom = 52.0
-text = "Amount Sent:"
+placeholder_text = "Recipient:"
 
-[node name="LineEdit3" type="LineEdit" parent="VBoxContainer2"]
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer2"]
 margin_top = 56.0
 margin_right = 594.0
 margin_bottom = 80.0
-text = "Reason For Transaction"
+placeholder_text = "Amount Sent:"
 
-[node name="Button" type="Button" parent="VBoxContainer2"]
+[node name="LineEdit3" type="LineEdit" parent="VBoxContainer2"]
 margin_top = 84.0
 margin_right = 594.0
-margin_bottom = 114.0
+margin_bottom = 108.0
+placeholder_text = "Reason For Transaction"
+
+[node name="Button" type="Button" parent="VBoxContainer2"]
+margin_top = 112.0
+margin_right = 594.0
+margin_bottom = 142.0
 rect_min_size = Vector2( 594, 30 )
 text = "Send Custom Transaction"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_top = 548.0
-margin_right = 138.0
-margin_bottom = 600.0
+anchor_top = 0.913
+anchor_right = 0.23
+anchor_bottom = 1.0
+margin_top = 0.199951
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -95,16 +105,20 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-margin_top = 137.966
-margin_right = 598.0
-margin_bottom = 229.966
+anchor_top = 0.23
+anchor_right = 1.0
+anchor_bottom = 0.38
+margin_bottom = -1.52588e-05
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TabContainer" type="TabContainer" parent="ScrollContainer"]
-margin_right = 436.0
+margin_right = 600.0
 margin_bottom = 86.0
+size_flags_horizontal = 3
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -122,28 +136,37 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/CustomTransactions"]
-margin_right = 428.0
+margin_right = 592.0
 margin_bottom = 50.0
 
 [node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
-margin_right = 140.0
+margin_right = 138.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 140, 50 )
-text = "User:"
+rect_min_size = Vector2( 138, 50 )
+text = "From:"
 
 [node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
-margin_left = 144.0
-margin_right = 284.0
+margin_left = 142.0
+margin_right = 280.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 140, 50 )
-text = "Amount Recieved:"
+rect_min_size = Vector2( 138, 50 )
+text = "To:"
 
 [node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
-margin_left = 288.0
-margin_right = 428.0
+margin_left = 284.0
+margin_right = 422.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 140, 50 )
+rect_min_size = Vector2( 138, 50 )
 text = "Reason:"
+
+[node name="TextEdit4" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
+margin_left = 426.0
+margin_right = 592.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 138, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Amount Sent:"
 
 [node name="PaidToMembers" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
 visible = false
@@ -151,7 +174,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
-margin_right = -4.0
+margin_right = 128.0
 margin_bottom = -4.0
 __meta__ = {
 "_edit_use_anchors_": false
