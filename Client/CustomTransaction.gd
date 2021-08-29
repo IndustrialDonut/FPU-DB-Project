@@ -2,7 +2,10 @@ extends HBoxContainer
 
 func set_labels(dict : Dictionary):
 	
-	$From.text = dict["From"]
+	if dict["bPersonal"]:
+		$From.text = dict["FromUser"]
+	else:
+		$From.text = dict["FromDept"]
 	
 	$To.text = dict["Recipient"]
 	
