@@ -180,11 +180,12 @@ func view_approved_reports():
 	return result
 
 
-### todo ###
-func view_bank_reports():
+func view_bank_custom_transactions():
 	db.open_db()
 	
-	db.query("SELECT EventIdentifier as Event, EventLeader as Leader, Username as Member, Gross, Hours, Department, OwedToPlayer FROM EventReports WHERE Approved = 1")
+	#db.query("SELECT EventIdentifier as Event, EventLeader as Leader, Username as Member, Gross, Hours, Department, OwedToPlayer FROM EventReports WHERE Approved = 1")
+	
+	db.query("SELECT * FROM CustomTransactions")
 	
 	var result = db.query_result
 	
@@ -368,6 +369,16 @@ func insert_event(dict) -> bool:
 	db.open_db()
 	
 	var b = db.insert_row("Events", dict)
+	
+	db.close_db()
+	
+	return b
+
+
+func submit_custom_transaction(dict) -> bool:
+	db.open_db()
+	
+	var b = db.insert_row("CustomTransactions", dict)
 	
 	db.close_db()
 	

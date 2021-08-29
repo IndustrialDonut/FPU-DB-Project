@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://CustomTransaction.gd" type="Script" id=1]
+
+[node name="Custom" type="HBoxContainer"]
+margin_right = 592.0
+margin_bottom = 50.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="From" type="TextEdit" parent="."]
+margin_right = 138.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 138, 50 )
+text = "From:"
+
+[node name="To" type="TextEdit" parent="."]
+margin_left = 142.0
+margin_right = 280.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 138, 50 )
+text = "To:"
+
+[node name="Reason" type="TextEdit" parent="."]
+margin_left = 284.0
+margin_right = 422.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 138, 50 )
+text = "Reason:"
+
+[node name="Gross" type="TextEdit" parent="."]
+margin_left = 426.0
+margin_right = 592.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 138, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Gross:"

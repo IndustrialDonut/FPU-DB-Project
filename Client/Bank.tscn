@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Bank.gd" type="Script" id=1]
 [ext_resource path="res://TabContainer.gd" type="Script" id=2]
+[ext_resource path="res://CustomTransaction.tscn" type="PackedScene" id=3]
 
 [node name="Bank" type="Control"]
 anchor_right = 1.0
@@ -15,28 +16,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Custom" type="Button" parent="."]
-visible = false
-margin_left = 22.6529
-margin_top = 541.349
-margin_right = 160.653
-margin_bottom = 590.349
-text = "Custom Transaction"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="."]
+[node name="BankTotal" type="Label" parent="."]
 margin_left = 6.50168
 margin_top = 83.0284
 margin_right = 202.502
 margin_bottom = 101.029
-text = "Bank Total Amount"
+text = "Bank Total Amount: %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 margin_left = 4.25424
 margin_top = 109.431
 margin_right = 200.254
@@ -57,30 +48,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit4" type="LineEdit" parent="VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
 margin_right = 594.0
 margin_bottom = 24.0
-placeholder_text = "From:"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer"]
+margin_top = 5.0
+margin_right = 353.0
+margin_bottom = 19.0
+text = "Personal transfer? (Otherwise, it's for your Department)"
+
+[node name="Personal" type="CheckBox" parent="VBoxContainer2/HBoxContainer"]
+margin_left = 357.0
+margin_right = 381.0
+margin_bottom = 24.0
+
+[node name="Recipient" type="LineEdit" parent="VBoxContainer2"]
 margin_top = 28.0
 margin_right = 594.0
 margin_bottom = 52.0
 placeholder_text = "Recipient:"
 
-[node name="LineEdit2" type="LineEdit" parent="VBoxContainer2"]
+[node name="Gross" type="LineEdit" parent="VBoxContainer2"]
 margin_top = 56.0
 margin_right = 594.0
 margin_bottom = 80.0
-placeholder_text = "Amount Sent:"
+placeholder_text = "Amount Sent (include transaction fee):"
 
-[node name="LineEdit3" type="LineEdit" parent="VBoxContainer2"]
+[node name="Reason" type="LineEdit" parent="VBoxContainer2"]
 margin_top = 84.0
 margin_right = 594.0
 margin_bottom = 108.0
 placeholder_text = "Reason For Transaction"
 
-[node name="Button" type="Button" parent="VBoxContainer2"]
+[node name="Submit" type="Button" parent="VBoxContainer2"]
 margin_top = 112.0
 margin_right = 594.0
 margin_bottom = 142.0
@@ -135,38 +136,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/CustomTransactions"]
-margin_right = 592.0
-margin_bottom = 50.0
-
-[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
-margin_right = 138.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 138, 50 )
-text = "From:"
-
-[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
-margin_left = 142.0
-margin_right = 280.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 138, 50 )
-text = "To:"
-
-[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
-margin_left = 284.0
-margin_right = 422.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 138, 50 )
-text = "Reason:"
-
-[node name="TextEdit4" type="TextEdit" parent="ScrollContainer/TabContainer/CustomTransactions/HBoxContainer"]
-margin_left = 426.0
-margin_right = 592.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 138, 0 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Amount Sent:"
+[node name="CustomHeader" parent="ScrollContainer/TabContainer/CustomTransactions" instance=ExtResource( 3 )]
 
 [node name="PaidToMembers" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
 visible = false
@@ -174,7 +144,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
-margin_right = 128.0
+margin_right = -4.0
 margin_bottom = -4.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -214,4 +184,5 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
 text = "Paid: T/F"
 
+[connection signal="pressed" from="VBoxContainer2/Submit" to="." method="_on_Submit_pressed"]
 [connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_Back_pressed"]
