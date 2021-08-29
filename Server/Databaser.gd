@@ -206,8 +206,10 @@ func get_event_labels():
 func pending_reports_for(eventId):
 	db.open_db()
 	
-	var b = db.query("""SELECT * FROM
-		(SELECT * FROM Events INNER JOIN EventReports 
+	var b = db.query("""
+	SELECT EventID, ReportID AS ID, Username, ReviewScore, ReviewText, Department, Gross, Hours
+	FROM
+		(SELECT EventReports.ID AS ReportID, Events.ID AS EventID, Approved, Username, ReviewScore, Department, Gross, Hours, ReviewText FROM Events INNER JOIN EventReports 
 		ON Events.ID = EventReports.EventID 
 		ORDER BY Events.ID)
 	WHERE EventID = """ + str(eventId) + ' AND Approved = 0')
@@ -249,7 +251,7 @@ func delete_report(id) -> bool:
 	
 	assert(typeof(id) == typeof(5))
 	
-	var condition = "ReportID = " + str(id)
+	var condition = "ID = " + str(id)
 	
 	var b = db.delete_rows("EventReports", condition)
 	
@@ -263,7 +265,7 @@ func approve_report(id) -> bool:
 	
 	var b = db.query("""UPDATE EventReports
 	SET Approved = 1
-	WHERE ReportID = """ + str(id))
+	WHERE ID = """ + str(id))
 	
 	_ratestamp_report(id)
 	
@@ -280,7 +282,7 @@ func _ratestamp_report(report_id) -> bool:
 	db.query("SELECT Member FROM Credentials WHERE Username = '" + user + "'")
 	var member = db.query_result[0]["Member"]
 	
-	db.query("SELECT MAX(ID) FROM MemberRates WHERE Enum = '" + str(member) + "'")
+	db.query("SELECT MAX(ID) AS ID FROM MemberRates WHERE Enum = '" + str(member) + "'")
 	var rateID = db.query_result[0]["ID"]
 	
 	var b = db.query("UPDATE EventReports SET RateID = " + str(rateID) + " WHERE ID = " + str(report_id))

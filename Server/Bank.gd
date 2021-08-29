@@ -1,6 +1,6 @@
 extends Control
 
-remote func _initialize_view(token) -> void:
+remote func _initialize_view() -> void:
 	var id = multiplayer.get_rpc_sender_id()
 
 	var array = Databaser.view_bank_reports()
