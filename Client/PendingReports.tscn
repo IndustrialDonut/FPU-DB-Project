@@ -108,7 +108,7 @@ margin_left = -359.0
 margin_top = -142.0
 margin_right = -38.0
 margin_bottom = -103.0
-text = "COMMIT EVENT PAYOUT"
+text = "COMMIT EVENT"
 __meta__ = {
 "_edit_use_anchors_": false
 }

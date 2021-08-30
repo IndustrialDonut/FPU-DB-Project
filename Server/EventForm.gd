@@ -22,7 +22,7 @@ remote func _try_submit_event(dict):
 
 
 remote func _initialize_events():
-	print("initializing events!")
+	#print("initializing events!")
 	var id = multiplayer.get_rpc_sender_id()
 	
 	var array_of_records = Databaser.get_event_labels(SNetworkGlobal.idToUsername(id))

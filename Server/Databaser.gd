@@ -108,13 +108,13 @@ func submit_event_report(dict) -> bool:
 		return false
 	
 	# Do not allow players to submit more than 1 event report.
-	db.query("SELECT * FROM EventReports WHERE Username = '" + user + "' AND EventID = " + str(eventID))
+	#db.query("SELECT * FROM EventReports WHERE Username = '" + user + "' AND EventID = " + str(eventID))
 	
-	var bInserted = false
+	#var bInserted = false
 	
-	if db.query_result.size() == 0:
+	#if db.query_result.size() == 0:
 	
-		bInserted = db.insert_row("EventReports", dict)
+	var bInserted = db.insert_row("EventReports", dict)
 	
 	db.close_db()
 	
@@ -210,20 +210,37 @@ func get_bank_custom_transactions() -> Array:
 func get_event_labels(username = false):
 	db.open_db()
 	
-	# This SQL command actually ended up WORKING exactly right, however, I had already spent
-	# 4 + hours working on a sorting algorithm by Datetime and would rather kill myself
-	# than not use it after realizing this anyway. So, that sorting algorithm is 
-	# on the Sorter class on the Event Report for the Client!
+	# if the function is being called to request labels for the report submission
+	# screen, then this control block will be executed as a username will be passed.
 	if username:
 		
-		db.query("""SELECT * FROM
-	(SELECT EventName, Leader, Events.Datetime, Events.ID, Username FROM Events LEFT JOIN EventReports ON Events.ID = EventReports.EventID WHERE Committed = 0)
-	WHERE Username != '""" + username + "' OR Username IS NULL")
+		db.query("""SELECT * FROM 
+		(SELECT EventName, Leader, Events.Datetime, Events.ID, Username FROM 
+		Events LEFT JOIN EventReports ON Events.ID = EventReports.EventID 
+		WHERE Committed = 0)""")
+		
+		var do_not_show_these_event_names = []
+		var remove_these_records = []
+		for record in db.query_result:
+			if record["Username"]:
+				if record["Username"] as String == username:
+					do_not_show_these_event_names.append(record["EventName"])
+		
+		for record in db.query_result:
+			if record["EventName"] in do_not_show_these_event_names:
+				remove_these_records.append(record)
+		
+		for remove in remove_these_records:
+			db.query_result.erase(remove)
+	
+	# otherwise, it's being called for the pending reports event labels. So, just
+	# return all uncommitted events plain and simple.
 	else:
+		
 		db.query("""SELECT EventName, Leader, Datetime, ID FROM Events WHERE Committed = 0 
 		ORDER BY Datetime""")
 	
-	var result = db.query_result
+	var result = db.query_result.duplicate(true)
 	
 	db.close_db()
 	
