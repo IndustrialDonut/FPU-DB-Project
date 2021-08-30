@@ -161,7 +161,7 @@ __meta__ = {
 margin_right = 138.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
-text = "Name Of User"
+text = "Username:"
 
 [node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
 margin_left = 142.0
@@ -175,14 +175,46 @@ margin_left = 284.0
 margin_right = 422.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
-text = "Amount Owed"
+text = "Events Attended:"
 
 [node name="TextEdit4" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
 margin_left = 426.0
 margin_right = 564.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
-text = "Paid: T/F"
+text = "Amount Paid:"
+
+[node name="Yet_To_Be_Paid" type="HBoxContainer" parent="ScrollContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -8.0
+margin_bottom = -36.0
+
+[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/Yet_To_Be_Paid"]
+rect_min_size = Vector2( 138, 50 )
+size_flags_horizontal = 3
+text = "Username:"
+
+[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/Yet_To_Be_Paid"]
+margin_left = 4.0
+margin_right = 4.0
+rect_min_size = Vector2( 138, 50 )
+size_flags_horizontal = 3
+text = "Hours Worked:"
+
+[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/Yet_To_Be_Paid"]
+margin_left = 12.0
+margin_right = 12.0
+rect_min_size = Vector2( 138, 50 )
+size_flags_horizontal = 3
+text = "Events Attended:"
+
+[node name="TextEdit4" type="TextEdit" parent="ScrollContainer/TabContainer/Yet_To_Be_Paid"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 138, 50 )
+text = "Amount Paid:"
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 1.0
