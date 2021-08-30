@@ -53,10 +53,10 @@ __meta__ = {
 }
 
 [node name="Welcome" type="TextEdit" parent="Entry"]
-margin_left = 119.513
-margin_top = 13.1572
-margin_right = 476.513
-margin_bottom = 77.1572
+margin_left = 6.39087
+margin_top = 10.9097
+margin_right = 363.391
+margin_bottom = 74.9097
 text = "Welcome to the Free Peoples Union Member Portal!
 
 Do not share your password even with Directors!"
