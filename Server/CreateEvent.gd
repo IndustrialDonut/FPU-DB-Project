@@ -8,4 +8,9 @@ remote func _create_event(dict):
 	
 	if SNetworkGlobal.idIsAdmin(id):
 	
-		Databaser.insert_event(dict)
+		var b = Databaser.insert_event(dict)
+		
+		if b:
+			rpc_id(id, "_message", "Event created!")
+		else:
+			rpc_id(id, "_message", 0)

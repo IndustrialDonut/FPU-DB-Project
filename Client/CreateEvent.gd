@@ -3,6 +3,12 @@ extends Control
 signal return_from_createevent(node)
 
 
+remote func _message(message):
+	if message:
+		print(message)
+		$VBoxContainer2/EventName.text = ""
+
+
 func _on_Submit_pressed() -> void:
 	var dict = {}
 	
