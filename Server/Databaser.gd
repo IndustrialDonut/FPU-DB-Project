@@ -110,7 +110,7 @@ func submit_event_report(dict) -> bool:
 	# Do not allow players to submit more than 1 event report.
 	db.query("SELECT * FROM EventReports WHERE Username = '" + user + "' AND EventID = " + str(eventID))
 	
-	var bInserted
+	var bInserted = false
 	
 	if db.query_result.size() == 0:
 	
@@ -425,7 +425,7 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 		#db.insert_row("PayRecords", pay_record_entry)
 		records.append(pay_record_entry)
 		
-		db.query("UPDATE EventReports SET Paid = 1 WHERE ID = " + str(record["ReportID"]))
+		#db.query("UPDATE EventReports SET Paid = 1 WHERE ID = " + str(record["ReportID"]))
 	
 	db.close_db()
 	

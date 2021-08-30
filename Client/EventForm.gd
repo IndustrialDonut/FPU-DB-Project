@@ -30,7 +30,7 @@ func _on_Button_pressed() -> void:
 remote func event_report_result(message) -> void:
 	print(message)
 	if message:
-		emit_signal("return_from_eventform")
+		emit_signal("return_from_eventform", self)
 
 
 func _on_returnbutton_pressed() -> void:
