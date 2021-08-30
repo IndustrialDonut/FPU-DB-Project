@@ -214,7 +214,7 @@ text = "Events Attended:"
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 138, 50 )
-text = "Amount Paid:"
+text = "Amount Unpaid:"
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 1.0
