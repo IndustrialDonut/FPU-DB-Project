@@ -372,9 +372,10 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 			# it is just needed on each record for other purposes. It may change though
 			# in time, which is why we record it with those entries anyway. But yeah,
 			# don't be confused by this.
-		
 	
 	var total_base_income : float  = total_gross * (1.0 - TRANSFER_RATE) # 1 - transfer fee is transfer YIELD
+	
+	var total_org_loss : float = 0
 	
 	for record in result:
 		
@@ -388,26 +389,31 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 		
 		var player_net_payment : float  = 0
 		
+		var org_loss : float = 0
+		
 		if record["Enum"] == "Member":
 			
 			var received_pay : float  = outgoing
 			
-			var org_loss : float  = received_pay * (1.0 / (1.0 - TRANSFER_RATE))
+			org_loss= received_pay * (1.0 / (1.0 - TRANSFER_RATE))
 			
 			player_net_payment = received_pay
 			
 		else:
 			
-			var org_loss : float  = outgoing
+			org_loss= outgoing
 			
 			var received_pay : float  = outgoing * (1.0 - TRANSFER_RATE)
 			
 			player_net_payment = received_pay
 		
-		pay_record_entry["Username"] = record["Username"]
-		pay_record_entry["bPaid"] = 0
-		pay_record_entry["NetPayment"] = player_net_payment
+		total_org_loss += org_loss
 		
+		pay_record_entry["Username"] = record["Username"]
+		pay_record_entry["NetPayment"] = player_net_payment
+		pay_record_entry["OrgLoss"] = org_loss
+		
+		#pay_record_entry["bPaid"] = 0
 		#db.insert_row("PayRecords", pay_record_entry)
 		records.append(pay_record_entry)
 		
@@ -415,7 +421,12 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 	
 	db.close_db()
 	
-	return records.duplicate(true)
+	var total_org_profit = total_base_income - total_org_loss
+	
+	if already_paid:
+		return [records.duplicate(true), total_org_profit]
+	else:
+		return records.duplicate(true)
 
 
 func insert_event(dict) -> bool:
