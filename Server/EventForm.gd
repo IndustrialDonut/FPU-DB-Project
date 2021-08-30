@@ -25,6 +25,6 @@ remote func _initialize_events():
 	print("initializing events!")
 	var id = multiplayer.get_rpc_sender_id()
 	
-	var array_of_records = Databaser.get_event_labels()
+	var array_of_records = Databaser.get_event_labels(SNetworkGlobal.idToUsername(id))
 	
 	rpc_id(id, "_initialize_events", array_of_records)

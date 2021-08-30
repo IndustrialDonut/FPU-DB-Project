@@ -99,7 +99,7 @@ func submit_event_report(dict) -> bool:
 	db.open_db()
 	
 	# Do not allow submitting a report to an event that has already been committed.
-	db.query("SELECT Committed FROM Events WHERE COMMITTED = 1 AND ID = " + str(eventID))
+	db.query("SELECT Committed FROM Events WHERE Committed = 1 AND ID = " + str(eventID))
 	
 	var eventAlreadyCommitted = db.query_result.size()
 	
@@ -207,14 +207,21 @@ func get_bank_custom_transactions() -> Array:
 #	return result
 
 
-func get_event_labels():
+func get_event_labels(username = false):
 	db.open_db()
 	
 	# This SQL command actually ended up WORKING exactly right, however, I had already spent
 	# 4 + hours working on a sorting algorithm by Datetime and would rather kill myself
 	# than not use it after realizing this anyway. So, that sorting algorithm is 
 	# on the Sorter class on the Event Report for the Client!
-	db.query("SELECT EventName, Leader, Datetime, ID FROM Events WHERE Committed = 0 ORDER BY Datetime")
+	if username:
+		
+		db.query("""SELECT * FROM
+	(SELECT EventName, Leader, Events.Datetime, Events.ID, Username FROM Events LEFT JOIN EventReports ON Events.ID = EventReports.EventID WHERE Committed = 0)
+	WHERE Username != '""" + username + "' OR Username IS NULL")
+	else:
+		db.query("""SELECT EventName, Leader, Datetime, ID FROM Events WHERE Committed = 0 
+		ORDER BY Datetime""")
 	
 	var result = db.query_result
 	
