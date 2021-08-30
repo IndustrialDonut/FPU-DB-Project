@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Bank.gd" type="Script" id=1]
 [ext_resource path="res://TabContainer.gd" type="Script" id=2]
 [ext_resource path="res://CustomTransaction.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PaidRecord.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UnpaidRecord.tscn" type="PackedScene" id=5]
 
 [node name="Bank" type="Control"]
 anchor_right = 1.0
@@ -150,41 +152,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/TabContainer/PaidToMembers"]
-margin_right = 564.0
-margin_bottom = 50.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="PaidRecord" parent="ScrollContainer/TabContainer/PaidToMembers" instance=ExtResource( 4 )]
 
-[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
-margin_right = 138.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 138, 50 )
-text = "Username:"
-
-[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
-margin_left = 142.0
-margin_right = 280.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 138, 50 )
-text = "Hours Worked"
-
-[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
-margin_left = 284.0
-margin_right = 422.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 138, 50 )
-text = "Events Attended:"
-
-[node name="TextEdit4" type="TextEdit" parent="ScrollContainer/TabContainer/PaidToMembers/HBoxContainer"]
-margin_left = 426.0
-margin_right = 564.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 138, 50 )
-text = "Amount Paid:"
-
-[node name="UnpaidToMembers" type="HBoxContainer" parent="ScrollContainer/TabContainer"]
+[node name="UnpaidToMembers" type="VBoxContainer" parent="ScrollContainer/TabContainer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -192,33 +162,14 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TextEdit" type="TextEdit" parent="ScrollContainer/TabContainer/UnpaidToMembers"]
-rect_min_size = Vector2( 138, 50 )
-size_flags_horizontal = 3
-text = "Username:"
-
-[node name="TextEdit2" type="TextEdit" parent="ScrollContainer/TabContainer/UnpaidToMembers"]
-margin_left = 4.0
-margin_right = 4.0
-rect_min_size = Vector2( 138, 50 )
-size_flags_horizontal = 3
-text = "Hours Worked:"
-
-[node name="TextEdit3" type="TextEdit" parent="ScrollContainer/TabContainer/UnpaidToMembers"]
-margin_left = 12.0
-margin_right = 12.0
-rect_min_size = Vector2( 138, 50 )
-size_flags_horizontal = 3
-text = "Events Attended:"
-
-[node name="TextEdit4" type="TextEdit" parent="ScrollContainer/TabContainer/UnpaidToMembers"]
-margin_right = 40.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 138, 50 )
-text = "Amount Unpaid:"
+[node name="UnpaidRecord" parent="ScrollContainer/TabContainer/UnpaidToMembers" instance=ExtResource( 5 )]
 
 [node name="Button" type="Button" parent="."]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

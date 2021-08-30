@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://PaidRecord.gd" type="Script" id=1]
+
+[node name="PaidRecord" type="HBoxContainer"]
+margin_right = 592.0
+margin_bottom = 50.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="TextEdit" parent="."]
+margin_right = 138.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 138, 50 )
+text = "Username:"
+
+[node name="Hours" type="TextEdit" parent="."]
+margin_left = 142.0
+margin_right = 280.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 138, 50 )
+text = "Hours Worked"
+
+[node name="Events" type="TextEdit" parent="."]
+margin_left = 284.0
+margin_right = 422.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 138, 50 )
+text = "Events Attended:"
+
+[node name="Money" type="TextEdit" parent="."]
+margin_left = 426.0
+margin_right = 564.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 138, 50 )
+text = "Amount Paid:"

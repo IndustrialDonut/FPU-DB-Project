@@ -180,7 +180,7 @@ func view_approved_reports():
 	return result
 
 
-func get_bank_custom_transactions():
+func get_bank_custom_transactions() -> Array:
 	db.open_db()
 	
 	#db.query("SELECT EventIdentifier as Event, EventLeader as Leader, Username as Member, Gross, Hours, Department, OwedToPlayer FROM EventReports WHERE Approved = 1")
@@ -191,19 +191,20 @@ func get_bank_custom_transactions():
 	
 	db.close_db()
 	
-	return result
+	return result.duplicate(true)
 
 
-func get_paid_payrecords():
-	db.open_db()
-	
-	db.query("SELECT * FROM PayRecords")
-	
-	var result = db.query_result
-	
-	db.close_db()
-	
-	return result
+# bad because this is not using generated-metadata as we want to do
+#func get_paid_payrecords():
+#	db.open_db()
+#
+#	db.query("SELECT * FROM PayRecords")
+#
+#	var result = db.query_result
+#
+#	db.close_db()
+#
+#	return result
 
 
 func get_event_labels():
@@ -329,7 +330,7 @@ func generate_payrecords_to_pay() -> Array:
 	return _generate_metadata_payrecords(false)
 
 
-func _generate_paid_payrecords() -> Array:
+func generate_paid_payrecords() -> Array:
 	return _generate_metadata_payrecords(true)
 
 
@@ -414,7 +415,7 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 	
 	db.close_db()
 	
-	return records
+	return records.duplicate(true)
 
 
 func insert_event(dict) -> bool:

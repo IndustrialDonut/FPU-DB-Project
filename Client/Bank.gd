@@ -6,7 +6,8 @@ func _ready() -> void:
 
 
 func _visibility_changed() -> void:
-	rpc_id(1, "_initialize_view")
+	rpc_id(1, "_initialize_view") # server will callback initialize_view, 
+	# and generate_unpaid and generate_paid back here
 
 
 remote func _initialize_view(dicts, total) -> void:
@@ -19,8 +20,26 @@ remote func _initialize_view(dicts, total) -> void:
 
 		inst.set_labels(dict)
 
+	# bank total is definitely not implemented yet really
 	$BankTotal.text = $BankTotal.text % total as String
-	
+
+
+remote func _generate_unpaid_payrecords(dicts):
+	for dict in dicts:
+		var inst = preload("res://UnpaidRecord.tscn").instance()
+
+		$ScrollContainer/TabContainer/UnpaidToMembers.add_child(inst)
+
+		inst.set_labels(dict)
+
+
+remote func _generate_paid_payrecords(dicts):
+	for dict in dicts:
+		var inst = preload("res://PaidRecord.tscn").instance()
+
+		$ScrollContainer/TabContainer/PaidToMembers.add_child(inst)
+
+		inst.set_labels(dict)
 
 
 signal _return_bank(node)
@@ -48,5 +67,5 @@ remote func _result(result):
 	print(result)
 
 
-func _on_Button_pressed() -> void:
-	rpc_id(1, "_generate_unpaid_payrecords")
+#func _on_Button_pressed() -> void:
+#	rpc_id(1, "_generate_unpaid_payrecords")
