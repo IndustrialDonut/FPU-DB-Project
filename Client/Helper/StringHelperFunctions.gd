@@ -31,7 +31,7 @@ static func numberCommas(number) -> String:
 	
 	new_char_array.invert()
 	
-	if stringarray.size():
+	if stringarray.size() > 1:
 	
 		return new_char_array.get_string_from_ascii() + "." + stringarray[1]
 		
