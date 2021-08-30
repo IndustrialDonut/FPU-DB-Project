@@ -20,6 +20,7 @@ remote func _initialize_view(dicts, total) -> void:
 		inst.set_labels(dict)
 
 	$BankTotal.text = $BankTotal.text % total as String
+	
 
 
 signal _return_bank(node)
@@ -45,3 +46,7 @@ func _on_Submit_pressed() -> void:
 
 remote func _result(result):
 	print(result)
+
+
+func _on_Button_pressed() -> void:
+	rpc_id(1, "_generate_unpaid_payrecords")

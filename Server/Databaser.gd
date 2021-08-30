@@ -180,12 +180,24 @@ func view_approved_reports():
 	return result
 
 
-func view_bank_custom_transactions():
+func get_bank_custom_transactions():
 	db.open_db()
 	
 	#db.query("SELECT EventIdentifier as Event, EventLeader as Leader, Username as Member, Gross, Hours, Department, OwedToPlayer FROM EventReports WHERE Approved = 1")
 	
 	db.query("SELECT * FROM CustomTransactions")
+	
+	var result = db.query_result
+	
+	db.close_db()
+	
+	return result
+
+
+func get_paid_payrecords():
+	db.open_db()
+	
+	db.query("SELECT * FROM PayRecords")
 	
 	var result = db.query_result
 	
@@ -311,58 +323,101 @@ func commit_event(id) -> bool:
 	return b
 
 # only select paid event reports
-func metadata_payrecords_paid(event_id : int) -> Array:
-	var records
-	
-	db.open_db()
-	
-	db.query("""SELECT * FROM 
-	EventReports INNER JOIN MemberRates 
-	ON RateID = MemberRates.ID
-	
-	""")
-	
-	db.close_db()
-	
-	return records
+#func metadata_payrecords_paid(event_id : int) -> Array:
+#	var records
+#
+#	db.open_db()
+#
+#	db.query("""SELECT * FROM 
+#	EventReports INNER JOIN MemberRates 
+#	ON RateID = MemberRates.ID
+#
+#	""")
+#
+#	db.close_db()
+#
+#	return records
 
 # only allow this if an event has been committed!
-func metadata_payrecords_to_pay(event_id : int) -> Array:
+func generate_payrecords_to_pay() -> void:
 	var records
 	
 	db.open_db()
 	
 	db.query("""SELECT * FROM 
-	EventReports INNER JOIN MemberRates 
-	ON RateID = MemberRates.ID 
-	WHERE EventID = """ + str(event_id))
+	(SELECT Username, Gross, Hours, RateID, Paid, EventID as EventID, EventReports.ID AS ReportID FROM 
+	EventReports INNER JOIN Events ON EventReports.EventID = Events.ID 
+	WHERE Events.Committed = 1 AND EventReports.Paid = 0 
+	AND EventReports.Approved = 1) 
+	INNER JOIN MemberRates ON MemberRates.ID = RateID""")
 	
-	# I now have all the rate and event report info FOR A PARTICULAR EVENT,
-	# so I can loop over and do the sum and avg and that whole process now.
-	var result = db.query_result
+	var result = db.query_result.duplicate(true)
+	
+	var total_gross : float = 0
+	
+	var man_hours_dict = {}
+	
+	# initializing dictionary is all.
+	for record in result:
+		man_hours_dict[record["Enum"]] = 0
+	
+	var total_man_hours : float  = 0
+	
+	var TRANSFER_RATE : float 
+	
+	for record in result:
+		
+		total_gross += record["Gross"]
+		
+		total_man_hours += record["Hours"]
+		
+		man_hours_dict[record["Enum"]] += record["Hours"]
+		
+		TRANSFER_RATE = record["Transfer"] # this is NOT different per Member level,
+			# it is just needed on each record for other purposes. It may change though
+			# in time, which is why we record it with those entries anyway. But yeah,
+			# don't be confused by this.
+		
+	
+	var total_base_income : float  = total_gross * (1.0 - TRANSFER_RATE) # 1 - transfer fee is transfer YIELD
+	
+	for record in result:
+		
+		var pay_record_entry = {}
+		
+		var contributed_hour_ratio : float  = record["Hours"] / total_man_hours
+		
+		var base_outgoing_pay : float  = contributed_hour_ratio * total_base_income
+		
+		var outgoing : float  = base_outgoing_pay * (1 - record["Tax"]) # 1 - tax is payment YIELD
+		
+		var player_net_payment : float  = 0
+		
+		if record["Enum"] == "Member":
+			
+			var received_pay : float  = outgoing
+			
+			var org_loss : float  = received_pay * (1.0 / (1.0 - TRANSFER_RATE))
+			
+			player_net_payment = received_pay
+			
+		else:
+			
+			var org_loss : float  = outgoing
+			
+			var received_pay : float  = outgoing * (1.0 - TRANSFER_RATE)
+			
+			player_net_payment = received_pay
+		
+		pay_record_entry["Username"] = record["Username"]
+		pay_record_entry["bPaid"] = 0
+		pay_record_entry["NetPayment"] = player_net_payment
+		
+		db.insert_row("PayRecords", pay_record_entry)
+		
+		db.query("UPDATE EventReports SET Paid = 1 WHERE ID = " + str(record["ReportID"]))
 	
 	db.close_db()
-	
-	
-	var orgnet = 0
-	var paypool = 0
-	for record in result:
-		var gross = record["Gross"]
-		var taxrate = record["Tax"]
-		var transferrate = record["Transfer"]
-		
-		var transfer_loss = gross * transferrate
-		
-		var incoming = gross - transfer_loss
-		
-		orgnet += incoming * taxrate
-		paypool += incoming * (1 - taxrate)
-		
-		# this actually might not make sense without a weighted average
-		# if people are taxed at different rates.
-		
-	
-	return records
 
 
 func insert_event(dict) -> bool:
