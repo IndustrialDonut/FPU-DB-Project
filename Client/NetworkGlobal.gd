@@ -13,6 +13,10 @@ var bConnected = false
 
 
 func _ready() -> void:
+	
+	#var test = "132456789.555001"
+	#print(StringHelper.numberStringCommas(test))
+	
 	if OS.get_unique_id() == DONUT:
 		GATEWAY_SERVER_IP = SERVER_IP_LOCAL
 	else:

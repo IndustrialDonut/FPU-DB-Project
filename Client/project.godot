@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Helper",
+"language": "GDScript",
+"path": "res://Helper/StringHelperFunctions.gd"
+}, {
 "base": "Button",
 "class": "SpecialButton",
 "language": "GDScript",
 "path": "res://SpecialButton.gd"
 } ]
 _global_script_class_icons={
+"Helper": "",
 "SpecialButton": ""
 }
 

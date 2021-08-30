@@ -20,7 +20,7 @@ remote func _initialize_view(dicts, total) -> void:
 
 		inst.set_labels(dict)
 
-	$HBoxContainer2/BankTotal.text = total as String
+	$HBoxContainer2/BankTotal.text = Helper.numberCommas(total)
 
 
 remote func _generate_unpaid_payrecords(dicts):
@@ -64,7 +64,3 @@ func _on_Submit_pressed() -> void:
 
 remote func _result(result):
 	print(result)
-
-
-#func _on_Button_pressed() -> void:
-#	rpc_id(1, "_generate_unpaid_payrecords")
