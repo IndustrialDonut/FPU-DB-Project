@@ -331,7 +331,15 @@ func generate_payrecords_to_pay() -> Array:
 
 
 func generate_paid_payrecords() -> Array:
-	return _generate_metadata_payrecords(true)
+	return _generate_metadata_payrecords(true)[0]
+
+
+func generate_bank_cumulative_total() -> float:
+	return _generate_metadata_payrecords(true)[1]
+
+
+#func generate_personal_paid_records(id) -> Array:
+#	return _generate_metadata_payrecords(true, id)[0]
 
 
 func _generate_metadata_payrecords(already_paid : bool) -> Array:

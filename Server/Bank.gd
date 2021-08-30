@@ -6,8 +6,8 @@ remote func _initialize_view() -> void:
 	var custom = Databaser.get_bank_custom_transactions()
 	
 	var paid_payrecords = Databaser.generate_paid_payrecords()
-	var total_org_profit_from_paid_records = paid_payrecords[1]
-	paid_payrecords = paid_payrecords[0]
+	var total_org_profit_from_paid_records = Databaser.generate_bank_cumulative_total()#paid_payrecords[1]
+	#paid_payrecords = paid_payrecords[0]
 	
 	var bank_account_amount = total_org_profit_from_paid_records + _s_total_gross_on_trans(custom)
 	

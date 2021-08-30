@@ -43,7 +43,10 @@ func _disconnected():
 	$VBoxContainer/Server.text = "Server Status: DISCONNECTED"
 
 
+var username = ""
+
 func set_user_name(username):
+	self.username = username
 	$VBoxContainer/Username.text = "Signed In As: %s" % username
 
 func set_department_name(dept_name : String):
