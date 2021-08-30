@@ -20,9 +20,7 @@ remote func _initialize_view(dicts, total) -> void:
 
 		inst.set_labels(dict)
 
-	# bank total is definitely not implemented yet really
-	#if $BankTotal.text.
-	$BankTotal.text = $BankTotal.text % total as String
+	$HBoxContainer2/BankTotal.text = total as String
 
 
 remote func _generate_unpaid_payrecords(dicts):

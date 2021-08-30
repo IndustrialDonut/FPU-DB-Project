@@ -18,12 +18,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BankTotal" type="Label" parent="."]
-margin_left = 6.50168
-margin_top = 83.0284
-margin_right = 202.502
-margin_bottom = 101.029
-text = "Bank Total Amount: %s"
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="HBoxContainer2"]
+margin_top = 13.0
+margin_right = 137.0
+margin_bottom = 27.0
+text = "Bank Total Amount: $"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BankTotal" type="Label" parent="HBoxContainer2"]
+margin_left = 141.0
+margin_top = 13.0
+margin_right = 141.0
+margin_bottom = 27.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
