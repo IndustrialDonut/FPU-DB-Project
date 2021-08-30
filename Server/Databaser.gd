@@ -322,32 +322,26 @@ func commit_event(id) -> bool:
 	
 	return b
 
-# only select paid event reports
-#func metadata_payrecords_paid(event_id : int) -> Array:
-#	var records
-#
-#	db.open_db()
-#
-#	db.query("""SELECT * FROM 
-#	EventReports INNER JOIN MemberRates 
-#	ON RateID = MemberRates.ID
-#
-#	""")
-#
-#	db.close_db()
-#
-#	return records
 
-# only allow this if an event has been committed!
-func generate_payrecords_to_pay() -> void:
-	var records
+# only consider an event if it has been committed!
+# purely meta-data viewing!
+func generate_payrecords_to_pay() -> Array:
+	return _generate_metadata_payrecords(false)
+
+
+func _generate_paid_payrecords() -> Array:
+	return _generate_metadata_payrecords(true)
+
+
+func _generate_metadata_payrecords(already_paid : bool) -> Array:
+	var records = []
 	
 	db.open_db()
 	
 	db.query("""SELECT * FROM 
 	(SELECT Username, Gross, Hours, RateID, Paid, EventID as EventID, EventReports.ID AS ReportID FROM 
 	EventReports INNER JOIN Events ON EventReports.EventID = Events.ID 
-	WHERE Events.Committed = 1 AND EventReports.Paid = 0 
+	WHERE Events.Committed = 1 AND EventReports.Paid = '""" + str(int(already_paid)) + """'  
 	AND EventReports.Approved = 1) 
 	INNER JOIN MemberRates ON MemberRates.ID = RateID""")
 	
@@ -413,11 +407,14 @@ func generate_payrecords_to_pay() -> void:
 		pay_record_entry["bPaid"] = 0
 		pay_record_entry["NetPayment"] = player_net_payment
 		
-		db.insert_row("PayRecords", pay_record_entry)
+		#db.insert_row("PayRecords", pay_record_entry)
+		records.append(pay_record_entry)
 		
 		db.query("UPDATE EventReports SET Paid = 1 WHERE ID = " + str(record["ReportID"]))
 	
 	db.close_db()
+	
+	return records
 
 
 func insert_event(dict) -> bool:
