@@ -38,8 +38,15 @@ remote func _submit_custom_transaction(dict, bPersonal):
 
 
 remote func _generate_unpaid_payrecords():
+	
 	var id = multiplayer.get_rpc_sender_id()
 	
-	if SNetworkGlobal.idIsAdmin(id):
-		
-		Databaser.generate_payrecords_to_pay()
+	rpc_id(id, "_generate_unpaid_payrecords", Databaser.generate_payrecords_to_pay())
+
+
+remote func _generate_paid_payrecords():
+	
+	var id = multiplayer.get_rpc_sender_id()
+	
+	rpc_id(id, "_generate_paid_payrecords", Databaser.generate_payrecords_paid())
+	
