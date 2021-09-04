@@ -427,7 +427,7 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 			
 			var received_pay : float  = outgoing
 			
-			org_loss= received_pay * (1.0 / (1.0 - TRANSFER_RATE))
+			org_loss = received_pay * (1.0 / (1.0 - TRANSFER_RATE))
 			
 			player_net_payment = received_pay
 			
@@ -435,21 +435,17 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 			
 			org_loss= outgoing
 			
-			var received_pay : float  = outgoing * (1.0 - TRANSFER_RATE)
+			var received_pay : float = outgoing * (1.0 - TRANSFER_RATE)
 			
 			player_net_payment = received_pay
 		
 		total_org_loss += org_loss
 		
 		pay_record_entry["Username"] = record["Username"]
-		pay_record_entry["NetPayment"] = player_net_payment
-		pay_record_entry["OrgLoss"] = org_loss
+		pay_record_entry["NetPayment"] = round(player_net_payment)
+		pay_record_entry["OrgLoss"] = round(org_loss)
 		
-		#pay_record_entry["bPaid"] = 0
-		#db.insert_row("PayRecords", pay_record_entry)
 		records.append(pay_record_entry)
-		
-		#db.query("UPDATE EventReports SET Paid = 1 WHERE ID = " + str(record["ReportID"]))
 	
 	db.close_db()
 	
