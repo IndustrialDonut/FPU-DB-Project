@@ -65,26 +65,6 @@ remote func _initialize_records(records : Array):
 		#total_hours += record["Hours"]
 		
 	
-#	var vbox = $HBoxContainer/VBoxContainer2
-#
-#	var grosslabel = vbox.get_node("TotalPlayerGross").text
-#	vbox.get_node("TotalPlayerGross").text = grosslabel % str(totalplayercontri)
-#
-#	var orgnetlabel = vbox.get_node("OrgNet").text
-#	vbox.get_node("OrgNet").text = orgnetlabel % str(orgnet)
-#
-#	var grandtotallabel = vbox.get_node("GrandTotal").text
-#	vbox.get_node("GrandTotal").text = grandtotallabel % str(overalltotalgross)
-#
-#	var playernetlabel = vbox.get_node("PlayerNet").text
-#	vbox.get_node("PlayerNet").text = playernetlabel % str(playernet)
-#
-#
-#	var commentlabel = $HBoxContainer/ScrollContainer2/VBoxContainer3/Comments.text
-#	$HBoxContainer/ScrollContainer2/VBoxContainer3/Comments.text = commentlabel % [str(user_uec_hour), str(event_uec_hour)]
-#
-#	print(commentlabel % [str(user_uec_hour), str(event_uec_hour)])
-	
 
 signal return_from_invoice(node)
 func _on_Button_pressed() -> void:

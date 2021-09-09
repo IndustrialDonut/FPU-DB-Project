@@ -11,6 +11,11 @@ func _visibility_changed() -> void:
 
 
 remote func _initialize_view(dicts, total) -> void:
+	for x in $ScrollContainer/TabContainer/CustomTransactions.get_children():
+		x.free()
+	
+	var header = preload("res://CustomTransaction.tscn").instance()
+	$ScrollContainer/TabContainer/CustomTransactions.add_child(header)
 
 	for dict in dicts:
 

@@ -79,6 +79,7 @@ text = "Personal transfer? (Otherwise, it's for your Department)"
 margin_left = 357.0
 margin_right = 381.0
 margin_bottom = 24.0
+pressed = true
 
 [node name="Recipient" type="LineEdit" parent="VBoxContainer2"]
 margin_top = 28.0

@@ -365,7 +365,7 @@ func generate_bank_cumulative_total() -> float:
 #func generate_personal_paid_records(id) -> Array:
 #	return _generate_metadata_payrecords(true, id)[0]
 
-
+# see Excel document for more info on the algorithm in pseudocode if you dare
 func _generate_metadata_payrecords(already_paid : bool) -> Array:
 	var records = []
 	
@@ -380,8 +380,6 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 	
 	var result = db.query_result.duplicate(true)
 	
-	var total_gross : float = 0
-	
 	var man_hours_dict = {}
 	
 	# initializing dictionary is all.
@@ -390,52 +388,52 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 	
 	var total_man_hours : float  = 0
 	
-	var TRANSFER_RATE : float 
+	var TRANSFER_RATE : float
+	
+	var total_base_income : float = 0 #total_gross * (1.0 - TRANSFER_RATE) # 1 - transfer fee is transfer YIELD
 	
 	for record in result:
-		
-		total_gross += record["Gross"]
-		
-		total_man_hours += record["Hours"]
-		
-		man_hours_dict[record["Enum"]] += record["Hours"]
 		
 		TRANSFER_RATE = record["Transfer"] # this is NOT different per Member level,
 			# it is just needed on each record for other purposes. It may change though
 			# in time, which is why we record it with those entries anyway. But yeah,
 			# don't be confused by this.
-	
-	var total_base_income : float  = total_gross * (1.0 - TRANSFER_RATE) # 1 - transfer fee is transfer YIELD
-	
+		
+		total_base_income += floor( record["Gross"] * (1.0 - TRANSFER_RATE) )
+		
+		total_man_hours += record["Hours"]
+		
+		man_hours_dict[record["Enum"]] += record["Hours"]
+		
 	var total_org_loss : float = 0
 	
 	for record in result:
 		
 		var pay_record_entry = {}
 		
-		var contributed_hour_ratio : float  = record["Hours"] / total_man_hours
+		var contributed_hour_ratio : float = record["Hours"] / total_man_hours
 		
-		var base_outgoing_pay : float  = contributed_hour_ratio * total_base_income
+		var base_outgoing_pay : float = contributed_hour_ratio * total_base_income
 		
-		var outgoing : float  = base_outgoing_pay * (1 - record["Tax"]) # 1 - tax is payment YIELD
+		var outgoing : float = base_outgoing_pay * (1 - record["Tax"]) # 1 - tax is payment YIELD
 		
-		var player_net_payment : float  = 0
+		var player_net_payment : float = 0
 		
 		var org_loss : float = 0
 		
 		if record["Enum"] == "Member":
 			
-			var received_pay : float  = outgoing
+			var received_pay : float = outgoing
 			
-			org_loss= received_pay * (1.0 / (1.0 - TRANSFER_RATE))
+			org_loss = ceil(received_pay * (1.0 / (1.0 - TRANSFER_RATE)))
 			
-			player_net_payment = received_pay
+			player_net_payment = floor(received_pay)
 			
 		else:
 			
-			org_loss= outgoing
+			org_loss = ceil(outgoing)
 			
-			var received_pay : float  = outgoing * (1.0 - TRANSFER_RATE)
+			var received_pay : float = floor(outgoing * (1.0 - TRANSFER_RATE))
 			
 			player_net_payment = received_pay
 		
@@ -445,11 +443,7 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 		pay_record_entry["NetPayment"] = player_net_payment
 		pay_record_entry["OrgLoss"] = org_loss
 		
-		#pay_record_entry["bPaid"] = 0
-		#db.insert_row("PayRecords", pay_record_entry)
 		records.append(pay_record_entry)
-		
-		#db.query("UPDATE EventReports SET Paid = 1 WHERE ID = " + str(record["ReportID"]))
 	
 	db.close_db()
 	
