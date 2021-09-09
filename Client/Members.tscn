@@ -27,19 +27,30 @@ __meta__ = {
 }
 
 [node name="Title_Financials" type="Label" parent="This"]
-margin_left = 3.75928
-margin_top = 363.041
-margin_right = 598.759
-margin_bottom = 510.041
+anchor_left = 0.006
+anchor_top = 0.605
+anchor_right = 0.998
+anchor_bottom = 0.85
+margin_left = 0.15928
+margin_top = 0.0409851
+margin_right = -0.0410156
+margin_bottom = 0.0409851
+size_flags_horizontal = 3
+size_flags_vertical = 7
 text = "Financials"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ViewBank" type="Button" parent="This/Title_Financials"]
-margin_top = 22.0
-margin_right = 590.0
-margin_bottom = 56.0
+anchor_top = 0.15
+anchor_right = 0.992
+anchor_bottom = 0.381
+margin_top = -0.0500011
+margin_right = -0.239746
+margin_bottom = -0.00699997
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "View Bank"
 script = ExtResource( 7 )
 __meta__ = {
@@ -48,49 +59,72 @@ __meta__ = {
 scene = "Bank"
 
 [node name="ViewPersonal" type="Button" parent="This/Title_Financials"]
-anchor_top = -0.0101924
-anchor_bottom = -0.0101924
+anchor_top = 0.395
+anchor_right = 0.988
+anchor_bottom = 0.626
 margin_left = 1.0
-margin_top = 59.4983
-margin_right = 588.0
-margin_bottom = 93.4983
+margin_top = -0.0649872
+margin_right = 0.140259
+margin_bottom = -0.0219879
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "View Personal Financials"
 script = ExtResource( 7 )
 scene = "PersonalFinance"
 
 [node name="ViewInvoice" type="Button" parent="This/Title_Financials"]
-anchor_top = -0.0101924
-anchor_bottom = -0.0101924
+anchor_top = 0.639
+anchor_right = 0.997
+anchor_bottom = 0.871
 margin_left = -3.0
-margin_top = 95.4983
-margin_right = 593.0
-margin_bottom = 129.498
+margin_top = 0.067009
+margin_right = -0.214722
+margin_bottom = -0.0372849
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "View My Payslip"
 script = ExtResource( 7 )
 scene = "InvoiceView"
 
 [node name="Quit" type="Button" parent="This"]
-margin_left = 195.584
-margin_top = 518.595
-margin_right = 393.584
-margin_bottom = 587.595
+anchor_left = 0.326
+anchor_top = 0.864
+anchor_right = 0.656
+anchor_bottom = 0.979
+margin_left = -0.0160065
+margin_top = 0.194946
+margin_right = -0.0159912
+margin_bottom = 0.194946
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Logout and Quit"
 
 [node name="Title_Event" type="Label" parent="This"]
+anchor_top = 0.353
+anchor_right = 0.994
+anchor_bottom = 0.645
 margin_left = 1.25079
-margin_top = 211.742
-margin_right = 596.251
-margin_bottom = 386.742
+margin_top = -0.0579987
+margin_right = -0.149048
+margin_bottom = -0.258026
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Event"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CreateEvent" type="Button" parent="This/Title_Event"]
-margin_left = 4.0
-margin_top = 36.0
-margin_right = 596.0
-margin_bottom = 70.0
+anchor_left = 0.007
+anchor_top = 0.206
+anchor_right = 1.002
+anchor_bottom = 0.352
+margin_left = -0.165001
+margin_top = -0.0500031
+margin_right = -0.190247
+margin_bottom = 8.39999
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Create New Event"
 script = ExtResource( 7 )
 __meta__ = {
@@ -99,10 +133,15 @@ __meta__ = {
 scene = "CreateEvent"
 
 [node name="View_Pending_Report" type="Button" parent="This/Title_Event"]
+anchor_top = 0.661
+anchor_right = 1.0
+anchor_bottom = 0.856
 margin_left = -1.25085
-margin_top = 115.715
-margin_right = 594.749
-margin_bottom = 149.715
+margin_top = 0.0399933
+margin_right = -0.25116
+margin_bottom = -0.085022
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "View Pending Reports (non-committed Events)"
 script = ExtResource( 7 )
 __meta__ = {
@@ -111,22 +150,29 @@ __meta__ = {
 scene = "PendingReports"
 
 [node name="Button_Submit_Event_Report" type="Button" parent="This/Title_Event"]
+anchor_top = 0.434
+anchor_right = 0.995
+anchor_bottom = 0.629
 margin_left = 2.0
-margin_top = 76.0
-margin_right = 592.0
-margin_bottom = 110.0
+margin_top = 0.0499954
+margin_right = -0.0252075
+margin_bottom = -0.0750046
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Submit an Event Report"
 script = ExtResource( 7 )
 scene = "EventForm"
 
 [node name="TextureRect" type="TextureRect" parent="This"]
+anchor_right = 0.472
+anchor_bottom = 0.363
 margin_left = 2.0
 margin_top = -4.0
-margin_right = 283.0
-margin_bottom = 218.0
+margin_right = -0.200012
+margin_bottom = 0.199997
 rect_min_size = Vector2( 30, 30 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false

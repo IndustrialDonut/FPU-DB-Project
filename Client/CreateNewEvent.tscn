@@ -15,6 +15,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Return" type="Button" parent="."]
+margin_left = 10.0
+margin_top = 561.0
+margin_right = 158.0
+margin_bottom = 598.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Return To Main Page!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 0.992
 anchor_bottom = 0.033
@@ -27,43 +39,49 @@ __meta__ = {
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 595.0
 margin_bottom = 14.0
-text = "Create New Event- Use this To Create a Event for Members to Report On!"
+text = "Create New Event"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 0.01
 anchor_top = 0.06
 anchor_right = 0.992
-anchor_bottom = 0.963
-margin_left = 0.110109
-margin_top = -0.229198
-margin_right = -0.0900269
-margin_bottom = -248.029
+anchor_bottom = 1.003
+margin_left = -0.88794
+margin_top = 18.3306
+margin_right = -1.08795
+margin_bottom = -51.4694
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
-margin_right = 588.0
+margin_right = 589.0
 margin_bottom = 14.0
 text = "Enter The Name You Wish To Call The Event!"
 
 [node name="EventName" type="LineEdit" parent="VBoxContainer2"]
 margin_top = 18.0
-margin_right = 588.0
+margin_right = 589.0
 margin_bottom = 42.0
 placeholder_text = "Enter Event Name Here:"
 
 [node name="Label2" type="Label" parent="VBoxContainer2"]
 margin_top = 46.0
-margin_right = 588.0
-margin_bottom = 60.0
+margin_right = 589.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
 text = "What Department Will This Event Be For?"
 
 [node name="Department" type="OptionButton" parent="VBoxContainer2"]
-margin_top = 64.0
-margin_right = 588.0
-margin_bottom = 84.0
+margin_top = 91.0
+margin_right = 589.0
+margin_bottom = 133.0
 rect_min_size = Vector2( 30, 20 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Defense"
 items = [ "Defense", null, false, 0, null, "Intelligence", null, false, 0, "Department of Intelligence", "Finance", null, false, 0, false, "Logistics", null, false, 3, null, "Industry", null, false, 4, null ]
 selected = 0
@@ -83,86 +101,95 @@ margin_bottom = 112.0
 placeholder_text = "Enter Hours Here:"
 
 [node name="Label4" type="Label" parent="VBoxContainer2"]
-margin_top = 88.0
-margin_right = 588.0
-margin_bottom = 102.0
+margin_top = 137.0
+margin_right = 589.0
+margin_bottom = 151.0
+size_flags_horizontal = 3
 text = "What Member Will Lead This Event?"
 
 [node name="Leader" type="LineEdit" parent="VBoxContainer2"]
-margin_top = 106.0
-margin_right = 588.0
-margin_bottom = 130.0
+margin_top = 155.0
+margin_right = 589.0
+margin_bottom = 196.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 placeholder_text = "Leader Name Here:"
 
 [node name="Label5" type="Label" parent="VBoxContainer2"]
-margin_top = 134.0
-margin_right = 588.0
-margin_bottom = 148.0
+margin_top = 200.0
+margin_right = 589.0
+margin_bottom = 214.0
+size_flags_horizontal = 3
 text = "What Will The Date of The Event Be?"
 
 [node name="Year" type="OptionButton" parent="VBoxContainer2"]
-margin_top = 152.0
-margin_right = 588.0
-margin_bottom = 182.0
+margin_top = 218.0
+margin_right = 589.0
+margin_bottom = 260.0
 rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "YYYY(Year)"
 items = [ "YYYY(Year)", null, true, 0, null, "2021", null, false, 1, null, "2022", null, false, 2, null ]
 selected = 0
 script = ExtResource( 2 )
 
 [node name="Month" type="OptionButton" parent="VBoxContainer2"]
-margin_top = 186.0
-margin_right = 588.0
-margin_bottom = 216.0
+margin_top = 264.0
+margin_right = 589.0
+margin_bottom = 306.0
 rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "MM(Month) "
 items = [ "MM(Month) ", null, true, 0, null, "January", null, false, 1, " 3", "Febuary", null, false, 2, false, "March", null, false, 3, null, "April", null, false, 4, "Item 8", "May", null, false, 5, false, "June", null, false, 6, null, "July ", null, false, 7, null, "August", null, false, 8, null, "September", null, false, 9, null, "October", null, false, 10, null, "November", null, false, 11, null, "December", null, false, 12, null ]
 selected = 0
 script = ExtResource( 3 )
 
 [node name="Day" type="OptionButton" parent="VBoxContainer2"]
-margin_top = 220.0
-margin_right = 588.0
-margin_bottom = 250.0
+margin_top = 310.0
+margin_right = 589.0
+margin_bottom = 351.0
 rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "DD(Day)"
 items = [ "DD(Day)", null, true, 0, null, "1st", null, false, 1, null, "2nd", null, false, 2, null, "3rd", null, false, 3, null, "4th", null, false, 4, null, "5th", null, false, 5, null, "6th", null, false, 6, null, "7th", null, false, 7, null, "8th", null, false, 8, null, "9th", null, false, 9, null, "10th", null, false, 10, null, "11th", null, false, 11, null, "12th", null, false, 12, null, "13th", null, false, 13, null, "14th", null, false, 14, null, "15th", null, false, 15, null, "16th", null, false, 16, null, "17th", null, false, 17, null, "18th", null, false, 18, null, "19th", null, false, 19, null, "20th", null, false, 20, null, "21st", null, false, 21, null, "22nd", null, false, 22, null, "23rd", null, false, 23, null, " 24th", null, false, 24, null, "25th", null, false, 25, null, "26th", null, false, 26, null, "27th", null, false, 27, null, "28th", null, false, 28, null, "29th", null, false, 29, null, "30th", null, false, 30, null, "31st", null, false, 31, null ]
 selected = 0
 script = ExtResource( 4 )
 
 [node name="Hour" type="OptionButton" parent="VBoxContainer2"]
-margin_top = 254.0
-margin_right = 588.0
-margin_bottom = 284.0
+margin_top = 355.0
+margin_right = 589.0
+margin_bottom = 397.0
 rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "HH(Hour)"
 items = [ "HH(Hour)", null, false, 25, null, "1am", null, false, 1, null, "2am", null, false, 2, null, "3am", null, false, 3, null, "4am", null, false, 4, null, "5am", null, false, 5, null, "6am", null, false, 6, null, "7am", null, false, 7, null, "8am", null, false, 8, null, "9am", null, false, 9, null, "10am", null, false, 10, null, "11am", null, false, 11, null, "12pm", null, false, 12, null, "1pm", null, false, 13, null, "2pm", null, false, 14, null, "3pm", null, false, 15, null, "4pm", null, false, 16, null, "5pm", null, false, 17, null, "6pm", null, false, 18, null, "7pm", null, false, 19, null, "8pm", null, false, 20, null, "9pm", null, false, 21, null, "10pm", null, false, 22, null, "11pm", null, false, 23, null, "12am", null, false, 0, null ]
 selected = 0
 script = ExtResource( 5 )
 
 [node name="Minute" type="OptionButton" parent="VBoxContainer2"]
-margin_top = 288.0
-margin_right = 588.0
-margin_bottom = 318.0
+margin_top = 401.0
+margin_right = 589.0
+margin_bottom = 443.0
 rect_min_size = Vector2( 30, 30 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "MM(Minute)"
 items = [ "MM(Minute)", null, false, 7, null, "00", null, false, 0, null, "15", null, false, 1, null, "30", null, false, 2, null, "45", null, false, 3, null ]
 selected = 0
 script = ExtResource( 6 )
 
 [node name="Submit" type="Button" parent="VBoxContainer2"]
-margin_top = 322.0
-margin_right = 588.0
-margin_bottom = 371.0
+margin_top = 447.0
+margin_right = 589.0
+margin_bottom = 496.0
 rect_min_size = Vector2( 40, 49 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Finish, and Upload Event To Database!"
 
-[node name="Return" type="Button" parent="VBoxContainer2"]
-margin_top = 375.0
-margin_right = 588.0
-margin_bottom = 496.0
-rect_min_size = Vector2( 30, 121 )
-text = "Return To Main Page!"
-
+[connection signal="pressed" from="Return" to="." method="_on_Return_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Submit" to="." method="_on_Submit_pressed"]
-[connection signal="pressed" from="VBoxContainer2/Return" to="." method="_on_Return_pressed"]

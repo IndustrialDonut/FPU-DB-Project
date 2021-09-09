@@ -16,30 +16,46 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 436.687
-margin_top = 9.33676
-margin_right = 589.687
-margin_bottom = 23.3368
+anchor_left = 0.02
+anchor_top = 0.013
+anchor_right = 0.275
+anchor_bottom = 0.036
+margin_left = -0.272462
+margin_top = -0.24504
+margin_right = -0.272461
+margin_bottom = -0.0450001
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Event Report Verfication"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 20.1991
-margin_top = 32.4074
-margin_right = 205.199
-margin_bottom = 46.4074
-text = "Select Event (Event, Leader , Date as Year:Month:Day:Hour:Minute)"
+anchor_left = 0.017
+anchor_top = 0.089
+anchor_right = 0.257
+anchor_bottom = 0.112
+margin_left = -0.0909309
+margin_top = 0.0907059
+margin_right = -0.0909271
+margin_bottom = 0.290703
+text = "Select Event From List"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Event" type="OptionButton" parent="."]
-margin_left = 15.0
-margin_top = 61.0
-margin_right = 534.0
-margin_bottom = 93.0
+anchor_left = 0.025
+anchor_top = 0.118
+anchor_right = 0.884
+anchor_bottom = 0.171
+margin_left = -3.5636
+margin_top = -0.000106812
+margin_right = 0.036377
+margin_bottom = 0.19989
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Item 1"
 items = [ "Item 0", null, false, 0, null, "Item 1", null, false, 1, null, "Item 2", null, false, 5, null ]
 selected = 1
@@ -48,14 +64,16 @@ __meta__ = {
 }
 
 [node name="TabContainer" type="TabContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -274.673
-margin_top = -196.363
-margin_right = 263.327
-margin_bottom = 143.637
+anchor_left = 0.042
+anchor_top = 0.173
+anchor_right = 0.939
+anchor_bottom = 0.739
+margin_left = 0.126993
+margin_top = -0.16301
+margin_right = -0.072998
+margin_bottom = 0.236969
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -63,14 +81,16 @@ __meta__ = {
 [node name="Report" parent="TabContainer" instance=ExtResource( 2 )]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -269.598
-margin_top = -143.799
-margin_right = -63.5984
-margin_bottom = -103.799
+anchor_left = 0.051
+anchor_top = 0.76
+anchor_right = 0.394
+anchor_bottom = 0.827
+margin_left = -0.197994
+margin_top = 0.200958
+margin_right = 0.00158691
+margin_bottom = 0.000976563
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -100,35 +120,48 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -359.0
-margin_top = -142.0
-margin_right = -38.0
-margin_bottom = -103.0
+anchor_left = 0.402
+anchor_top = 0.763
+anchor_right = 0.937
+anchor_bottom = 0.828
+margin_left = -0.200012
+margin_top = 0.199982
+margin_right = -0.200012
+margin_bottom = 0.199951
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "COMMIT EVENT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button2" type="Button" parent="."]
-anchor_right = 0.01
-margin_left = 32.0
-margin_top = 503.0
-margin_right = 230.0
-margin_bottom = 581.0
+anchor_left = 0.053
+anchor_top = 0.838
+anchor_right = 0.393
+anchor_bottom = 0.968
+margin_left = 0.199999
+margin_top = 0.199951
+margin_right = 0.199997
+margin_bottom = 0.199951
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Return to Main Page"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextEdit" type="TextEdit" parent="."]
-margin_left = 246.0
-margin_top = 519.0
-margin_right = 567.0
-margin_bottom = 581.0
+anchor_left = 0.41
+anchor_top = 0.865
+anchor_right = 0.945
+anchor_bottom = 0.968
+margin_left = -1.52588e-05
+margin_top = -6.10352e-05
+margin_right = -6.10352e-05
+margin_bottom = 0.199951
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Enter Comments Here:
 This Is Private Only Seen 
 Within Their PaySlip."
