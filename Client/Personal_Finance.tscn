@@ -19,7 +19,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 173.0
+margin_right = 172.0
 margin_bottom = 48.0
 text = "My Personal Finance
 Username:
