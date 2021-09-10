@@ -18,11 +18,12 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-anchor_right = 0.998
-anchor_bottom = 0.41
-margin_top = 130.0
-margin_right = 0.200012
-margin_bottom = 214.0
+anchor_right = 1.0
+anchor_bottom = 0.492
+margin_left = 1.05945
+margin_top = 171.319
+margin_right = 0.0594482
+margin_bottom = 53.1191
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -39,63 +40,17 @@ __meta__ = {
 
 [node name="Record" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 1 )]
 margin_right = 587.0
-margin_bottom = 40.0
+margin_bottom = 800.0
 rect_min_size = Vector2( 0, 40 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.225
-anchor_right = 0.675
-anchor_bottom = 0.198
-margin_left = 0.11377
-margin_top = 7.6629
-margin_right = 0.11377
-margin_bottom = -0.137115
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
-margin_right = 270.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 17, 16 )
-text = "Transaction #"
-readonly = true
-
-[node name="TextEdit3" type="TextEdit" parent="VBoxContainer"]
-margin_top = 20.0
-margin_right = 270.0
-margin_bottom = 36.0
-rect_min_size = Vector2( 17, 16 )
-text = "Date Pay Sent: Every Friday"
-readonly = true
-
-[node name="TextEdit4" type="TextEdit" parent="VBoxContainer"]
-margin_top = 40.0
-margin_right = 270.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 17, 40 )
-text = "From MM/DD Through MM/DD/YYYY"
-readonly = true
-
-[node name="TextureRect" type="TextureRect" parent="."]
-anchor_right = 0.046
-anchor_bottom = 0.035
-margin_left = 1.41422
-margin_top = 9.8995
-margin_right = 109.814
-margin_bottom = 85.8995
-texture = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_top = 0.958
+anchor_top = 0.773
 anchor_right = 0.995
 anchor_bottom = 1.0
-margin_top = -110.8
-margin_right = -6.10352e-05
+margin_top = 0.199951
+margin_right = -0.00012207
 margin_bottom = -1.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -112,8 +67,9 @@ __meta__ = {
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/ScrollContainer2"]
 margin_right = 296.0
-margin_bottom = 120.0
+margin_bottom = 135.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -132,43 +88,51 @@ readonly = true
 
 [node name="Label" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
 margin_right = 296.0
-margin_bottom = 14.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Hours Completed For Week: %s"
 
 [node name="Label2" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
-margin_top = 18.0
+margin_top = 27.0
 margin_right = 296.0
-margin_bottom = 32.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Department of Intelligence: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
-margin_top = 36.0
+margin_top = 55.0
 margin_right = 296.0
-margin_bottom = 50.0
+margin_bottom = 79.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Department of Finance: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label4" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
-margin_top = 54.0
+margin_top = 83.0
 margin_right = 296.0
-margin_bottom = 68.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Department of Industry: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label5" type="Label" parent="HBoxContainer/ScrollContainer2/VBoxContainer3"]
-margin_top = 72.0
+margin_top = 111.0
 margin_right = 296.0
-margin_bottom = 120.0
-text = "Department of Logistics: 0
-
-"
+margin_bottom = 135.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Department of Logistics: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -186,6 +150,8 @@ __meta__ = {
 [node name="TotalPlayerGross" type="LineEdit" parent="HBoxContainer/VBoxContainer2"]
 margin_right = 296.0
 margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Total Gross Contributions: %s"
 editable = false
 
@@ -193,6 +159,8 @@ editable = false
 margin_top = 28.0
 margin_right = 296.0
 margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Total ORG Dividend: %s"
 editable = false
 
@@ -200,6 +168,8 @@ editable = false
 margin_top = 56.0
 margin_right = 296.0
 margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Total Gross from ALL Players: %s"
 editable = false
 
@@ -207,13 +177,77 @@ editable = false
 margin_top = 84.0
 margin_right = 296.0
 margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Your Total Net Earnings: %s"
 editable = false
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2"]
 margin_top = 112.0
 margin_right = 296.0
-margin_bottom = 132.0
+margin_bottom = 135.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Return To Main Menu"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchor_right = 0.152
+anchor_bottom = 0.097
+margin_left = 1.0
+margin_top = 4.0
+margin_right = 284.8
+margin_bottom = 54.8
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2"]
+margin_right = 140.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 140, 0 )
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2"]
+margin_left = 144.0
+margin_right = 375.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer2/VBoxContainer"]
+margin_right = 231.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 17, 16 )
+size_flags_vertical = 3
+text = "Transaction #"
+readonly = true
+
+[node name="TextEdit3" type="TextEdit" parent="HBoxContainer2/VBoxContainer"]
+margin_top = 34.0
+margin_right = 231.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 17, 16 )
+size_flags_vertical = 3
+text = "Date Pay Sent: Every Friday"
+readonly = true
+
+[node name="TextEdit4" type="TextEdit" parent="HBoxContainer2/VBoxContainer"]
+margin_top = 69.0
+margin_right = 231.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 17, 40 )
+text = "From MM/DD Through MM/DD/YYYY"
+readonly = true
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/Button" to="." method="_on_Button_pressed"]

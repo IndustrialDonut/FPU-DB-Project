@@ -32,28 +32,27 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-anchor_left = 0.017
-anchor_top = 0.089
-anchor_right = 0.257
-anchor_bottom = 0.112
-margin_left = -0.0909309
-margin_top = 0.0907059
-margin_right = -0.0909271
-margin_bottom = 0.290703
+anchor_left = 0.375
+anchor_top = 0.068
+anchor_right = 0.615
+anchor_bottom = 0.092
+margin_left = -0.183914
+margin_top = 0.218094
+margin_right = -0.183899
+margin_bottom = -0.181908
 text = "Select Event From List"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Event" type="OptionButton" parent="."]
-anchor_left = 0.025
+anchor_left = 0.04
 anchor_top = 0.118
-anchor_right = 0.884
-anchor_bottom = 0.171
-margin_left = -3.5636
-margin_top = -0.000106812
-margin_right = 0.036377
-margin_bottom = 0.19989
+anchor_right = 0.94
+anchor_bottom = 0.17
+margin_left = -1.90735e-06
+margin_top = -0.800003
+margin_right = -6.10352e-05
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Item 1"
@@ -64,13 +63,12 @@ __meta__ = {
 }
 
 [node name="TabContainer" type="TabContainer" parent="."]
-anchor_left = 0.042
 anchor_top = 0.173
-anchor_right = 0.939
+anchor_right = 1.0
 anchor_bottom = 0.739
-margin_left = 0.126993
-margin_top = -0.16301
-margin_right = -0.072998
+margin_left = 25.0
+margin_top = -0.163002
+margin_right = -36.9999
 margin_bottom = 0.236969
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -81,14 +79,12 @@ __meta__ = {
 [node name="Report" parent="TabContainer" instance=ExtResource( 2 )]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_left = 0.051
 anchor_top = 0.76
 anchor_right = 0.394
-anchor_bottom = 0.827
-margin_left = -0.197994
-margin_top = 0.200958
-margin_right = 0.00158691
-margin_bottom = 0.000976563
+anchor_bottom = 0.833
+margin_left = 25.0
+margin_right = -0.399994
+margin_bottom = 0.199951
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -96,16 +92,16 @@ __meta__ = {
 }
 
 [node name="Approve" type="Button" parent="HBoxContainer"]
-margin_right = 100.0
-margin_bottom = 40.0
+margin_right = 103.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "APPROVE"
 
 [node name="Deny" type="Button" parent="HBoxContainer"]
-margin_left = 104.0
-margin_right = 205.0
-margin_bottom = 40.0
+margin_left = 107.0
+margin_right = 211.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "DENY"
@@ -122,12 +118,12 @@ __meta__ = {
 [node name="Button" type="Button" parent="."]
 anchor_left = 0.402
 anchor_top = 0.763
-anchor_right = 0.937
+anchor_right = 1.0
 anchor_bottom = 0.828
 margin_left = -0.200012
 margin_top = 0.199982
-margin_right = -0.200012
-margin_bottom = 0.199951
+margin_right = -38.0
+margin_bottom = 0.199921
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "COMMIT EVENT"
@@ -136,14 +132,12 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="."]
-anchor_left = 0.053
 anchor_top = 0.838
 anchor_right = 0.393
-anchor_bottom = 0.968
-margin_left = 0.199999
-margin_top = 0.199951
-margin_right = 0.199997
-margin_bottom = 0.199951
+anchor_bottom = 0.97
+margin_left = 25.0
+margin_top = 1.20001
+margin_right = 3.2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Return to Main Page"
@@ -151,33 +145,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="TextEdit" parent="."]
-anchor_left = 0.41
-anchor_top = 0.865
-anchor_right = 0.945
-anchor_bottom = 0.968
-margin_left = -1.52588e-05
-margin_top = -6.10352e-05
-margin_right = -6.10352e-05
-margin_bottom = 0.199951
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Enter Comments Here:
-This Is Private Only Seen 
-Within Their PaySlip."
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.4
+anchor_top = 0.845
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -6.00003
+margin_right = -35.0
+margin_bottom = -18.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="."]
-margin_left = 246.0
-margin_top = 500.0
-margin_right = 560.0
-margin_bottom = 517.0
-text = "Comments To Member From Director/Event Leader:"
+[node name="Label3" type="Label" parent="VBoxContainer"]
+margin_right = 325.0
+margin_bottom = 14.0
+text = "Comments To Member:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 325.0
+margin_bottom = 81.0
+size_flags_vertical = 3
+placeholder_text = "Enter Comments To Member Here!"
 
 [connection signal="item_selected" from="Event" to="." method="_on_Event_item_selected"]
 [connection signal="pressed" from="HBoxContainer/Approve" to="." method="_on_Approve_pressed"]

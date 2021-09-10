@@ -16,10 +16,13 @@ __meta__ = {
 }
 
 [node name="Return" type="Button" parent="."]
-margin_left = 10.0
-margin_top = 561.0
-margin_right = 158.0
-margin_bottom = 598.0
+anchor_top = 0.935
+anchor_right = 0.263
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = -6.10352e-05
+margin_right = 0.199997
+margin_bottom = -2.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Return To Main Page!"
@@ -44,12 +47,12 @@ text = "Create New Event"
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 0.01
 anchor_top = 0.06
-anchor_right = 0.992
-anchor_bottom = 1.003
+anchor_right = 0.99
+anchor_bottom = 0.917
 margin_left = -0.88794
 margin_top = 18.3306
-margin_right = -1.08795
-margin_bottom = -51.4694
+margin_right = 0.112
+margin_bottom = 0.130554
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
@@ -137,7 +140,7 @@ script = ExtResource( 2 )
 [node name="Month" type="OptionButton" parent="VBoxContainer2"]
 margin_top = 264.0
 margin_right = 589.0
-margin_bottom = 306.0
+margin_bottom = 305.0
 rect_min_size = Vector2( 30, 30 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -147,7 +150,7 @@ selected = 0
 script = ExtResource( 3 )
 
 [node name="Day" type="OptionButton" parent="VBoxContainer2"]
-margin_top = 310.0
+margin_top = 309.0
 margin_right = 589.0
 margin_bottom = 351.0
 rect_min_size = Vector2( 30, 30 )
@@ -161,7 +164,7 @@ script = ExtResource( 4 )
 [node name="Hour" type="OptionButton" parent="VBoxContainer2"]
 margin_top = 355.0
 margin_right = 589.0
-margin_bottom = 397.0
+margin_bottom = 396.0
 rect_min_size = Vector2( 30, 30 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -171,9 +174,9 @@ selected = 0
 script = ExtResource( 5 )
 
 [node name="Minute" type="OptionButton" parent="VBoxContainer2"]
-margin_top = 401.0
+margin_top = 400.0
 margin_right = 589.0
-margin_bottom = 443.0
+margin_bottom = 442.0
 rect_min_size = Vector2( 30, 30 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -183,9 +186,9 @@ selected = 0
 script = ExtResource( 6 )
 
 [node name="Submit" type="Button" parent="VBoxContainer2"]
-margin_top = 447.0
+margin_top = 446.0
 margin_right = 589.0
-margin_bottom = 496.0
+margin_bottom = 495.0
 rect_min_size = Vector2( 40, 49 )
 size_flags_horizontal = 3
 size_flags_vertical = 3

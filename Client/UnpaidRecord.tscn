@@ -3,7 +3,7 @@
 [ext_resource path="res://UnpaidRecord.gd" type="Script" id=1]
 
 [node name="UnpaidRecord" type="HBoxContainer"]
-margin_right = 592.0
+margin_right = 594.0
 margin_bottom = 50.0
 script = ExtResource( 1 )
 __meta__ = {
@@ -11,31 +11,39 @@ __meta__ = {
 }
 
 [node name="Username" type="TextEdit" parent="."]
-margin_right = 147.0
+margin_right = 138.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
 size_flags_horizontal = 3
 text = "Username:"
 
 [node name="Hours" type="TextEdit" parent="."]
-margin_left = 151.0
-margin_right = 298.0
+margin_left = 142.0
+margin_right = 280.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
 size_flags_horizontal = 3
 text = "Hours Worked:"
 
 [node name="Events" type="TextEdit" parent="."]
-margin_left = 302.0
-margin_right = 449.0
+margin_left = 284.0
+margin_right = 422.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 50 )
 size_flags_horizontal = 3
 text = "Events Attended:"
 
 [node name="Money" type="TextEdit" parent="."]
-margin_left = 453.0
-margin_right = 591.0
+margin_left = 426.0
+margin_right = 556.0
 margin_bottom = 50.0
-rect_min_size = Vector2( 138, 50 )
+rect_min_size = Vector2( 130, 50 )
 text = "Amount Unpaid:"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 560.0
+margin_right = 599.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Pay"

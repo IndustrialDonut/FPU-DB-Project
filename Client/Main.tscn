@@ -14,53 +14,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Entry" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -299.405
-margin_top = -299.405
-margin_right = 300.595
-margin_bottom = 300.595
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+anchor_top = 0.883
+anchor_right = 1.0
+anchor_bottom = 1.002
+margin_left = 109.777
+margin_top = 0.249451
+margin_right = -124.223
+margin_bottom = -0.150635
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Logo" type="TextureRect" parent="Entry"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -195.0
-margin_top = -224.0
-margin_right = 195.0
-margin_bottom = 54.0
-texture = ExtResource( 1 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonLogin" type="Button" parent="Entry"]
-margin_left = 149.0
-margin_top = 436.0
-margin_right = 295.0
-margin_bottom = 476.0
-text = "Login"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Welcome" type="TextEdit" parent="Entry"]
-anchor_left = 0.503
-anchor_top = 0.986
-anchor_right = 0.503
-anchor_bottom = 0.986
-margin_left = -178.736
-margin_top = -63.7939
-margin_right = 178.264
-margin_bottom = 0.206116
+[node name="Welcome" type="TextEdit" parent="VBoxContainer3"]
+margin_right = 366.0
+margin_bottom = 71.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Welcome to the Free Peoples Union Member Portal!
 
 Do not share your password even with Directors!"
@@ -68,61 +38,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonNew" type="Button" parent="Entry"]
-margin_left = 132.0
-margin_top = 482.0
-margin_right = 470.0
-margin_bottom = 523.0
-text = "New? Register Here!"
+[node name="Entry" type="Control" parent="VBoxContainer3/Welcome"]
+anchor_left = -0.301
+anchor_top = -7.242
+anchor_right = 1.339
+anchor_bottom = 1.0
+margin_left = 0.0927353
+margin_top = -20.653
+margin_right = -0.147308
+margin_bottom = -5.83508
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonHint" type="Button" parent="Entry"]
-margin_left = 310.0
-margin_top = 436.0
-margin_right = 455.0
-margin_bottom = 475.0
-text = "Password Hint"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Entry"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -199.26
-margin_top = 83.7027
-margin_right = 204.74
-margin_bottom = 123.703
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3/Welcome/Entry"]
+anchor_top = 0.889
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.74
+margin_top = -149.697
+margin_right = -95.26
+margin_bottom = -176.297
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextUsername" type="LineEdit" parent="Entry/HBoxContainer"]
-margin_right = 200.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 200, 0 )
-placeholder_text = "username"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextPassword" type="LineEdit" parent="Entry/HBoxContainer"]
-margin_left = 204.0
-margin_right = 404.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 200, 0 )
-secret = true
-placeholder_text = "password"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Login" type="Control" parent="Entry"]
+[node name="Login" type="Control" parent="VBoxContainer3/Welcome/Entry"]
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -136,6 +78,127 @@ visible = false
 one_shot = true
 script = ExtResource( 5 )
 
-[connection signal="pressed" from="Entry/ButtonLogin" to="." method="_login_pressed"]
-[connection signal="pressed" from="Entry/ButtonNew" to="." method="_on_ButtonNew_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.261
+anchor_right = 1.0
+anchor_bottom = 0.631
+margin_left = 111.69
+margin_top = 0.289459
+margin_right = -110.31
+margin_bottom = 0.289429
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer"]
+margin_right = 378.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.638
+anchor_right = 1.0
+anchor_bottom = 0.703
+margin_left = 98.89
+margin_top = 0.28714
+margin_right = -97.11
+margin_bottom = 0.28714
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextUsername" type="LineEdit" parent="HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextPassword" type="LineEdit" parent="HBoxContainer"]
+margin_left = 204.0
+margin_right = 404.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+secret = true
+placeholder_text = "password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchor_top = 0.717
+anchor_right = 1.0
+anchor_bottom = 0.809
+margin_left = 96.0
+margin_top = 0.799988
+margin_right = -95.0
+margin_bottom = 0.599976
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonLogin" type="Button" parent="HBoxContainer2"]
+margin_right = 202.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonHint" type="Button" parent="HBoxContainer2"]
+margin_left = 206.0
+margin_right = 409.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Password Hint"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_top = 0.812
+anchor_right = 1.0
+anchor_bottom = 0.879
+margin_left = 96.0
+margin_top = -0.200012
+margin_right = -93.0
+margin_bottom = -0.400024
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonNew" type="Button" parent="VBoxContainer2"]
+margin_right = 411.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "New? Register Here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="return_from_register" from="Register" to="." method="_close_Register_View"]
+[connection signal="pressed" from="HBoxContainer2/ButtonLogin" to="." method="_login_pressed"]
+[connection signal="pressed" from="VBoxContainer2/ButtonNew" to="." method="_on_ButtonNew_pressed"]
