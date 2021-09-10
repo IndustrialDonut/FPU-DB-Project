@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://FreePeoplesUnion Logo.png" type="Texture" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.345
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.236282
+margin_top = -0.254517
+margin_right = -22.2363
+margin_bottom = -25.8545
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+margin_right = 183.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+color = Color( 1, 0.25098, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer"]
+margin_left = 187.0
+margin_right = 371.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+color = Color( 1, 0.25098, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_top = 0.8
+anchor_right = 0.345
+anchor_bottom = 1.0
+margin_left = 22.0
+margin_top = 0.399963
+margin_right = -10.0
+margin_bottom = -28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 0.8
+margin_left = 22.4645
+margin_top = -31.4436
+margin_right = -24.5355
+margin_bottom = -10.4436
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 0.118
+anchor_bottom = 0.092
+margin_right = 71.2
+margin_bottom = 54.8
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+anchor_left = 0.115
+anchor_right = 0.115
+margin_left = 74.8249
+margin_top = -0.707108
+margin_right = 174.825
+margin_bottom = 110.293
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 9
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
