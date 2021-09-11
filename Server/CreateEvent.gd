@@ -7,10 +7,10 @@ remote func _create_event(dict):
 	var id = multiplayer.get_rpc_sender_id()
 	
 	if SNetworkGlobal.idIsAdmin(id):
-	
+		
 		var b = Databaser.insert_event(dict)
 		
 		if b:
-			rpc_id(id, "_message", "Event created!")
+			rpc_id(id, "_result", "Event created!")
 		else:
-			rpc_id(id, "_message", 0)
+			rpc_id(id, "_result", 0)
