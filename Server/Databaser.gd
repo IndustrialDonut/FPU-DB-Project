@@ -464,14 +464,28 @@ func commit_member_payment(username):
 	db.query("SELECT MAX(ID) AS Max FROM PayRecords")
 	
 	var next = db.query_result[0]["Max"]
-
-	db.query("""UPDATE
-	EventReports INNER JOIN Events ON EventReports.EventID = Events.ID 
-	SET EventReports.PayRecordID = """ + str(next) + ' ' + """
-	WHERE Events.Committed = 1 
-	AND EventReports.PayRecordID = 0 
-	AND EventReports.Approved = 1 
-	AND EventReports.Username = '""" + username + "'")
+	
+	db.query("""SELECT *, EventReports.ID AS ReportID
+	FROM EventReports 
+	INNER JOIN Events 
+	ON EventReports.EventID = Events.ID""")
+	
+	var result = db.query_result.duplicate(true)
+	
+	var ids2update = []
+	
+	for record in result:
+		if record["Committed"] == 1:
+			if record["PayRecordID"] == 0:
+				if record["Approved"] == 1:
+					if record["Username"] == username:
+						ids2update.append(record["ReportID"])
+	
+	for id in ids2update:
+		db.query("""UPDATE
+		EventReports
+		SET PayRecordID = """ + str(next) + ' ' + """
+		WHERE ID = """ + str(id))
 	
 	db.close_db()
 
