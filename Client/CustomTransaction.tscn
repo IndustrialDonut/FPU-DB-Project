@@ -38,11 +38,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Reason:"
 
-[node name="Gross" type="TextEdit" parent="."]
+[node name="Payment" type="TextEdit" parent="."]
 margin_left = 447.0
 margin_right = 592.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 138, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Gross:"
+text = "Payment:"

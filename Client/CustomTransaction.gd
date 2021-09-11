@@ -11,4 +11,4 @@ func set_labels(dict : Dictionary):
 	
 	$Reason.text = dict["Reason"]
 	
-	$Gross.text = dict["Gross"] as String
+	$Payment.text = dict["Payment"] as String

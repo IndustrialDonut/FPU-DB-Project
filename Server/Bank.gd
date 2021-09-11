@@ -7,7 +7,7 @@ remote func _initialize_view() -> void:
 	
 	var paid_payrecords = Databaser.get_paid_payrecords()
 
-	var bank_account_amount = Databaser.generate_bank_cumulative_total()
+	var bank_account_amount = _generate_bank_cumulative_total(custom, paid_payrecords)
 	
 	var unpaid_payrecs = Databaser.generate_payrecords_to_pay()
 	
@@ -19,6 +19,30 @@ remote func _initialize_view() -> void:
 	
 	if paid_payrecords.size():
 		rpc_id(id, "_generate_paid_payrecords", paid_payrecords)
+
+
+	# Add all custom transactions that are TO UserTest to a running total,
+	# subtract all custom transactions that are FROM UserTest from that total,
+	# subtract all PayRecords from that total,
+	# all other custom transactions between depts irr. in current implementation,
+	# result is cumulative total.
+func _generate_bank_cumulative_total(customs, paid_records):
+	
+	var bank_total = 0
+	
+	for record in customs:
+		if record["Recipient"] == "UserTest":
+			bank_total += record["Payment"]
+		
+		elif record["FromUser"]:
+			if record["FromUser"] == "UserTest":
+				bank_total -= record["Payment"]
+	
+	for record in paid_records:
+		bank_total -= record["Payment"]
+	
+	return bank_total
+
 
 
 remote func _submit_custom_transaction(dict, bPersonal):

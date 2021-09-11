@@ -13,8 +13,8 @@ func _process(delta: float) -> void:
 # This times a delay to make it feel like it takes time to connect.
 func _login_pressed() -> void:
 	if SNetworkGlobal.bConnected:
-		$Buttons1.hide()
-		$Buttons2.hide()
+		#$Buttons1.hide()
+		#$Buttons2.hide()
 		
 		$UserDelay.connect("timeout", self, "_try_login")
 		$UserDelay.start()
@@ -33,7 +33,7 @@ func _try_login() -> void:
 
 # Methods for server to report login attempt status
 remote func login_success(message, member_stat, dept_name) -> void:
-
+	$Entry.hide()
 	$Members.show()
 	print(message)
 	SNetworkGlobal.set_department_name(dept_name)
@@ -42,18 +42,18 @@ remote func login_success(message, member_stat, dept_name) -> void:
 
 
 remote func login_fail(message) -> void:
-	$Buttons1.show()
-	$Buttons2.show()
+	#$Buttons1.show()
+	#$Buttons2.show()
 	print(message)
 
 
 # Button to make new account
 func _on_ButtonNew_pressed() -> void:
-
+	$Entry.hide()
 	$Register.show()
 
 
 func _close_Register_View() -> void:
-
+	$Entry.show()
 	$Register.hide()
 

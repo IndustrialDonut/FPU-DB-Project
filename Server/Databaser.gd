@@ -349,29 +349,6 @@ func commit_event(id) -> bool:
 	return b
 
 
-func generate_bank_cumulative_total():# -> float:
-	# Add all custom transactions that are TO UserTest to a running total,
-	# subtract all custom transactions that are FROM UserTest from that total,
-	# subtract all PayRecords from that total,
-	# all other custom transactions between depts irr. in current implementation,
-	# result is cumulative total.
-	var customs = get_bank_custom_transactions()
-	var paid_records = get_paid_payrecords()
-	
-	var bank_total = 0
-	
-	for record in customs:
-		if record["Recipient"] == "UserTest":
-			bank_total += record["Payment"]
-		
-		elif record["FromUser"]:
-			if record["FromUser"] == "UserTest":
-				bank_total -= record["Payment"]
-	
-	for record in paid_records:
-		bank_total -= record["Payment"]
-	
-	return bank_total
 
 
 # only consider an event if it has been committed!
