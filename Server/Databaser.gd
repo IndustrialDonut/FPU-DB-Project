@@ -36,6 +36,8 @@ func authenticate(user, pass_h) -> int:
 	db.query("SELECT Password, Active FROM Credentials WHERE Username = '" + user + "'")
 	db.close_db()
 	
+	print(user)
+	
 	if db.query_result.size() == 0:
 		return Enums.VER.NOUSER
 		
@@ -194,17 +196,16 @@ func get_bank_custom_transactions() -> Array:
 	return result.duplicate(true)
 
 
-# bad because this is not using generated-metadata as we want to do
-#func get_paid_payrecords():
-#	db.open_db()
-#
-#	db.query("SELECT * FROM PayRecords")
-#
-#	var result = db.query_result
-#
-#	db.close_db()
-#
-#	return result
+func get_paid_payrecords():
+	db.open_db()
+
+	db.query("SELECT * FROM PayRecords")
+
+	var result = db.query_result
+
+	db.close_db()
+
+	return result.duplicate(true)
 
 
 func get_event_labels(username = false):
@@ -313,7 +314,7 @@ func approve_report(id) -> bool:
 	SET Approved = 1
 	WHERE ID = """ + str(id))
 	
-	_ratestamp_report(id)
+	assert(_ratestamp_report(id))
 	
 	db.close_db()
 	
@@ -321,7 +322,7 @@ func approve_report(id) -> bool:
 
 
 func _ratestamp_report(report_id) -> bool:
-	# only call from within the db.open and db.close scope of another func!
+	# only call from within the db.open and db.close scope the parent func!
 	db.query("SELECT Username FROM EventReports WHERE ID = " + str(report_id))
 	var user = db.query_result[0]["Username"]
 	
@@ -348,25 +349,35 @@ func commit_event(id) -> bool:
 	return b
 
 
+func generate_bank_cumulative_total():# -> float:
+	# Add all custom transactions that are TO UserTest to a running total,
+	# subtract all custom transactions that are FROM UserTest from that total,
+	# subtract all PayRecords from that total,
+	# all other custom transactions between depts irr. in current implementation,
+	# result is cumulative total.
+	var customs = get_bank_custom_transactions()
+	var paid_records = get_paid_payrecords()
+	
+	var bank_total = 0
+	
+	for record in customs:
+		if record["Recipient"] == "UserTest":
+			bank_total += record["Payment"]
+		
+		elif record["FromUser"]:
+			if record["FromUser"] == "UserTest":
+				bank_total -= record["Payment"]
+	
+	for record in paid_records:
+		bank_total -= record["Payment"]
+	
+	return bank_total
+
+
 # only consider an event if it has been committed!
 # purely meta-data viewing!
+# See Excel document for more info on the algorithm in pseudocode if you dare.
 func generate_payrecords_to_pay() -> Array:
-	return _generate_metadata_payrecords(false)
-
-
-func generate_paid_payrecords() -> Array:
-	return _generate_metadata_payrecords(true)[0]
-
-
-func generate_bank_cumulative_total() -> float:
-	return _generate_metadata_payrecords(true)[1]
-
-
-#func generate_personal_paid_records(id) -> Array:
-#	return _generate_metadata_payrecords(true, id)[0]
-
-# see Excel document for more info on the algorithm in pseudocode if you dare
-func _generate_metadata_payrecords(already_paid : bool) -> Array:
 	var records = []
 	
 	db.open_db()
@@ -374,7 +385,7 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 	db.query("""SELECT * FROM 
 	(SELECT Username, Gross, Hours, RateID, Paid, EventID as EventID, EventReports.ID AS ReportID FROM 
 	EventReports INNER JOIN Events ON EventReports.EventID = Events.ID 
-	WHERE Events.Committed = 1 AND EventReports.Paid = '""" + str(int(already_paid)) + """'  
+	WHERE Events.Committed = 1 AND EventReports.PayRecordID = 0 
 	AND EventReports.Approved = 1) 
 	INNER JOIN MemberRates ON MemberRates.ID = RateID""")
 	
@@ -404,8 +415,6 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 		total_man_hours += record["Hours"]
 		
 		man_hours_dict[record["Enum"]] += record["Hours"]
-		
-	var total_org_loss : float = 0
 	
 	for record in result:
 		
@@ -437,22 +446,56 @@ func _generate_metadata_payrecords(already_paid : bool) -> Array:
 			
 			player_net_payment = received_pay
 		
-		total_org_loss += org_loss
-		
 		pay_record_entry["Username"] = record["Username"]
 		pay_record_entry["NetPayment"] = player_net_payment
 		pay_record_entry["OrgLoss"] = org_loss
+		#pay_record_entry["RateID"] = record["RateID"]
 		
 		records.append(pay_record_entry)
 	
 	db.close_db()
 	
-	var total_org_profit = total_base_income - total_org_loss
+	return records.duplicate(true)
+
+
+func commit_member_payment(username):
 	
-	if already_paid:
-		return [records.duplicate(true), total_org_profit]
-	else:
-		return records.duplicate(true)
+	var unpaid = generate_payrecords_to_pay()
+	
+	# metadata/imaginary records are the unpaid ones
+	for iMrecord in unpaid:
+		if iMrecord["Username"] == username:
+			db.open_db()
+			
+			var payrecord = {}
+			payrecord["Username"] = username
+			payrecord["Hours"] = 69
+			#payrecord["RateID"] = iMrecord["RateID"]
+			payrecord["Payment"] = iMrecord["NetPayment"]
+			
+			db.insert_row("PayRecords", payrecord)
+			
+			db.close_db()
+			
+			break
+		else:
+			continue
+	
+	db.open_db()
+	
+	db.query("SELECT MAX(ID) AS Max FROM PayRecords")
+	
+	var next = db.query_result[0]["Max"]
+
+	db.query("""UPDATE
+	EventReports INNER JOIN Events ON EventReports.EventID = Events.ID 
+	SET EventReports.PayRecordID = """ + str(next) + ' ' + """
+	WHERE Events.Committed = 1 
+	AND EventReports.PayRecordID = 0 
+	AND EventReports.Approved = 1 
+	AND EventReports.Username = '""" + username + "'")
+	
+	db.close_db()
 
 
 func insert_event(dict) -> bool:

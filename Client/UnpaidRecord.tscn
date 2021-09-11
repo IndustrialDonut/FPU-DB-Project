@@ -42,8 +42,10 @@ text = "Amount Unpaid:"
 
 [node name="Button" type="Button" parent="."]
 margin_left = 560.0
-margin_right = 599.0
+margin_right = 594.0
 margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Pay"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

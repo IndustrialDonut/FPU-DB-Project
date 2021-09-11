@@ -1,7 +1,7 @@
 extends Control
 
-onready var _pass = $Entry/HBoxContainer/TextPassword
-onready var _user = $Entry/HBoxContainer/TextUsername
+onready var _pass = find_node("TextPassword")
+onready var _user = find_node("TextUsername")
 
 # lets you hit the enter key to login.
 func _process(delta: float) -> void:
@@ -13,9 +13,8 @@ func _process(delta: float) -> void:
 # This times a delay to make it feel like it takes time to connect.
 func _login_pressed() -> void:
 	if SNetworkGlobal.bConnected:
-		$Entry/ButtonHint.hide()
-		$Entry/ButtonNew.hide()
-		$Entry/ButtonLogin.hide()
+		$Buttons1.hide()
+		$Buttons2.hide()
 		
 		$UserDelay.connect("timeout", self, "_try_login")
 		$UserDelay.start()
@@ -34,7 +33,7 @@ func _try_login() -> void:
 
 # Methods for server to report login attempt status
 remote func login_success(message, member_stat, dept_name) -> void:
-	$Entry.hide()
+
 	$Members.show()
 	print(message)
 	SNetworkGlobal.set_department_name(dept_name)
@@ -43,19 +42,18 @@ remote func login_success(message, member_stat, dept_name) -> void:
 
 
 remote func login_fail(message) -> void:
-	$Entry/ButtonHint.show()
-	$Entry/ButtonNew.show()
-	$Entry/ButtonLogin.show()
+	$Buttons1.show()
+	$Buttons2.show()
 	print(message)
 
 
 # Button to make new account
 func _on_ButtonNew_pressed() -> void:
-	$Entry.hide()
+
 	$Register.show()
 
 
 func _close_Register_View() -> void:
-	$Entry.show()
+
 	$Register.hide()
 

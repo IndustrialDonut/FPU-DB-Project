@@ -35,6 +35,8 @@ remote func _generate_unpaid_payrecords(dicts):
 		$ScrollContainer/TabContainer/UnpaidToMembers.add_child(inst)
 
 		inst.set_labels(dict)
+		
+		inst.connect("pressed_pay", self, "_pay_player")
 
 
 remote func _generate_paid_payrecords(dicts):
@@ -69,3 +71,7 @@ func _on_Submit_pressed() -> void:
 
 remote func _result(result):
 	print(result)
+
+
+func _pay_player(username): # signals of pay buttons connected in script to this
+	rpc_id(1, "_pay_record_by_username", username)
