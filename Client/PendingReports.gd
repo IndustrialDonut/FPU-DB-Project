@@ -93,9 +93,13 @@ func _on_Deny_pressed() -> void:
 
 # COMMIT Events
 func _on_Button_pressed() -> void:
-	var event_id = $Event.get_selected_id()
+	if $TabContainer.get_tab_count() == 0:
 	
-	rpc_id(1, "_run_event_commit", event_id)
+		var event_id = $Event.get_selected_id()
+		
+		rpc_id(1, "_run_event_commit", event_id)
+		
+		rpc_id(1, "_initialize_events")
 
 
 signal return_pending(node)

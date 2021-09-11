@@ -212,7 +212,9 @@ func get_event_labels(username = false):
 	db.open_db()
 	
 	# if the function is being called to request labels for the report submission
-	# screen, then this control block will be executed as a username will be passed.
+	# screen, then this block will be executed as a username will be passed.
+	# The purpose of this is to only allow users to see events that they have not
+	# already submit an event report for, by removing those which they have.
 	if username:
 		
 		db.query("""SELECT * FROM 
@@ -235,7 +237,8 @@ func get_event_labels(username = false):
 			db.query_result.erase(remove)
 	
 	# otherwise, it's being called for the pending reports event labels. So, just
-	# return all uncommitted events plain and simple.
+	# return all uncommitted events plain and simple. # Though, do not return those
+	# with zero unapproved events associated with it?
 	else:
 		
 		db.query("""SELECT EventName, Leader, Datetime, ID FROM Events WHERE Committed = 0 
