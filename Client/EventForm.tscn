@@ -15,10 +15,15 @@ __meta__ = {
 }
 
 [node name="returnbutton" type="Button" parent="."]
+anchor_top = 0.891
+anchor_right = 0.371
+anchor_bottom = 1.0
 margin_left = 3.11374
-margin_top = 535.477
-margin_right = 149.114
-margin_bottom = 591.477
+margin_top = -0.0140991
+margin_right = -74.228
+margin_bottom = -9.52307
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Go Back"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -90,10 +95,13 @@ __meta__ = {
 }
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
+anchor_top = 0.46
+anchor_right = 0.981
+anchor_bottom = 0.658
 margin_left = -1.19727
-margin_top = 276.499
-margin_right = 590.803
-margin_bottom = 395.499
+margin_top = 0.0389709
+margin_right = 0.240967
+margin_bottom = 0.0409241
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -139,10 +147,13 @@ __meta__ = {
 }
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="."]
+anchor_top = 0.682
+anchor_right = 1.0
+anchor_bottom = 0.88
 margin_left = 5.0
-margin_top = 410.0
-margin_right = 592.0
-margin_bottom = 529.0
+margin_top = 0.11792
+margin_right = -10.0
+margin_bottom = 0.119934
 __meta__ = {
 "_edit_use_anchors_": false
 }
