@@ -23,6 +23,10 @@ remote func _initialize_events(events) -> void:
 	_on_Event_item_selected(0)
 
 
+remote func _not_admin():
+	$notAdmin.show()
+
+
 func _on_Event_item_selected(index: int) -> void:
 	rpc_id(1, "_get_pending_reports_for", $Event.get_selected_id())
 

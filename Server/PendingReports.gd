@@ -8,6 +8,8 @@ remote func _initialize_events():
 		var array_of_records = Databaser.get_event_labels()
 		
 		rpc_id(id, "_initialize_events", array_of_records)
+	else:
+		rpc_id(id, "_not_admin")
 
 
 remote func _get_pending_reports_for(event_id):

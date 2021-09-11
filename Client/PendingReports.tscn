@@ -93,7 +93,7 @@ __meta__ = {
 
 [node name="Approve" type="Button" parent="HBoxContainer"]
 margin_right = 103.0
-margin_bottom = 44.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "APPROVE"
@@ -101,7 +101,7 @@ text = "APPROVE"
 [node name="Deny" type="Button" parent="HBoxContainer"]
 margin_left = 107.0
 margin_right = 211.0
-margin_bottom = 44.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "DENY"
@@ -171,6 +171,19 @@ margin_right = 325.0
 margin_bottom = 81.0
 size_flags_vertical = 3
 placeholder_text = "Enter Comments To Member Here!"
+
+[node name="notAdmin" type="Label" parent="."]
+visible = false
+margin_left = 124.07
+margin_top = 316.524
+margin_right = 311.07
+margin_bottom = 342.524
+rect_rotation = -18.6085
+rect_scale = Vector2( 4.65638, 10.0206 )
+text = "CLASSIFIED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="item_selected" from="Event" to="." method="_on_Event_item_selected"]
 [connection signal="pressed" from="HBoxContainer/Approve" to="." method="_on_Approve_pressed"]
