@@ -11,6 +11,5 @@ func set_labels(dict):
 	$Money.text = str(dict["NetPayment"])
 
 
-
 func _on_Button_pressed() -> void:
 	emit_signal("pressed_pay", $Username.text)

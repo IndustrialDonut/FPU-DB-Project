@@ -6,4 +6,4 @@ func set_labels(dict):
 	
 	#$.text = dict["Username"]
 	
-	$Money.text = str(dict["NetPayment"])
+	$Money.text = str(dict["Payment"])

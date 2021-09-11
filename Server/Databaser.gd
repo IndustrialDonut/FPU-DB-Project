@@ -352,8 +352,6 @@ func commit_event(id) -> bool:
 	return b
 
 
-
-
 # only consider an event if it has been committed!
 # purely meta-data viewing!
 # See Excel document for more info on the algorithm in pseudocode if you dare.
@@ -363,7 +361,7 @@ func generate_payrecords_to_pay() -> Array:
 	db.open_db()
 	
 	db.query("""SELECT * FROM 
-	(SELECT Username, Gross, Hours, RateID, Paid, EventID as EventID, EventReports.ID AS ReportID FROM 
+	(SELECT Username, Gross, Hours, RateID, EventID as EventID, EventReports.ID AS ReportID FROM 
 	EventReports INNER JOIN Events ON EventReports.EventID = Events.ID 
 	WHERE Events.Committed = 1 AND EventReports.PayRecordID = 0 
 	AND EventReports.Approved = 1) 

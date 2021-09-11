@@ -44,7 +44,6 @@ func _generate_bank_cumulative_total(customs, paid_records):
 	return bank_total
 
 
-
 remote func _submit_custom_transaction(dict, bPersonal):
 	var id = multiplayer.get_rpc_sender_id()
 	
