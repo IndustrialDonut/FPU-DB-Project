@@ -12,19 +12,19 @@ func _on_Button_pressed() -> void:
 	# The extra information needed for the record will be handled server-side,
 	# such as the username, any amount owed to player, and the approval status.
 	var record_dict = {
-		"Gross" : $gross.text.to_int(),
-		"Hours" : $hours.text.to_int(),
+		"Gross" : $VBoxContainer3/gross.text.to_int(),
+		"Hours" : $VBoxContainer3/hours.text.to_int(),
 		"ReviewText" : $review.text,
-		"ReviewScore" : $Score.text.to_int(),
-		"Department" : $dept.text,
-		"EventID" : $Event.get_selected_id() # this IS the EVENT ID PRIMARY KEY!!!
+		"ReviewScore" : $HBoxContainer/Score.text.to_int(),
+		"Department" : $VBoxContainer4/dept.text,
+		"EventID" : $VBoxContainer/Event.get_selected_id() # this IS the EVENT ID PRIMARY KEY!!!
 	}
 	
 	rpc_id(1, "_try_submit_event", record_dict)
 	
-	$review.text = ""
-	$gross.text = ""
-	$hours.text = ""
+	$VBoxContainer2/review.text = ""
+	$VBoxContainer3/gross.text = ""
+	$VBoxContainer3/hours.text = ""
 
 
 remote func event_report_result(message) -> void:
@@ -46,10 +46,10 @@ func _visibility_changed() -> void:
 
 
 remote func _initialize_events(events) -> void:
-	$Event.clear()
+	$VBoxContainer/Event.clear()
 	if events:
 		for event in events:
-			$Event.add_item(
+			$VBoxContainer/Event.add_item(
 				event["EventName"] + " " 
 				+ event["Leader"] + " " 
 				+ event["Datetime"], event["ID"] # make sure to use Event.get_item_id since you only have signals to get INDICES

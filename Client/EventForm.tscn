@@ -89,29 +89,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-anchor_left = 0.007
-anchor_top = 0.218
-anchor_right = 1.0
-anchor_bottom = 0.874
-margin_left = -0.214
-margin_top = -0.0180206
-margin_right = -4.0
-margin_bottom = -252.274
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="review" type="TextEdit" parent="VBoxContainer2"]
-margin_right = 594.0
-margin_bottom = 142.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Enter Text Feedback Here:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
 margin_left = -1.19727
 margin_top = 276.499
@@ -166,6 +143,9 @@ margin_left = 5.0
 margin_top = 410.0
 margin_right = 592.0
 margin_bottom = 529.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label5" type="Label" parent="VBoxContainer4"]
 margin_right = 587.0
@@ -193,6 +173,21 @@ margin_bottom = 119.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Submit Event Report"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="review" type="TextEdit" parent="."]
+anchor_top = 0.218
+anchor_right = 1.0
+anchor_bottom = 0.442
+margin_left = 9.0
+margin_top = -0.0180206
+margin_right = -19.0
+margin_bottom = 7.35794
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Enter Text Feedback Here:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
