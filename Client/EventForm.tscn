@@ -139,7 +139,7 @@ __meta__ = {
 [node name="hours" type="LineEdit" parent="VBoxContainer3"]
 margin_top = 79.0
 margin_right = 592.0
-margin_bottom = 119.0
+margin_bottom = 118.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {

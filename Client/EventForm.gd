@@ -22,7 +22,7 @@ func _on_Button_pressed() -> void:
 	
 	rpc_id(1, "_try_submit_event", record_dict)
 	
-	$VBoxContainer2/review.text = ""
+	$review.text = ""
 	$VBoxContainer3/gross.text = ""
 	$VBoxContainer3/hours.text = ""
 
